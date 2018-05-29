@@ -1,0 +1,6 @@
+.header-main-container {
+  height: 100vh;
+  width: 5.6rem;
+  background-color: wheat;
+  display: flex;
+  flex-direction: column; }
