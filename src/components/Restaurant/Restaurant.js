@@ -23,6 +23,7 @@ class Restaurant extends Component {
                 </div>
             </div>
         </section>
+        
     )
     }
 }
