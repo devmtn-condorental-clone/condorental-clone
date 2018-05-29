@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Restaurant from './Restaurant/Restaurant';
-import Welcome from './Welcome'
+import Welcome from './Welcome';
+import Header from './Header';
 
 class Home extends Component {
    constructor(){
@@ -14,6 +15,7 @@ class Home extends Component {
    render(){
    return(
        <div>
+           <Header/>
            <Welcome/>
            <Restaurant/>
        </div>

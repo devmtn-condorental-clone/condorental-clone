@@ -1,0 +1,38 @@
+.header-main-container{
+    display:flex;
+    position: fixed;
+    flex-direction: column;
+    background-color: white;
+    width: 5.4rem;
+    height: 100vh;
+    
+
+.header-logo-container{
+    display:flex;
+    position: absolute;
+    align-content: center;
+    align-items:center;
+    background-color: #f0e9e1;
+    width: 5.4rem;
+    height: 133px;
+    .header-logo{
+        padding-left: 1rem;
+        height: 4.3rem;
+        width: 3.3rem;
+    } 
+}
+.header-main-text{
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 330;
+    font-size: 17px;
+    color:black;
+    margin-top:450px;
+    text-align: center;
+    padding-left: 30px;
+ }
+
+
+}
+
