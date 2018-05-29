@@ -15,9 +15,11 @@ class Home extends Component {
    render(){
    return(
        <div>
-           <Header/>
-           <Welcome/>
-           <Restaurant/>
+            <Header/>
+            <section id="main-content">
+                <Welcome/>
+                <Restaurant/>
+            </section>
        </div>
    )
    }
