@@ -1,16 +1,8 @@
 @import "variables.scss";
 @import "mixins.scss";
 
-
-
-.title_amazing{
-    color: black;
-    font-size: 48px;
-    font-family: 'Abhaya Libre';
+#main-content{
+    position: absolute;
+    top: 0;
+    left: 5.4rem;
 }
-
-.amazing_container{
-    width: 60%
-}
-
-
