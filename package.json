@@ -1,6 +1,7 @@
 {
   "name": "pinetree",
   "main": "server/index.js",
+  "proxy": "http://localhost:7373",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
