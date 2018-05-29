@@ -2,12 +2,6 @@ import React, {Component} from 'react';
 import '../../style/style.css';
 
 class Restaurant extends Component {
-    constructor(){
-        super()
-        this.state = {
-
-        }
-    }
 
 
     render(){
