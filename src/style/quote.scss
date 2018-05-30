@@ -1,0 +1,30 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+
+.quote_container{
+    margin: 7.5rem 0;
+}
+
+.quote{
+    text-align: center;
+    h2{
+        font-family: 'Abhaya Libre';
+        font-size: 49px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        margin-bottom: 30px;
+        color: #30373f;
+    }
+    p{
+        font-size: 18px;
+        line-height: 30px;
+        font-style: italic;
+        color: #30373f;
+        font-weight: 500;
+    }
+    h5{
+        font-size: 21px;
+        
+    }
+}
