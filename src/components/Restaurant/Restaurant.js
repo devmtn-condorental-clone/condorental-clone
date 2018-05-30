@@ -5,9 +5,32 @@ import people from '../../style/images/amazing_restaurant_1.jpg';
 import lunch from '../../style/images/amazing_restaurant_2.jpg';
 
 class Restaurant extends Component {
+    constructor(){
+        super()
+        this.state = {
+            vidWidth: window.innerWidth - 104,
+            vidHeight: (window.innerWidth -104) * (0.5625)
+        }
+        this.updateWidth = this.updateWidth.bind(this)
+    }
 
+    componentDidMount(){
+        this.setState({
+            vidWidth: window.innerWidth - 104,
+            vidHeight: (window.innerWidth -104) * (0.5625)
+        })
+    }
+
+    updateWidth(){
+        // alert('WHAT ARE YOU DOINGGGG')
+        this.setState({
+            vidWidth: window.innerWidth -104,
+            vidHeight: (window.innerWidth -104) * (0.5625)
+        })
+    }
 
     render(){
+        window.onresize = this.updateWidth
     return(
         <section className="Restaurant_container">
             <section className='Restaurant'>
@@ -28,7 +51,7 @@ class Restaurant extends Component {
                 <div className='amazing_box_1'> </div> 
                 <div className='amazing_box_2'> </div>
                 <section className='video_section'>
-                    <iframe title="video" id="amazing_video" src="https://www.youtube.com/embed/KkrCYd_P4wA?controls=0&showinfo=0" frameBorder="0" allowFullScreen="1" allow="autoplay; encrypted-media" ></iframe>
+                    <iframe height={this.state.vidHeight} width={this.state.vidWidth} title="video" id="amazing_video" src="https://www.youtube.com/embed/KkrCYd_P4wA?controls=0&showinfo=0" frameBorder="0" allowFullScreen="1" allow="autoplay; encrypted-media" ></iframe>
                 </section>
             </section>
         </section>

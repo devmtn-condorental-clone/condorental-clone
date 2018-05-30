@@ -7,10 +7,10 @@ class OurSuites extends Component{
             <section className="our-suites-comp">
                 <div className="suites-head">
                     <h3>Our suites</h3>
-                    <p className="suite-flipper">
+                    <div className="suite-flipper">
                         <p className="prev-suite-num">06<span className="arrow">↓</span></p>
                         <p className="next-suite-num"><span className="arrow">↓</span>02</p>
-                    </p>
+                    </div>
                 </div>
                 <section className="suites-info">
                     <div className="suites-img" alt="Condo Master Bedroom"/>
