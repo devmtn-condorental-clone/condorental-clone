@@ -1,0 +1,78 @@
+$nvblu: #30373f;
+$goldyLox: #ab8c6b;
+.paradise-comp{
+    margin-top: 15rem;
+    height: 150vh;
+    position: relative;
+    img{
+        width: 25.27rem;
+    }
+    .bg-img{
+        position: absolute;
+        width: auto;
+        right: 3%;
+    }
+    .pool-img{
+        position: absolute;
+        left: 2.5%;
+        z-index: 3;
+        height: 48rem;
+    }
+    .paradise-content{
+        float: right;
+        margin: 3% 13%;
+        width: 45%;
+        font-size: 1.0625em;
+        line-height: 175%;
+        h2{
+            font-size: 3.0625rem;
+            font-family: 'Abhaya Libre', serif;
+            margin-bottom: 1.75rem;
+        }
+        p{
+            font-weight: 400;
+            color: #7f7c7f;            
+        }
+    }
+    .paradise-content::before{
+        width: 2.5px;
+        background-color: $goldyLox;
+        position: absolute;
+        content: '';
+        left: 39%;
+        height: 20rem;
+    }
+    .building-img{
+        position: absolute;
+        left: 39.25%;
+        top: 55%;
+        z-index: 3;
+    }
+    .steak-img{
+        position: absolute;
+        right: 3.35%;
+        top: 35%;
+        z-index: 3;
+    }
+    .steak-img, .building-img{
+        height: 22.5rem;
+    }
+    // img.steak-img{
+    //     zoom: 0.4;        
+    // }
+    .shadow{
+        background-color: #f2ece5;
+        width: 31.25rem;
+        position: absolute;
+    }
+    .left-shadow{
+        height: 18.75rem;
+        left: 4.55%;
+        top: 42.5%;
+    }
+    .right-shadow{
+        top: 44.55%;
+        right: 10%;
+        height: 25rem;
+    }
+}
