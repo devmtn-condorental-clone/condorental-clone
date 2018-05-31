@@ -4,19 +4,20 @@ $nvblu: #30373f;
 
 
 .Restaurant_container{
-   height: 230vh;
+    height: 230vh;
 }
 
 .Restaurant{
-   width: 100%;
-   margin-top: 10%;
-   position: relative;
-   height: 230vh;
+    width: 100%;
+    margin-top: 10%;
+    position: relative;
+    height: 230vh;
 }
 
 .amazing_container{
-   width: 60%;
-   padding-left: 38px; 
+    width: 60%;
+    padding-left: 38px; 
+
 }
 
 .amazing_container::before{
@@ -35,20 +36,21 @@ $nvblu: #30373f;
 
 
 .title_amazing{
-   color: $nvblu;
-   font-size: 49px;
-   font-family: 'Abhaya Libre';
-   margin-left: 27px;
-   margin-top: -10px;
+    color: $nvblu;
+    font-size: 49px;
+    font-family: 'Abhaya Libre';
+    margin-left: 27px;
+    margin-top: -10px;
 }
 
 .text_amazing{
-   font-family: 'Open Sans';
-   color: $nvblu;
-   font-size: 17px;
-   margin-top: 32px;
-   margin-left: 27px;
-   line-height: 29px;
+    font-family: 'Open Sans';
+    color: $nvblu;
+    font-size: 17px;
+    margin-top: 32px;
+    margin-left: 27px;
+    line-height: 29px;
+
 }
 
 .amazing_read_more{
@@ -101,9 +103,10 @@ $nvblu: #30373f;
 }
 
 .video_section{
-   position: absolute;
-   top: 70rem;
-   max-width: 100%;
-   overflow: hidden;
-   height: auto;
+    position: absolute;
+    top: 70rem;
+    max-width: 100%;
+    overflow: hidden;
+    height: auto;
 }
+
