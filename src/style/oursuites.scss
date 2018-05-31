@@ -1,0 +1,100 @@
+// @import '../style/images/suites_real_img.jpg'
+
+$nvblu: #30373f;
+$goldyLox: #ab8c6b;
+$ariba: 'Abhaya Libre', serif;
+.our-suites-comp{
+    height: 116vh;
+    // width: 100%;
+    background-color: #f0e9e1;
+    .suites-head{
+        position: relative;
+        height: 19rem;
+        color: $nvblu;
+        padding: 8rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        h3{
+            font-family: $ariba;
+            font-size: 3rem;
+        }
+        h3::before{
+            content: '';
+            background-color: $goldyLox;
+            width: 1.5px;
+            height: 0.9em;
+            position: absolute;
+            left: 7%;
+            // margin: 0 0.5rem;
+        }
+    }
+    .suite-flipper{
+        font-size: 1.5em;
+        display: flex;
+        width: 5em;
+        font-family: $ariba;
+        justify-content: space-evenly;
+        .prev-suite-num{
+            span.arrow{
+                transform: rotate(90deg);
+            }
+        }
+        .next-suite-num{
+            span.arrow{
+                transform: rotate(-90deg)
+            }
+        }
+    }
+    .suites-info{
+        display: flex;
+        width: 100%;
+        div.suites-img{
+            background-image: url('./images/suites_real_img.jpg');
+            background-size: cover;
+            width: 60%;
+            height: 36rem;
+            cursor: pointer;
+            transition: background-color 0.25s ease-in-out;
+        }
+        div.suites-img:hover{
+            background-color: rgba(48,55,63,0.5);
+            background-blend-mode: multiply;
+        }
+        .suite-detailed-info{
+            width: 40%;
+            h4{
+                font-size: 2.25em;
+                font-family: $ariba;
+                color: $goldyLox;
+                text-align: right;
+                padding: 1em;
+            }
+            .guest-price-info{
+                background-color: $goldyLox;
+                display: flex;
+                justify-content: space-between;
+                color: white;
+                padding: 1.25em;
+                align-items: center;
+                font-size: 1.0625em;
+            }
+            .details-box{
+                padding: 2em;
+                background-color: $nvblu;
+                color: white;
+                line-height: 175%;
+                font-size: 1.0625em;
+                text-align: right;
+                width: 100%;
+                h5{
+                    font-size: 1.5em;
+                    font-family: $ariba;
+                    color: $goldyLox;
+                }
+                height: 100%;
+            }
+            overflow: hidden;
+        }
+    }
+}
