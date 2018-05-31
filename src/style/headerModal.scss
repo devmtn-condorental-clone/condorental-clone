@@ -1,0 +1,74 @@
+.modal-container{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+}
+.menu-button{
+    max-height: 300px;
+    position: fixed;
+    margin-top: 49.4vh;
+    font-style: normal;
+    font-weight: 330;
+    font-size: 17px;
+    color:black;
+    text-align: center;
+    padding-left: 15px;
+    border: 0;
+    
+
+}
+button:hover{
+    background: #333;
+}
+
+.menu-modal{
+    display: none;
+    position:fixed;
+    z-index: 10;
+    left: 0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5)
+}
+.menu-modal-closed{
+    display: none;
+    position:fixed;
+    z-index: 10;
+    left: 0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5)
+}
+.menu-modal-open{
+    display: block;
+    position:fixed;
+    z-index: 10;
+    left: 0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    transition: 4s;
+    
+}
+.modal-content{
+    background-color:#30373F;
+    height: 100%;
+    width: 100%;
+}
+
+.cls-btn{
+    color:#ccc;
+    float:right;
+    font-size: 30px;
+}
+.cls-btn:hover, .cls-btn:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
