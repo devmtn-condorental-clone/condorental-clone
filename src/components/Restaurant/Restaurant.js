@@ -5,6 +5,7 @@ import people from '../../style/images/amazing_restaurant_1.jpg';
 import lunch from '../../style/images/amazing_restaurant_2.jpg';
 
 class Restaurant extends Component {
+
    constructor(){
        super()
        this.state = {
@@ -28,6 +29,7 @@ class Restaurant extends Component {
            vidHeight: (window.innerWidth -80) * (0.5625)
        })
    }
+
 
    render(){
        window.onresize = this.updateWidth
