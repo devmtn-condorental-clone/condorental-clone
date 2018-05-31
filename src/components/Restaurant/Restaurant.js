@@ -8,24 +8,24 @@ class Restaurant extends Component {
     constructor(){
         super()
         this.state = {
-            vidWidth: window.innerWidth - 104,
-            vidHeight: (window.innerWidth -104) * (0.5625)
+            vidWidth: window.innerWidth - 80,
+            vidHeight: (window.innerWidth -80) * (0.5625)
         }
         this.updateWidth = this.updateWidth.bind(this)
     }
 
     componentDidMount(){
         this.setState({
-            vidWidth: window.innerWidth - 104,
-            vidHeight: (window.innerWidth -104) * (0.5625)
+            vidWidth: window.innerWidth - 80,
+            vidHeight: (window.innerWidth -80) * (0.5625)
         })
     }
 
     updateWidth(){
         // alert('WHAT ARE YOU DOINGGGG')
         this.setState({
-            vidWidth: window.innerWidth -104,
-            vidHeight: (window.innerWidth -104) * (0.5625)
+            vidWidth: window.innerWidth -80,
+            vidHeight: (window.innerWidth -80) * (0.5625)
         })
     }
 

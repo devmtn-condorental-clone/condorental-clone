@@ -1,21 +1,22 @@
 @import "variables.scss";
 @import "mixins.scss";
+$nvblu: #30373f;
+
 
 .Restaurant_container{
-    height: 250vh;
+    height: 230vh;
 }
 
 .Restaurant{
     width: 100%;
     margin-top: 10%;
     position: relative;
-    height: 300vh;
+    height: 230vh;
 }
 
 .amazing_container{
     width: 60%;
-    padding-left: 38px;
-    // height: 100vh;  
+    padding-left: 38px; 
 }
 
 .amazing_container::before{
@@ -34,7 +35,7 @@
 
 
 .title_amazing{
-    color:#30373f;
+    color: $nvblu;
     font-size: 49px;
     font-family: 'Abhaya Libre';
     margin-left: 27px;
@@ -43,7 +44,7 @@
 
 .text_amazing{
     font-family: 'Open Sans';
-    color: #3a3939;
+    color: $nvblu;
     font-size: 17px;
     margin-top: 32px;
     margin-left: 27px;
@@ -102,8 +103,8 @@
 .video_section{
     position: absolute;
     top: 70rem;
-    left: -5px;
-    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
     height: auto;
 }
 
