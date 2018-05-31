@@ -8,8 +8,14 @@ class OurSuites extends Component{
                 <div className="suites-head">
                     <h3>Our suites</h3>
                     <div className="suite-flipper">
-                        <p className="prev-suite-num">06<span className="arrow">↓</span></p>
-                        <p className="next-suite-num"><span className="arrow">↓</span>02</p>
+                        <div className="left-select">
+                            <p className="prev-suite-num">06</p>
+                            <div className="arrow-left">↓</div>
+                        </div>
+                        <div className="right-select">
+                            <div className="arrow-right">↓</div>
+                            <p className="next-suite-num">02</p>
+                        </div>
                     </div>
                 </div>
                 <section className="suites-info">

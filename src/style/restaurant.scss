@@ -1,29 +1,30 @@
 @import "variables.scss";
 @import "mixins.scss";
+$nvblu: #30373f;
+
 
 .Restaurant_container{
-    height: 250vh;
+   height: 230vh;
 }
 
 .Restaurant{
-    width: 100%;
-    margin-top: 10%;
-    position: relative;
-    height: 300vh;
+   width: 100%;
+   margin-top: 10%;
+   position: relative;
+   height: 230vh;
 }
 
 .amazing_container{
-    width: 60%;
-    padding-left: 38px;
-    // height: 100vh;  
+   width: 60%;
+   padding-left: 38px; 
 }
 
 .amazing_container::before{
-    content: '';
-    position: absolute;
-    width: 2px;
-    background-color: #A18160;
-    height: 17rem;
+   content: '';
+   position: absolute;
+   width: 2px;
+   background-color: #A18160;
+   height: 17rem;
 }
 // .amazing_line{
 //     height: 18%;
@@ -34,77 +35,75 @@
 
 
 .title_amazing{
-    color:#30373f;
-    font-size: 49px;
-    font-family: 'Abhaya Libre';
-    margin-left: 27px;
-    margin-top: -10px;
+   color: $nvblu;
+   font-size: 49px;
+   font-family: 'Abhaya Libre';
+   margin-left: 27px;
+   margin-top: -10px;
 }
 
 .text_amazing{
-    font-family: 'Open Sans';
-    color: #3a3939;
-    font-size: 17px;
-    margin-top: 32px;
-    margin-left: 27px;
-    line-height: 29px;
+   font-family: 'Open Sans';
+   color: $nvblu;
+   font-size: 17px;
+   margin-top: 32px;
+   margin-left: 27px;
+   line-height: 29px;
 }
 
 .amazing_read_more{
-    color: #9a7753;
-    margin-top: 13px;
+   color: #9a7753;
+   margin-top: 13px;
 }
 
 .amazing_steak{
-    float: right;
-    width: 26.5rem;
-    margin-right: 2.5rem;
-    top: 0;
-    position: absolute;
-    right: 0;
-    height: 745px;
+   float: right;
+   width: 26.5rem;
+   margin-right: 2.5rem;
+   top: 0;
+   position: absolute;
+   right: 0;
+   height: 745px;
 }
 
 .amazing_people{
-    position: absolute;
-    left: 34px;
-    width: 20.6rem;
-    top: 28rem;
+   position: absolute;
+   left: 34px;
+   width: 20.6rem;
+   top: 28rem;
 }
 
 .amazing_lunch{
-    position: absolute;
-    width: 20.5rem;
-    left: 23.5rem;
-    top: 45rem;
+   position: absolute;
+   width: 20.5rem;
+   left: 23.5rem;
+   top: 45rem;
 }
 
 .amazing_box_1{
-    position: absolute;
-    width: 500px;
-    height: 400px;
-    background: #f2ece5;
-    left: 12.8rem;
-    top: 35rem;
-    z-index: -1;
+   position: absolute;
+   width: 500px;
+   height: 400px;
+   background: #f2ece5;
+   left: 12.8rem;
+   top: 35rem;
+   z-index: -1;
 }
 
 .amazing_box_2{
-    position: absolute;
-    width: 432px;
-    height: 300px;
-    background: #f2ece5;
-    right: 0;
-    margin-top: 13rem;
-    z-index: -1;
+   position: absolute;
+   width: 432px;
+   height: 300px;
+   background: #f2ece5;
+   right: 0;
+   margin-top: 13rem;
+   z-index: -1;
 }
 
 .video_section{
-    position: absolute;
-    top: 70rem;
-    left: -5px;
-    width: 100%;
-    height: auto;
+   position: absolute;
+   top: 70rem;
+   max-width: 100%;
+   overflow: hidden;
+   height: auto;
 }
-
-
