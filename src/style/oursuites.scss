@@ -1,5 +1,3 @@
-// @import '../style/images/suites_real_img.jpg'
-
 $nvblu: #30373f;
 $goldyLox: #ab8c6b;
 $ariba: 'Abhaya Libre', serif;
@@ -11,37 +9,61 @@ $ariba: 'Abhaya Libre', serif;
         position: relative;
         height: 19rem;
         color: $nvblu;
-        padding: 8rem;
+        padding: 7.5rem 6rem;
         width: 100%;
         display: flex;
         justify-content: space-between;
         h3{
             font-family: $ariba;
-            font-size: 3rem;
+            font-size: 3.0625rem;
+            margin-left: 1.25rem;
+            transform: translateY(0);
+            transition: translate 0.35s ease-in;
+        }
+        h3.shown{
+            transform: translateY(-999999%);
         }
         h3::before{
             content: '';
             background-color: $goldyLox;
             width: 1.5px;
-            height: 0.9em;
+            height: 0.85em;
             position: absolute;
-            left: 7%;
+            left: 6%;
             // margin: 0 0.5rem;
         }
     }
     .suite-flipper{
-        font-size: 1.5em;
+        font-size: 1.625em;
+        margin-right: -1.5rem;
         display: flex;
-        width: 5em;
-        font-family: $ariba;
+        width: 8em;
         justify-content: space-evenly;
-        .prev-suite-num{
-            span.arrow{
+        .left-select, .right-select{
+            display: flex;
+            width: 50%;
+            justify-content: space-around;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.25em;
+            transition: color 0.25s ease-in-out;
+        }
+        .prev-suite-num, .next-suite-num{
+            font-family: $ariba;
+            margin: 0.75em;
+        }
+        .left-select:hover, .right-select:hover{
+            color: $goldyLox;
+        }
+        .left-select{
+            div.arrow-left{
+                margin: 0.5em;
                 transform: rotate(90deg);
             }
         }
-        .next-suite-num{
-            span.arrow{
+        .right-select{
+            div.arrow-right{
+                margin: 0.5em;
                 transform: rotate(-90deg)
             }
         }
@@ -50,10 +72,10 @@ $ariba: 'Abhaya Libre', serif;
         display: flex;
         width: 100%;
         div.suites-img{
-            background-image: url('./images/suites_real_img.jpg');
+            background: url('./images/suites_real_img.jpg') top;
             background-size: cover;
             width: 60%;
-            height: 36rem;
+            height: 37.5rem;
             cursor: pointer;
             transition: background-color 0.25s ease-in-out;
         }
@@ -69,6 +91,10 @@ $ariba: 'Abhaya Libre', serif;
                 color: $goldyLox;
                 text-align: right;
                 padding: 1em;
+                cursor: pointer;
+            }
+            h4:hover{
+                color: $nvblu;
             }
             .guest-price-info{
                 background-color: $goldyLox;
