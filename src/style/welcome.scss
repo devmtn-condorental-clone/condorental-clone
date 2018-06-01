@@ -1,3 +1,52 @@
+@keyframes headMainSlideUp {
+    from {
+        margin-top: 10%;
+    }
+    to {
+        margin-top: 0%;
+    }
+}
+@keyframes switchSlideDown {
+    0% {
+        top: -10%;
+    }
+    50% {
+        top: -10%;
+    }
+    to {
+        top: 2em;
+    }
+}
+@keyframes scrollSlideDown {
+    0% {
+        top: 85vh;
+    }
+    71% {
+        top: 85vh;
+    }
+    100% {
+        top: 88.5vh;
+    }
+}
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes slowAppear {
+    0% {
+        opacity: 0;
+    }
+    71% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 button{
     cursor: pointer;
     -webkit-transition: border-color 0.5s ease-in-out;
@@ -16,37 +65,23 @@ button{
     font-weight: 500;
     line-height: 3.5rem;
 }
+
 .welcome-comp{
-    margin:0;
+    // margin-top: -88vh;
+    // transform: translateZ(-1px) scale(2);    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
-    @keyframes slideinBottom {
-        from {
-            margin-top: 10%;
-        }
-        to {
-            margin-top: 0%;
-        }
-    }
-    @keyframes slideinTop {
-        from {
-            top: -10%;
-        }
-        to {
-            top: 2em;
-        }
-    }
-    @keyframes appear {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
+    // transform: translateZ(0) scale(1);
+    background: url('./images/main_head_bg.jpg');
+    background-size: cover;
+    // background-attachment: fixed;
+    background-color: #0000009e;
+    background-blend-mode: multiply;
+    height: 100vh;
+    width: 100%;
     
     .welcome-head{
         width: 75%;
@@ -55,13 +90,13 @@ button{
         align-items: baseline;
         justify-content: space-between;
         height: 50%;
-        margin-top: 9.5em;
+        margin-top: 2.5em;
         h1{
             font-family: 'Abhaya Libre', serif;
             line-height: 0.75em;
             font-size: 8.75em;
-            animation: appear 0.65s cubic-bezier(1,.01,.96,.54), slideinBottom 0.65s cubic-bezier(0.23,1,0.32,1);
-            // animation-delay: 0.1s;
+            animation: appear 0.65s cubic-bezier(1,.01,.96,.54), headMainSlideUp 0.65s cubic-bezier(0.23,1,0.32,1);
+            //
             .pink-pinetree{
                 color: #cdb49a;
                 font-family: 'Abhaya Libre', serif;
@@ -69,8 +104,8 @@ button{
         }
         p{
             padding-bottom: 1em;
-            animation: appear 0.75s cubic-bezier(1,.01,.96,.54), slideinBottom 0.75s cubic-bezier(0.23,1,0.32,1);
-            // animation-delay: 0.1s;
+            animation: appear 0.75s cubic-bezier(1,.01,.96,.54), headMainSlideUp 0.75s cubic-bezier(0.23,1,0.32,1);
+            //s;
             font-size: 1.3em;
         }
     }
@@ -80,17 +115,13 @@ button{
         background-color: white;
     }
     .experience-btn{
-        animation: appear 0.75s cubic-bezier(1,.01,.96,.54), slideinBottom 0.75s cubic-bezier(0.23,1,0.32,1);
-        // animation-delay: 0.s;
+        animation: appear 0.75s cubic-bezier(1,.01,.96,.54), headMainSlideUp 0.75s cubic-bezier(0.23,1,0.32,1);
+        //;
         border-color: white;
         background-color: transparent;
         color: white;
     }
     .upper-right{
-        transform: translateY(100%);
-        animation: slideinTop 0.75s cubic-bezier(0.23,1,0.32,1);
-        transition: transform 0.5s;
-        transition-delay: 1s;
         position: absolute;
         top: 2em;
         right: 2em;
@@ -98,32 +129,34 @@ button{
         align-items: center;
         width: 7.25em;
         justify-content: space-between;
+        font-size: 0.94em;
+        // p{
+        // }
         .lang-btn{
             color: white;
             background-color: transparent;
             border: 1px solid #a98c5a;
             height: 2.1em;
-            // padding: 0.3em;
+            padding-right: 0.5em;
             font-size: 0.94em;
         }
         .lang-btn:hover{
             background-color: #a98c5a;
         }
+        animation: name duration timing-function delay iteration-count direction fill-mode;
+        animation: switchSlideDown 1.5s cubic-bezier(0.23, 1, 0.320, 1);
     }
     
+    
     .scroll-tag{
-        margin-top: 5em;
+        position: absolute;
+        top: 88.5vh;
         #arrow{
             width: 100%;
             text-align: center;
             font-size: 1.5em;
         }
+        animation: slowAppear 1.75s cubic-bezier(0.23, 1, 0.320, 1), scrollSlideDown 1.75s cubic-bezier(0.23, 1, 0.320, 1);
     }
-    background: url('./images/main_head_bg.jpg');
-    background-size: cover;
-    // background-attachment: fixed;
-    background-color: #0000009e;
-    background-blend-mode: multiply;
-    height: 100vh;
-    width: 100%;
+
 }
