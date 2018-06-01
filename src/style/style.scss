@@ -5,5 +5,69 @@
     position: absolute;
     top: 0;
     left: 5rem;
+    width: calc(100vw - 80px)
+    // perspective: 100px;
+    // overflow-y: auto; 
+    // overflow-x: hidden; 
 }
 
+.parallax_1{
+    -webkit-perspective: 100px;
+    perspective: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: calc(100vw -  80px);
+    height: 100vh;
+    padding-bottom: 150vh;
+}
+.booking-comp{
+    transform: translateZ(-1px) scale(1.01);
+    // transform-style: preserve-3d;
+    top: 101vh;
+}
+.welcome-comp{
+    transform: translateZ(-20px) scale(1.2);
+    margin-top: -5vh;
+    
+}
+.paradise-comp{
+    transform: translateZ(-20px) scale(1.2);
+    margin-top: 50vh;
+    
+}
+// .booking-comp{
+//     transform: translateZ(-1px) scale(1.01);
+//     margin-top: 80vh;
+// }
+// .welcome-comp{
+//     transform: translateZ(-20px) scale(1.2);
+//     margin-top: -102.5vh;
+    
+// }
+// .paradise-comp{
+//     transform: translateZ(-20px) scale(1.2);
+//     margin-top: 50vh;
+    
+// }
+// .our-suites-comp{
+//     transform: translateZ(-20px) scale(1.2);
+//     margin-top: 32vh;
+    
+// }
+// .Restaurant_container{
+//     transform: translateZ(-20px) scale(1.2);
+//     margin-top: 63vh;
+    
+// }
+// .quote_container{
+//     transform: translateZ(-20px) scale(1.2);
+//     // margin-top: -88vh;
+// }
+// .Island_container{
+//     transform: translateZ(-20px) scale(1.2);
+//     // margin-top: -88vh;
+// }
+// .footer_container{
+//     // margin-top: -88vh;
+//     transform: translateZ(-20px) scale(1.2);
+// }
