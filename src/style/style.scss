@@ -5,12 +5,16 @@
     position: absolute;
     top: 0;
     left: 5rem;
-    width: calc(100vw - 80px)
+    width: calc(100vw - 80px);
+    max-width: calc(100vw - 80px);
     // perspective: 100px;
     // overflow-y: auto; 
     // overflow-x: hidden; 
 }
 
+.parallax_1::-webkit-scrollbar{
+    width: 0px;
+}
 .parallax_1{
     -webkit-perspective: 100px;
     perspective: 100px;
@@ -33,7 +37,7 @@
 .paradise-comp{
     transform: translateZ(-20px) scale(1.2);
     margin-top: 50vh;
-    
+
 }
 // .booking-comp{
 //     transform: translateZ(-1px) scale(1.01);
