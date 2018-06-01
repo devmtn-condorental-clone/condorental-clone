@@ -1,20 +1,21 @@
 import React from 'react';
 import { Component } from 'react';
 import '../style/headerModal.css';
+import Logo from '../style/images/menu-logo_2x.png';
 
 
 class HeaderModal extends Component {
-    constructor(props){
-        super(props)
+    // constructor(props){
+    //     super(props)
 
-        this.state ={
-            modalToggle: ''
-        }
-        this.openModal = this.openModal.bind(this)
-        this.closeModal = this.closeModal.bind(this)
+    //     this.state ={
+    //         modalToggle: ''
+    //     }
+    //     this.openModal = this.openModal.bind(this)
+    //     this.closeModal = this.closeModal.bind(this)
 
        
-    }
+    // }
 
     openModal(){
         var modal = document.getElementById('headerMenuModal');
@@ -40,8 +41,42 @@ class HeaderModal extends Component {
             <div id="headerMenuModal" className="menu-modal">
 
             <div className="modal-content">
-            <span onClick={()=>{this.closeModal()}} id="modalClsBtn" className="cls-btn">&times;</span>
-            <p>Temp Modal</p>
+           
+
+<div className="header-modal-text-container">
+    <div className="header-modal-logo-container"><img className="header-modal-menu-logo" src={Logo} alt="logo"/></div>
+    <div className="header-modal-content-container">
+    <div className="header-modal-close-text">
+    <span onClick={()=>{this.closeModal()}} id="modalClsBtn" className="cls-btn">CLOSE</span>
+    </div>
+    <div className="header-modal-close-icon">
+    <span onClick={()=>{this.closeModal()}} id="modalClsBtn" className="cls-btn-graphic">X GOES HERE</span>
+    </div>
+    <div className="header-modal-column-1">
+    <div className="modalFont-home">Home</div>
+    <div className="modalFont" >Apartments</div>
+    <div className="modalFont">Our Services</div>
+    </div>
+    <div className="header-modal-line"></div>
+    <div className="header-modal-column-2">
+    <div className="modalFont">About</div>
+    <div className="modalFont">Island attractions</div>
+    <div className="modalFont">Blog</div>
+    </div> 
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
             </div>
 
             </div>
