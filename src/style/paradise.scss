@@ -1,7 +1,12 @@
 $nvblu: #30373f;
 $goldyLox: #ab8c6b;
+.parallax_paradise_cont{
+    position: absolute;
+    top: 100vh
+}
 .paradise-comp{
-    margin-top: 15rem;
+    // margin-top: 50vh;
+    // padding-top: 50vh;
     height: 150vh;
     position: relative;
     img{
