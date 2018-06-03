@@ -55,9 +55,9 @@ class Restaurant extends Component {
                            <p className='amazing_read_more'> Read more </p>
                        </div>
                </div>
-               <img className='amazing_steak' src={steak} alt="steak"/>
-               <img className='amazing_people' src={people} alt='people'/>
-               <img className='amazing_lunch' src={lunch} alt='lunch'/>
+               <div className='shadow_one'> <img className='amazing_steak'  src={steak} alt="steak"/> </div>
+               <div className='shadow_two'> <img className='amazing_people' src={people} alt='people'/> </div> 
+               <div className='shadow_three'> <img className='amazing_lunch' src={lunch} alt='lunch'/> </div>
                <div className='amazing_box_1'> </div>
                <div className='amazing_box_2'> </div>
                <section className='video_section'>
