@@ -59,41 +59,53 @@ $nvblu: #30373f;
    margin-top: 13px;
 }
 
-// .amazing_steak::before{
-//     content: '';
-//     float: right;
-//     width: 26.5rem;
-//     margin-right: 2.5rem;
-//     top: 0;
-//     position: absolute;
-//     right: 0;
-//     height: 745px;
-//     background: #f2ece5;
-//     z-index: -1;
-// }
+.shadow_one{
+    width: 26.5rem;
+    margin-right: 2.5rem;
+    top: 0;
+    position: absolute;
+    right: 0;
+    height: 745px;
+    background: #f2ece5;
+    z-index: 1;
+}
 
 .amazing_steak{
    float: right;
    width: 26.5rem;
-   margin-right: 2.5rem;
    top: 0;
    position: absolute;
    right: 0;
    height: 745px;
 }
 
-.amazing_people{
-    position: absolute;
-    left: 3%;
+.shadow_two{
+    margin-left: 3%;
+    top: 22%;
     width: 28%;
-    top: 25rem;
+    background: #f2ece5;
+    position: absolute;
+    height: 22rem;
+
+}
+
+.amazing_people{
+    width: 100%;
+    height: 100%;
+}
+
+.shadow_three{
+    position: absolute;
+    width: 28.5%;
+    left: 31.5%;
+    top: 42rem;
+    background: #f2ece5;
+    height: 21rem;
 }
 
 .amazing_lunch{
-    position: absolute;
-    width: 28%;
-    left: 31.5%;
-    top: 42rem;
+    width: 100%;
+    height: 100%;
 }
 
 .amazing_box_1{
