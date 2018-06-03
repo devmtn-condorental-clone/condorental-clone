@@ -3,9 +3,10 @@ import '../../style/restaurant.css';
 import steak from '../../style/images/amazing_restaurant_steak.jpg';
 import people from '../../style/images/amazing_restaurant_1.jpg';
 import lunch from '../../style/images/amazing_restaurant_2.jpg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 class Restaurant extends Component {
-
    constructor(){
        super()
        this.state = {
@@ -20,6 +21,11 @@ class Restaurant extends Component {
            vidWidth: window.innerWidth - 80,
            vidHeight: (window.innerWidth -80) * (0.5625)
        })
+       AOS.init();
+   }
+
+   componentDidUpdate(){
+       AOS.refresh();
    }
 
    updateWidth(){
@@ -32,11 +38,13 @@ class Restaurant extends Component {
 
 
    render(){
+
        window.onresize = this.updateWidth
+
    return(
        <section className="Restaurant_container">
            <section className='Restaurant'>
-               <div className='amazing_container'>
+               <div className='amazing_container' data-aos='fade-up' data-aos-once='true'>
                    {/* <div className='amazing_line'>
                    </div> */}
                        <h3 className='title_amazing'> Amazing Restaurant </h3>
@@ -53,7 +61,7 @@ class Restaurant extends Component {
                <div className='amazing_box_1'> </div>
                <div className='amazing_box_2'> </div>
                <section className='video_section'>
-                   <iframe height={this.state.vidHeight} width={this.state.vidWidth} title="video" id="amazing_video" src="https://www.youtube.com/embed/KkrCYd_P4wA?controls=0&showinfo=0" frameBorder="0" allowFullScreen="1" allow="autoplay; encrypted-media" ></iframe>
+                   <iframe height={this.state.vidHeight} width={this.state.vidWidth} title="video" id="amazing_video" src="https://www.youtube.com/embed/KkrCYd_P4wA?controls=0&showinfo=0" frameBorder="0" allowFullScreen="1" allow="autoplay; encrypted-media" data-aos='fade-in' data-aos-once='true'></iframe>
                </section>
            </section>
        </section>
