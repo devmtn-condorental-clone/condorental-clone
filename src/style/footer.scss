@@ -84,11 +84,18 @@ $font: 'Abhaya Libre';
                 padding-top: 7px;
                 cursor: pointer;
                 fill: white;
+                .mail-path2{
+                    fill: $nvblu;
+                }
             }
             .footer_icon_one:hover{
                 .mail-path1{
                     fill: $gold;
-                    
+                    transition: fill 0.2s ease-in-out;
+                }
+                .mail-path2{
+                    fill: white;
+                    transition: fill 0.2s ease-in-out;
                 }
             }
             .footer_icon_two{
@@ -135,21 +142,20 @@ $font: 'Abhaya Libre';
                     fill: white;
                 }
             }
-            // .footer_icon_four{
-            //     height: 52px;
-            //     width: 52px;
-            //     padding-top: 7px;
-            //     cursor: pointer;
-            //     fill: white;
-            // }
-            // .footer_icon_four:hover{
-            //     .ta-path3{
-            //         fill: $gold;
-            //         transition: fill 0.2s ease-in-out;
-            //     }
-            //     .ta-path1{
-            //         stroke: #fff;                }
-            // }
+            .footer_icon_four{
+                height: 100%;
+                width: 100%;
+                cursor: pointer;
+                // background: white;
+                border-radius: 50%;
+                .ta-path1, .ta-path2, .ta-path3, .ta-path4, .ta-path5, .ta-path6{
+                    fill: white;
+                    transition: fill 0.2s ease-in-out;
+                }
+                .ta-path3:hover{
+                    fill: $gold;
+                }
+            }
         }
     }
 
@@ -211,6 +217,19 @@ $font: 'Abhaya Libre';
     left: 39px;
 }
 
+.icon_box{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: $nvblu;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+.icon_box:hover{
+    background: white;
+}
+
 .bigger_square{
     position: absolute;
     display: flex;
@@ -227,4 +246,5 @@ $font: 'Abhaya Libre';
     height: 8rem;
     margin: auto;
 }
+
 

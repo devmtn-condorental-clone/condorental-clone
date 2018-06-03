@@ -41,12 +41,12 @@ $font: 'Abhaya Libre';
 
 .island_news{
     @include flexify(row);
-    height: 515px;
+    height: calc(100% - 300px);
     width: 100%;
     .island_tips, .island_food, .island_things{
-        width: 32.4%;
+        width: 33.4%;
         @include flexify(column, flex-start);
-        height: 98%;
+        height: 100%;
         padding: 60px;
         h4{
             font-size: 26px;

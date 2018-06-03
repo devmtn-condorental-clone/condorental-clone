@@ -4,30 +4,31 @@ $nvblu: #30373f;
 $gold: #C6AB8F;
 
 .quote_container{
-    height: 50vh;
+    height: 18rem;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    margin: 9rem 0;
 }
 
 .quote_container::before{
     content: "\201D";
     color: $gold;
     font-family: 'Abhaya Libre';
-    font-size: 8rem;
+    font-size: 10rem;
     position: absolute;
     left: 12rem;
 }
 
 .quote_container::after{
-    content: "“";
+    content: "\201C";
     position: absolute;
     font-family: 'Abhaya Libre';
-    font-size: 8rem;
-    right: 12rem;
-    color: $gold;
-    bottom: -20px;
+    font-size: 10rem;
+    right: 11rem;
+    color: #C6AB8F;
+    bottom: -110px;
 }
 
 .quote{
@@ -39,7 +40,7 @@ $gold: #C6AB8F;
         font-family: 'Abhaya Libre';
         font-size: 49px;
         margin-bottom: 25px;
-        margin-top: 10%;
+        margin-top: 8%;
         color: $nvblu
     }
     p{
