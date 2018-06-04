@@ -1,11 +1,20 @@
 $nvblu: #30373f;
 $goldyLox: #ab8c6b;
-.parallax_paradise_cont{
-    position: absolute;
-    top: 100vh
+$shadowColor: #f2ece5;
+@keyframes slide-down{
+    from{
+        height: 0%;
+    }
+    to{
+        height: 48rem;
+    }
 }
+// .parallax_paradise_cont{
+//     position: absolute;
+//     top: 100vh
+// }
 .paradise-comp{
-    // margin-top: 50vh;
+    margin-top: 25vh;
     // padding-top: 50vh;
     height: 150vh;
     position: relative;
@@ -17,11 +26,36 @@ $goldyLox: #ab8c6b;
         width: auto;
         right: 3%;
     }
-    .pool-img{
+    .pool-img-box{
+        width: 25.27rem;
         position: absolute;
         left: 2.5%;
-        z-index: 3;
         height: 48rem;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    .pool-shadow[data-aos="slideDown"], .pool-img[data-aos="slideDown"] {
+        top: -48rem;
+        transition-property: top;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+        &.aos-animate {
+            top: 0;
+        }
+    }
+    .pool-img{
+        background-position: center;
+        background-size: cover
+    }
+    .pool-img, .pool-shadow{
+        top: -48rem;
+        width: 25.27rem;
+        height: 48rem;
+        position: absolute;
+        left: 2.5%;
+        z-index: 3;        
+    }
+    .pool-shadow, .building-shadow, .steak-shadow{
+        background-color: $shadowColor;
     }
     .paradise-content{
         float: right;
@@ -47,21 +81,67 @@ $goldyLox: #ab8c6b;
         left: 39%;
         height: 20rem;
     }
-    .building-img{
+    .building-box{
+        height: 22.5rem;
+        width: 25.27rem;
         position: absolute;
-        left: 39.25%;
         top: 55%;
-        z-index: 3;
+        left: 39.25%;
+    }
+    .building-box, .steak-box{
+        overflow-y: hidden;
+        overflow-x: hidden;
+        height: 22.5rem;
+        width: 25.27rem;
+        position: absolute;
+    }
+    .building-img{
+        background-position: center;
+        background-size: cover;
+    }
+    .building-img[data-aos="slideDown"],
+    .building-shadow[data-aos="slideDown"]
+    {
+        top: -22.5rem;
+        transition-property: top;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+        &.aos-animate {
+            top: 0;
+        }
+    }
+    .steak-box{
+        height: 22.5rem;
+        width: 25.27rem;
+        position: absolute;
+        top: 35%;
+        right: 3.35%;
     }
     .steak-img{
+        background-position: center;
+        background-size: cover;
+    }
+    .steak-img[data-aos="slideDown"],
+    .steak-shadow[data-aos="slideDown"]
+    {
+        top: -22.5rem;
+        transition-property: top;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+        &.aos-animate {
+            top: 0;
+        }
+    }
+    .steak-img, .building-img, .building-shadow, .steak-shadow{
         position: absolute;
-        right: 3.35%;
-        top: 35%;
+        height: 22.5rem;
+        width: 25.27rem;
         z-index: 3;
     }
-    .steak-img, .building-img{
-        height: 22.5rem;
-    }
+    // .building-img, .building-shadow{
+    //     left: 39.25%;
+    // }
+    // .steak-img, .steak-shadow{
+    //     right: 3.35%;
+    // }
     // img.steak-img{
     //     zoom: 0.4;        
     // }

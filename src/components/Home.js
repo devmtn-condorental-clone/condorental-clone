@@ -34,11 +34,11 @@ class Home extends Component {
             <HeaderModal/>
             <InquiryForm/>
             <section id="main-content">
-                <section className="parallax_1">
+                {/* <section className="parallax_1"> */}
                     <Welcome/>
                     <Booking />
                     <Paradise />
-                </section>
+                {/* </section> */}
                 <OurSuites />
                 <Restaurant/>
                 <Quote/>
