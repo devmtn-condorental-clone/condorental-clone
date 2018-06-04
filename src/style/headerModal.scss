@@ -11,22 +11,24 @@
     text-align: center;
     padding-left: 15px;
     border: 0;
+    z-index: 7;
     
 }
 
 .menu-modal{
     display: none;
     position:fixed;
-    z-index: 10;
+    z-index: 49;
     left: 0;
     top:0;
     height: 100vh;
     width: 100vw;
     overflow: auto;
-    background-color: rgba(0,0,0,0.5)
+    background-color:#30373F;
 }
+
 .menu-modal-closed{
-    opacity:.75;
+    opacity:1;
     position:fixed;
     transition: 1s;
     z-index: 4;
@@ -35,7 +37,7 @@
     height: 100vh;
     width: 100vw;
     overflow: auto;
-    background-color: rgba(0,0,0,0.5)
+    background-color:#30373F
 }
 .menu-modal-open{
     opacity:1;
@@ -47,7 +49,7 @@
     height: 100vh;
     width: 100vw;
     overflow: auto;
-    background-color: rgba(0,0,0,0.5);
+    background-color:#30373F;
     
 }
 .modal-content{
@@ -92,15 +94,39 @@
 	flex-wrap: nowrap;
     align-content: stretch;
 }
-.cls-btn{
+
+.menu-button{
+    max-height: 300px;
+    position: fixed;
+    margin-top: 49.5vh;
+    font-style: normal;
+    font-weight: 330;
+    font-size: 17px;
+    color:black;
+    text-align: center;
+    padding-left: 15px;
+    border: 0;
+    z-index: 12;
+    
+}
+.menu-button2{
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
     font-size: 16px;
-    line-height: 30px;
-    color: #ffffff;
-    margin-left: 10px;
+    max-height: 300px;
+    position: fixed;
+    margin-top: 49.5vh;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    color:white;
+    text-align: center;
+    padding-left: 15px;
+    border: 0;
+    z-index: 12;
     
 }
+
 .cls-btn-graphic{
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
