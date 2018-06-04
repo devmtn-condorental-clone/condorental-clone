@@ -1,10 +1,11 @@
 $nvblu: #30373f;
 $goldyLox: #ab8c6b;
+$bgColor: #f0e9e1;
 $ariba: 'Abhaya Libre', serif;
 .our-suites-comp{
-    height: 116vh;
+    height: 123.5vh;
     // width: 100%;
-    background-color: #f0e9e1;
+    background-color: $bgColor;
     .suites-head{
         position: relative;
         height: 19rem;
@@ -71,6 +72,16 @@ $ariba: 'Abhaya Libre', serif;
     .suites-info{
         display: flex;
         width: 100%;
+        position: relative;
+        .img-cover{
+            z-index: 2;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: $bgColor;
+            height: 100%;
+            width: 60%;
+        }
         div.suites-img{
             background: url('./images/suites_real_img.jpg') top;
             background-size: cover;
@@ -79,20 +90,63 @@ $ariba: 'Abhaya Libre', serif;
             cursor: pointer;
             transition: background-color 0.25s ease-in-out;
         }
+        .img-cover[data-aos="unveil"]
+        {
+            height: 37.5rem;
+            transition-property: height;
+            transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+            &.aos-animate {
+                height: 0;
+            }
+        }
+        // div.suites-img[data-aos="slideDown"]
+        // {
+        //     margin-bottom: 37.5rem;
+        //     transition-property: margin-bottom;
+        //     transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+        //     &.aos-animate {
+        //         margin-bottom: 0;
+        //     }
+        // }
         div.suites-img:hover{
             background-color: rgba(48,55,63,0.5);
             background-blend-mode: multiply;
         }
         .suite-detailed-info{
             width: 40%;
+            position: relative;
             h4{
+                background-color: $bgColor;
                 font-size: 2.25em;
                 font-family: $ariba;
                 color: $goldyLox;
                 text-align: right;
                 padding: 1em;
                 cursor: pointer;
+                // opacity: 0;
             }
+        //     h4[data-aos="slideUp"]{
+        //     margin-top: 10%;
+        //     opacity: 0;
+        //     transition-property: margin-top, opacity;
+        //     transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+        //     &.aos-animate{
+        //         margin-top: 0;
+        //         opacity: 1;
+        //     }
+        // }
+            // .guest-price-info[data-aos="slideUp"],
+            // .details-box h5[data-aos="slideUp"],
+            // .details-box p[data-aos="slideUp"]{
+            //     margin-top: 15%;
+            //     opacity: 0;
+            //     transition-property: margin-top, opacity;
+            //     transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+            //     &.aos-animate{
+            //         margin-top: 0;
+            //         opacity: 1;
+            //     }
+            // }
             h4:hover{
                 color: $nvblu;
             }
@@ -104,23 +158,45 @@ $ariba: 'Abhaya Libre', serif;
                 padding: 1.25em;
                 align-items: center;
                 font-size: 1.0625em;
+                // opacity: 0;
+                
             }
             .details-box{
                 padding: 2em;
-                background-color: $nvblu;
                 color: white;
                 line-height: 175%;
                 font-size: 1.0625em;
                 text-align: right;
                 width: 100%;
+                position: relative;
                 h5{
                     font-size: 1.5em;
                     font-family: $ariba;
                     color: $goldyLox;
+                    opacity: 0;
                 }
-                height: 100%;
+                height: 27.05rem;
             }
             overflow: hidden;
+        }
+        .suite-detailed-info .before-details{
+            width: 100%;
+            height: 100%;
+            background-color: $nvblu;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            opacity: 0;
+        }
+        .suite-detailed-info .before-details[data-aos="fadeIn"]{
+            opacity: 0;
+            transition-property: opacity;
+            transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+            &.aos-animate{
+                opacity: 1;
+            }
         }
     }
 }

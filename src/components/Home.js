@@ -30,11 +30,11 @@ class Home extends Component {
             <Header/>
             <HeaderModal/>
             <section id="main-content">
-                <section className="parallax_1">
+                {/* <section className="parallax_1"> */}
                     <Welcome/>
                     <Booking />
                     <Paradise />
-                </section>
+                {/* </section> */}
                 <OurSuites />
                 <Restaurant/>
                 <Quote/>
