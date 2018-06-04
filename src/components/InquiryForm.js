@@ -41,19 +41,19 @@ class InquiryForm extends Component {
                         <div className="inquiry-title">Inquiry form</div>
 
                         <div className="2">
-                            <div className="inquiry-input-lable-left">Your Name</div><div className="inquiry-input-lable-right">Your Email</div>
+                            <div className="inquiry-input-lable-left">Your Email</div><div className="inquiry-input-lable-right">Your Name</div>
                         </div>
                         <div className="3">
                             <input className="inquiry-input-left" /><input className="inquiry-input-right" />
                         </div>
                         <div className="4">
-                            <div className="inquiry-input-lable-left">Arrival</div><div className="inquiry-input-lable-right">Departure</div>
+                            <div className="inquiry-input-lable-left">Departure</div><div className="inquiry-input-lable-right">Arrival</div>
                         </div>
                         <div className="5">
                             <input className="inquiry-input-left" /><input className="inquiry-input-right" />
                         </div>
                         <div className="6">
-                            <div className="inquiry-input-lable-left">Guest</div><div className="inquiry-input-lable-right">Apartment</div>
+                            <div className="inquiry-input-lable-left">Apartment</div><div className="inquiry-input-lable-right">Guest</div>
                         </div>
                         <div className="7">
                             <input className="inquiry-input-left" /><input className="inquiry-input-right" />
