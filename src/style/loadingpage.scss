@@ -1,0 +1,51 @@
+.loading-modal-open{
+    opacity:1;
+    position:fixed;
+    z-index: 55;
+    top:0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    background-color:#30373F;
+}
+.loading-modal-closed{
+    opacity:1;
+    position:fixed;
+    transition: 1s;
+    z-index: 4;
+    left: -100vw;
+    top:0;
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    background-color:#30373F;
+}
+
+.loading-box{
+    height:150px;
+    width: 130px;
+    margin-right: -120px;
+    background-color:#f0e9e1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+
+.loading-logo-container{
+    padding-top: 25%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.loading-logo{
+    height:140px;
+}

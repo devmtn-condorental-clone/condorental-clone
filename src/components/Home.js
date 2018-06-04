@@ -10,6 +10,9 @@ import Quote from './Quote';
 import Island from './Island';
 import Footer from './Footer';
 import HeaderModal from '../components/HeaderModal';
+import LoadingPage from '../components/LoadingPage';
+import InquiryForm from '../components/InquiryForm';
+
 
 
 
@@ -27,14 +30,16 @@ class Home extends Component {
    render(){
    return(
        <div>
+           <LoadingPage/>
             <Header/>
             <HeaderModal/>
+            <InquiryForm/>
             <section id="main-content">
-                <section className="parallax_1">
+                {/* <section className="parallax_1"> */}
                     <Welcome/>
                     <Booking />
                     <Paradise />
-                </section>
+                {/* </section> */}
                 <OurSuites />
                 <Restaurant/>
                 <Quote/>
