@@ -1,49 +1,19 @@
-import gardenImg from '../style/images/garden_secret_avatar.jpg'
-import ortensiaImg from '../style/images/ortensia_love_avatar.jpg'
-import preciousImg from '../style/images/precious_moments_avatar.jpg'
-import jasminImg from '../style/images/jasmin_lush_avatar.jpg'
-import lavendarImg from '../style/images/lavendar_touch_avatar.jpg'
-import infinityImg from '../style/images/touch_of_infinity_avatar.jpg'
+// import gardenImg from '../style/images/garden_secret_avatar.jpg'
+// import ortensiaImg from '../style/images/ortensia_love_avatar.jpg'
+// import preciousImg from '../style/images/precious_moments_avatar.jpg'
+// import jasminImg from '../style/images/jasmin_lush_avatar.jpg'
+// import lavendarImg from '../style/images/lavendar_touch_avatar.jpg'
+// import infinityImg from '../style/images/touch_of_infinity_avatar.jpg'
 import axios from 'axios'
 
 const initialState = {
     user: {},
-    apartments: [
-        {
-            name: "Garden Secret",
-            price: 178,
-            img: gardenImg
-        },
-        {
-            name: "Ortensia Love",
-            price: 212,
-            img: ortensiaImg
-        },
-        {
-            name: "Precious Moments",
-            price: 189,
-            img: preciousImg
-        },
-        {
-            name: "Jasmin Lush",
-            price: 212,
-            img: jasminImg
-        },
-        {
-            name: "Lavendar Touch",
-            price: 212,
-            img: lavendarImg
-        },
-        {
-            name: "Touch of Infinity",
-            price: 178,
-            img: infinityImg
-        },
-    ],
+    condos: [],
     condosModalOpen: false
 }
 
 const GET_USER_INFO = "GET_USER_INFO"
+const GET_CONDOS = "GET_CONDOS"
 const OPEN_CONDO_MODAL = 'OPEN_CONDO_MODAL'
 
 export function getUser(){
@@ -53,6 +23,16 @@ export function getUser(){
     return{
         type: GET_USER_INFO,
         payload: userData
+    }
+}
+
+export function getCondos(){
+    let condos = axios.get('/api/condos').then( res => {
+        return res.data;
+    })
+    return{
+        type: GET_CONDOS,
+        payload: condos
     }
 }
 
@@ -69,6 +49,8 @@ export default function(state = initialState, action){
     switch(action.type){
         case GET_USER_INFO + '_FULFILLED':
             return Object.assign( {}, state, {user: action.payload})
+        case GET_CONDOS + '_FULFILLED':
+            return Object.assign( {}, state, {condos: [...action.payload]})
         case OPEN_CONDO_MODAL:
             return { ...state, condosModalOpen: action.payload }
         default:

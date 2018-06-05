@@ -1,23 +1,24 @@
 import React, { Component } from 'react'
 import '../style/condoSelectModal.css'
 import { connect } from 'react-redux'
-import { toggleCondoModal } from '../ducks/reducer'
+import { toggleCondoModal, getCondos } from '../ducks/reducer'
+
 
 class CondoSelectModal extends Component {
-    // constructor(){
-    //     super()
-    //     this.state = {
-            
-    //     }
-    // }
+    
+    componentDidMount(){
+        this.props.getCondos()
+    }
+
     render() {
-        const apartments = this.props.apartments.map(v => {
+        console.log(this.props.condos)
+        const condosList = this.props.condos.map(v => {
             return(
                 <div onClick={() => this.props.toggleCondoModal(this.props.condosModalOpen)} key={v.name} className="condo-container">
-                    <img src={v.img} alt={v.name}/>
+                    <img src={v.image} alt={v.name}/>
                     <div className="condo-content">
                         <h3>{v.name}</h3>
-                        <p>from {v.price} EUR</p>
+                        <p>from {v.price} <span> {v.currency} </span> </p>
                     </div>
                 </div>
             )
@@ -25,7 +26,7 @@ class CondoSelectModal extends Component {
         return (
                 <section style={this.props.condosModalOpen ? {display: 'flex'} : {display: 'none'}} className="condo-select-modal-comp">
                     <section className="condos-selection-container">
-                        {apartments}
+                        {condosList}
                     </section>
                 </section>
             
@@ -35,9 +36,9 @@ class CondoSelectModal extends Component {
 
 function mapStateToProps(state) {
     return {
-        apartments: state.apartments,
-        condosModalOpen: state.condosModalOpen
+        condos: state.condos,
+        condosModalOpen: state.condosModalOpen,
     }
 }
 
-export default connect(mapStateToProps, { toggleCondoModal })(CondoSelectModal)
+export default connect(mapStateToProps, { toggleCondoModal, getCondos })(CondoSelectModal)

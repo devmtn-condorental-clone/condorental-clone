@@ -11,7 +11,7 @@ create table users(
     username varchar(100),
     auth_id text,
     email varchar(100),
-    is_admin boolean
+    is_admin boolean default false
 );
 
 insert into condos(name, price, currency, image)
