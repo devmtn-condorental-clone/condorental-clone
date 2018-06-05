@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
-import LargeBtn from './LargeBtn';
-import '../style/booking.css';
+import LargeBtn from './LargeBtn'
+import '../style/booking.css'
+// import CondoSelectModal from './CondoSelectModal'
+import { toggleCondoModal } from '../ducks/reducer'
+import { connect } from 'react-redux'
 
 class Booking extends Component {
 
     render() {
         return (
                 <section className="booking-comp">
+                    {/* <CondoSelectModal /> */}
                     <div className="arrival-date booking-section">
                         <h4>ARRIVAL</h4>
                         <div className="date">
@@ -34,7 +38,7 @@ class Booking extends Component {
                         <p className="guestnum">1</p>
                     </div>
                     <div className="btn-container booking-section">
-                        <LargeBtn styleClass="choose-apt">CHOOSE APARTMENT</LargeBtn>
+                        <LargeBtn arg1={this.props.condosModalOpen} handleClick={this.props.toggleCondoModal.bind(this)} styleClass="choose-apt">CHOOSE APARTMENT</LargeBtn>
                         <LargeBtn styleClass="inquire-now">INQUIRE NOW</LargeBtn>
                     </div>
                 </section>
@@ -43,4 +47,10 @@ class Booking extends Component {
     }
 }
 
-export default Booking
+function mapStateToProps(state){
+    return{
+        condosModalOpen: state.condosModalOpen
+    }
+}
+
+export default connect(mapStateToProps, { toggleCondoModal })(Booking)
