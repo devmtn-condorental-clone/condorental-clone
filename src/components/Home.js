@@ -16,6 +16,7 @@ import InquiryForm from '../components/InquiryForm';
 
 
 
+
 class Home extends Component {
     constructor() {
         super()
