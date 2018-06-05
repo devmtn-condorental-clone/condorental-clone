@@ -1,5 +1,5 @@
-insert into users(username, auth_id, email, is_admin)
+insert into users(username, auth_id, email)
 
-values($1, $2, $3, $4)
+values($1, $2, $3)
 
 RETURNING *;

@@ -82,6 +82,42 @@ button{
     background-blend-mode: multiply;
     height: 100vh;
     width: 100%;
+
+    .login{
+        position: fixed;
+        left: 90px;
+        top: 10px;
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
+    }
+    .login_text{
+        content: 'Login';
+        color: #cdb49a;
+        position: absolute;
+        left: 10px;
+        top: .6rem;
+        background-color: #ffffff4d;
+        line-height: 2rem;
+        border-radius: .5rem;
+        width: 0px;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+        opacity: 0;
+        padding: 0;
+    }
+    
+    a{
+        color: white;
+    }
+    
+    a:hover{
+        .login_text{
+            padding: 0 .5rem 0 3rem;
+            opacity: 1;
+            cursor: pointer;
+            width: 6rem;
+        }  
+    }
     
     .welcome-head{
         width: 75%;

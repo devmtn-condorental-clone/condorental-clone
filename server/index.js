@@ -1,4 +1,5 @@
 require('dotenv').config();
+const controller = require('./controller')
 const express = require('express');
 const app = express();
 const massive = require('massive');
@@ -6,7 +7,8 @@ const session = require('express-session');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const cors = require('cors');
-// const checkForSession = require('../server/middlewares/checkForSessions');
+const S3 = require('./awsS3');
+
 
 app.use(express.json()); // same as body-parser
 app.use(cors());
@@ -52,7 +54,7 @@ passport.use( new Auth0Strategy({
             return done(null, users[0].id)
         }
         else{
-            db.create_user([username, id, emails[0].value, admin]).then( createdUser => {
+            db.create_user([username, id, emails[0].value]).then( createdUser => {
                 return done(null, createdUser[0].id)
             }).catch( e => console.log(e))
         }   
@@ -90,5 +92,9 @@ app.get('/logout', function(req, res) {
     req.logOut();
     res.redirect(FAILURE_REDIRECT)
 })
+
+S3(app)
+
+app.get('/api/condos', controller.getCondos)
 
 app.listen(SERVER_PORT, () => console.log(`Cash me @ da pinetree: ${SERVER_PORT}`))

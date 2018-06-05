@@ -8,6 +8,7 @@
     "@material-ui/core": "^1.2.0",
     "@material-ui/icons": "^1.1.0",
     "aos": "^2.3.0",
+    "aws-sdk": "^2.251.1",
     "axios": "^0.18.0",
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
