@@ -47,6 +47,73 @@ $font: 'Abhaya Libre';
    height: 17rem;
 }
 
+// .amazing_img_one{
+//     width: 28.5%;
+//     margin-right: 2.5rem;
+//     top: 0;
+//     right: 0;
+//     height: 745px;
+//     position: absolute;
+//     overflow-y: hidden;
+//     overflow-x: hidden;
+//     .shadow_one[data-aos="slideIn"], .amazing_steak[data-aos='slideIn']{
+//         top: -745px;
+//         transition-property: top;
+//         transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+//         &.aos-animate{
+//             top: 0;
+//         }
+//     }
+//     .shadow_one, .amazing_steak{
+        // position: absolute;
+        // width: 100%;
+        // top: -745px;
+        // right: 0;
+        // height: 745px;
+        // background: #f2ece5;
+//     }
+//     .amazing_steak{
+        // background-position: center;
+        // background-size: cover;
+//     }   
+// }
+
+@keyframes slideDown{
+    0%{
+        top: -745px;
+    }
+    50%{
+        top: 0;
+    }
+    100%{
+        top: 745px;
+    }
+}
+
+@keyframes slideDownTwo{
+    0%{
+        top: -22rem;
+    }
+    50%{
+        top: 0;
+    }
+    100%{
+        top: 22rem;
+    }
+}
+
+@keyframes slideDownThree{
+    0%{
+        top: -21rem;
+    }
+    50%{
+        top: 0;
+    }
+    100%{
+        top: 21rem;
+    }
+}
+
 .amazing_img_one{
     width: 28.5%;
     margin-right: 2.5rem;
@@ -56,27 +123,61 @@ $font: 'Abhaya Libre';
     position: absolute;
     overflow-y: hidden;
     overflow-x: hidden;
-    .shadow_one[data-aos="slideIn"], .amazing_steak[data-aos='slideIn']{
-        top: -745px;
-        transition-property: top;
-        transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
-        &.aos-animate{
-            top: 0;
-        }
+    .shadow_one[data-aos="slideIn"]{
+        position: absolute;
+        width: 100%;
+        top: 745px;
+        right: 0;
+        height: 745px;
+        z-index: 5;
+        background: #f2ece5;
+            &.aos-animate{
+                animation: slideDown 2s cubic-bezier(0.23,1,0.32,1);
+            }
     }
-    .shadow_one, .amazing_steak{
+    .amazing_steak[data-aos="slideIn"]{
         position: absolute;
         width: 100%;
         top: -745px;
         right: 0;
         height: 745px;
-        background: #f2ece5;
-    }
-    .amazing_steak{
+        transition: top 1s cubic-bezier(0.23,1,0.32,1);
         background-position: center;
         background-size: cover;
-    }   
+        &.aos-animate{
+            top: 0;
+        }
+    }
 }
+
+// .amazing_img_two{
+//     margin-left: 3%;
+//     top: 22%;
+//     width: 28%;
+//     position: absolute;
+//     height: 22rem;
+//     overflow-y: hidden;
+//     overflow-x: hidden;
+//     .shadow_two[data-aos="slideInTwo"], .amazing_people[data-aos='slideInTwo']{
+//         top: -22%;
+//         transition-property: top;
+//         transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+//         &.aos-animate{
+//             top: 0;
+//         }
+//     }
+//     .shadow_two, .amazing_people{
+//         top: -22%;
+//         background: #f2ece5;
+//         position: absolute;
+//         width: 100%;
+//         height: 22rem;
+//     }
+//     .amazing_people{
+//         background-position: center;
+//         background-size: cover;
+//     }
+// }
 
 .amazing_img_two{
     margin-left: 3%;
@@ -86,26 +187,61 @@ $font: 'Abhaya Libre';
     height: 22rem;
     overflow-y: hidden;
     overflow-x: hidden;
-    .shadow_two[data-aos="slideInTwo"], .amazing_people[data-aos='slideInTwo']{
-        top: -22%;
-        transition-property: top;
-        transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+    .shadow_two[data-aos="slideInTwo"]{
+        position: absolute;
+        width: 100%;
+        top: 22rem;
+        // right: 0;
+        height: 22rem;
+        z-index: 5;
+        background: #f2ece5;
+            &.aos-animate{
+                animation: slideDownTwo 2s cubic-bezier(0.23,1,0.32,1);
+            }
+    }
+    .amazing_people[data-aos="slideInTwo"]{
+        position: absolute;
+        width: 100%;
+        top: -745px;
+        right: 0;
+        height: 745px;
+        transition: top 1s cubic-bezier(0.23,1,0.32,1);
+        background-position: center;
+        background-size: cover;
         &.aos-animate{
             top: 0;
         }
     }
-    .shadow_two, .amazing_people{
-        top: -22%;
-        background: #f2ece5;
-        position: absolute;
-        width: 100%;
-        height: 22rem;
-    }
-    .amazing_people{
-        background-position: center;
-        background-size: cover;
-    }
 }
+
+// .amazing_img_three{
+//     position: absolute;
+//     width: 28.5%;
+//     left: 31.5%;
+//     top: 42rem;
+//     height: 21rem;
+//     overflow-y: hidden;
+//     overflow-x: hidden;
+//     .shadow_three[data-aos="slideInThree"], .amazing_lunch[data-aos='slideInThree']{
+//         top: -42rem;
+//         transition-property: top;
+//         transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+//         &.aos-animate{
+//             top: 0;
+//         }
+//     }
+//     .shadow_three, .amazing_lunch{
+//         position: absolute;
+//         width: 100%;
+//         top: -42rem;
+//         background: #f2ece5;
+//         height: 21rem;
+//     }
+//     .amazing_lunch{
+//         background-position: center;
+//         background-size: cover;
+//     }
+// }
 
 .amazing_img_three{
     position: absolute;
@@ -115,24 +251,28 @@ $font: 'Abhaya Libre';
     height: 21rem;
     overflow-y: hidden;
     overflow-x: hidden;
-    .shadow_three[data-aos="slideInThree"], .amazing_lunch[data-aos='slideInThree']{
-        top: -42rem;
-        transition-property: top;
-        transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+    .shadow_three[data-aos="slideInThree"]{
+        position: absolute;
+        width: 100%;
+        top: 22rem;
+        height: 22rem;
+        z-index: 5;
+        background: #f2ece5;
+            &.aos-animate{
+                animation: slideDownThree 2s cubic-bezier(0.23,1,0.32,1);
+            }
+    }
+    .amazing_lunch[data-aos="slideInThree"]{
+        position: absolute;
+        width: 100%;
+        top: 21rem;
+        height: 21rem;
+        transition: top 1s cubic-bezier(0.23,1,0.32,1);
+        background-position: center;
+        background-size: cover;
         &.aos-animate{
             top: 0;
         }
-    }
-    .shadow_three, .amazing_lunch{
-        position: absolute;
-        width: 100%;
-        top: -42rem;
-        background: #f2ece5;
-        height: 21rem;
-    }
-    .amazing_lunch{
-        background-position: center;
-        background-size: cover;
     }
 }
 
