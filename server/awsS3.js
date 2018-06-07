@@ -31,5 +31,5 @@ function uploadPhoto(req, res) {
     })
 }
 module.exports = function (app) {
-    app.post('/condo/addPhoto', uploadPhoto)
+    app.post('/api/condos/addPhoto', uploadPhoto)
 }

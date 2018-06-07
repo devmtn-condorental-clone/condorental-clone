@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../style/condoSelectModal.css'
 import { connect } from 'react-redux'
-import { toggleCondoModal, getCondos } from '../ducks/reducer'
+import { toggleCondoModal, getCondos, selectCondo, deleteCondo } from '../ducks/reducer'
 import AddCondo from '@material-ui/icons/Add'
 import EditCondo from '@material-ui/icons/Edit'
 import DeleteCondo from '@material-ui/icons/Delete'
@@ -15,9 +15,14 @@ class CondoSelectModal extends Component {
         this.state={
             addingCondo: false,
             condoEditing: 0,
+            condoInQuestion: '',
+            condoToDeleteID: 0
         }
         this.toggleAddingCondo = this.toggleAddingCondo.bind(this)
-        this.prepareToEdit = this.prepareToEdit.bind(this)
+        this.toggleEdit = this.toggleEdit.bind(this)
+        this.chooseCondo = this.chooseCondo.bind(this)
+        this.checkDelete = this.checkDelete.bind(this)
+        this.confirmDelete = this.confirmDelete.bind(this)
     }
 
     componentDidMount(){
@@ -27,57 +32,68 @@ class CondoSelectModal extends Component {
     toggleAddingCondo(){
         this.setState({ addingCondo: !this.state.addingCondo })
     }
-    prepareToEdit(id){
+    toggleEdit(id){
         this.setState({
             condoEditing: id
         })
     }
+    
+    chooseCondo(name, id){
+        this.props.selectCondo(name, id)
+    }
 
+    checkDelete(name, id){
+        console.log(id)
+        this.setState({
+            condoInQuestion: name,
+            condoToDeleteID: id
+        })
+    }
+
+    confirmDelete(bool){
+        console.log(this.state.condoToDeleteID)
+        if(bool){
+            this.props.deleteCondo(this.state.condoToDeleteID)
+        }
+        this.setState({
+            condoInQuestion: '',
+            condoToDeleteID: 0
+        })
+    }
 
     render() {
         console.log(this.props.condos)
         const condosList = this.props.condos.map(v => {
             return(
-                <section onClick={this.props.user.is_admin ? null : () => this.props.toggleCondoModal(this.props.condosModalOpen)} key={v.name} className="condo-container">
-                    <img src={v.image} alt={v.name}/>
-                    <div className="condo-content">
-                        <h3>{v.name}</h3>
-                        <p>from {v.price} <span> {v.currency} </span> </p>
-                        {
-                            this.props.user.is_admin
-                            ?
-                            <section className="admin-buttons">
-                                <button onClick={() => this.prepareToEdit(v.id)} className="edit-condo-btn">
-                                    <EditCondo />
-                                </button>
-                                <button onClick={() => this.checkDelete(v.name, v.id)} className="delete-condo-btn">
-                                    <DeleteCondo />
-                                </button>
-                            </section>
-                            :
-                            null
-                        }
-                        {
-                            this.state.condoEditing === v.id
-                            ?
-                            <CondoForm name={v.name} price={v.price} img={v.image} currency={v.currency} id={v.id} editing />
-                            // <section className="condo-edit-form">
-                            //     <input type="text" value={this.state.condoName}/>
-                            //     <input type="text" value={this.state.condoPrice}/>
-                            //     <input type="text" value={this.state.condoCurrency}/>
-                            //     <p className="img-question">Have a link? Enter below:</p>
-                            //     <input type="text" value={this.state.condoImg}/>
-                            //     <p className="upload-img-direction">Or upload an image from your computer.</p>
-                            //     <input onChange={this.handlePhoto} type="file" />   
-                            //         {
-                            //             this.state.file &&
-                            //             <img src={this.state.file} style={{margin: "0.25em", maxWidth: "400px"}} alt="preview" className="file-preview"/>  
-                            //         }
-                            // </section>
-                            :
-                            null
-                        }
-                    </div>
+                <section key={v.name} className="condo-wrapper">
+                    <section onClick={this.props.user.is_admin ? null : () => this.chooseCondo(v.name, v.id)}  className="condo-container">
+                        <img src={v.image} alt={v.name}/>
+                        <div className="condo-content">
+                            <h3>{v.name}</h3>
+                            <p>from {v.price} <span> {v.currency} </span> </p>
+                            {
+                                this.props.user.is_admin
+                                ?
+                                <section className="admin-buttons">
+                                    <button onClick={() => this.toggleEdit(v.id)} className="edit-condo-btn">
+                                        <EditCondo />
+                                    </button>
+                                    <button onClick={() => this.checkDelete(v.name, v.id)} className="delete-condo-btn">
+                                        <DeleteCondo />
+                                    </button>
+                                </section>
+                                :
+                                null
+                            }
+                        </div>
+                    </section>
+                    {
+                        this.state.condoEditing === v.id
+                        ?
+                        <CondoForm name={v.name} price={v.price} img={v.image} currency={v.currency} id={v.id} editing toggleEdit={this.toggleEdit}/>
+                        :
+                        null
+                    }
                 </section>
             )
         })
@@ -97,7 +113,7 @@ class CondoSelectModal extends Component {
                             ?
                                 this.state.addingCondo
                                 ?
-                                <CondoForm adding />
+                                <CondoForm endCreation={this.toggleAddingCondo} adding />
                                 // <section className="add-condo-form">
                                 //     <input onChange={this.handlePhoto} type="file" />   
                                 //     {
@@ -113,6 +129,20 @@ class CondoSelectModal extends Component {
                             null
                         }
                     </section>
+                    {
+                        this.state.condoToDeleteID > 0
+                        ?
+                        <section className="are-you-sure-modal">
+                            <div className="background-cover"/>
+                            <div className="delete-content-wrapper">
+                                <p>Are you sure you wish to delete {this.state.condoInQuestion}?</p>
+                                <button onClick={() => this.confirmDelete(true)} className="yes">Yes</button>
+                                <button onClick={() => this.confirmDelete(false)} className="no">No</button>
+                            </div>
+                        </section>
+                        :
+                        null
+                    }
                 </section>
             
         )
@@ -127,4 +157,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { toggleCondoModal, getCondos })(CondoSelectModal)
+export default connect(mapStateToProps, { toggleCondoModal, getCondos, selectCondo, deleteCondo })(CondoSelectModal)

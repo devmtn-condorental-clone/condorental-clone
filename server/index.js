@@ -93,8 +93,14 @@ app.get('/logout', function(req, res) {
     res.redirect(FAILURE_REDIRECT)
 })
 
+app.get('/api/condos', controller.getCondos)
+
+app.put('/api/condos/:id', controller.editCondo)
+
+app.post('/api/condos', controller.createCondo)
 S3(app)
 
-app.get('/api/condos', controller.getCondos)
+app.delete('/api/condos/:id', controller.deleteCondo)
+
 
 app.listen(SERVER_PORT, () => console.log(`Cash me @ da pinetree: ${SERVER_PORT}`))

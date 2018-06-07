@@ -10,14 +10,24 @@ const initialState = {
     user: {},
     condos: [],
     condosModalOpen: false,
-    condoImg: ''
+    condoImg: '',
+    condoSelected: {},
+    adultGuests: 1,
+    childGuests: 0,
+    infantGuests: 0,
+    arrivalDate: Date.now(),
+    departureDate: Date.now() + 604800000,
+    waiting: false
 }
 
 const GET_USER_INFO = "GET_USER_INFO"
 const GET_CONDOS = "GET_CONDOS"
 const OPEN_CONDO_MODAL = 'OPEN_CONDO_MODAL'
 const SEND_CONDO_CHANGES = 'SEND_CONDO_CHANGES'
+const DELETE_CONDO = 'DELETE_CONDO'
 const CREATE_CONDO = 'CREATE_CONDO'
+const SELECT_CONDO = 'SELECT_CONDO'
+const SAVE_PHOTO = 'SAVE_PHOTO'
 
 export function getUser(){
     let userData = axios.get('/auth/me').then( res => {
@@ -48,7 +58,7 @@ export function toggleCondoModal(bool){
 }
 
 export function sendCondoChanges(id, name, price, currency, img){
-    let condos = axios.put('/condos', { id, name, price, currency, img }).then(res => {
+    let condos = axios.put(`/api/condos/${id}`, { name, price, currency, img }).then(res => {
         return res.data
     })
     return{
@@ -57,13 +67,40 @@ export function sendCondoChanges(id, name, price, currency, img){
     }
 }
 
+export function savePhoto(obj){
+    let photo = axios.post('/api/condos/addPhoto', { photo: obj }).then(res => {
+        return res.data
+    })
+    return{
+        type: SAVE_PHOTO,
+        payload: photo
+    }
+}
+
 export function createCondo(name, price, currency, img){
-    let photo = axios.post('/photo', { name, price, currency, img }).then(res => {
+    let condos = axios.post('/api/condos', { name, price, currency, img }).then(res => {
         return res.data
     })
     return{
         type: CREATE_CONDO,
-        payload: photo
+        payload: condos
+    }
+}
+
+export function deleteCondo(id){
+    let condos = axios.delete(`/api/condos/${id}`).then(res => {
+        return res.data
+    })
+    return{
+        type: DELETE_CONDO,
+        payload: condos
+    }
+}
+
+export function selectCondo(name, id){
+    return{
+        type: SELECT_CONDO,
+        payload: {name, id}
     }
 }
 
@@ -76,10 +113,18 @@ export default function(state = initialState, action){
             return Object.assign( {}, state, {condos: [...action.payload]})
         case OPEN_CONDO_MODAL:
             return { ...state, condosModalOpen: action.payload }
-        case SEND_CONDO_CHANGES:
+        case SEND_CONDO_CHANGES + '_FULFILLED':
             return { ...state, condos: action.payload }
-        case CREATE_CONDO:
-            return { ...state, condoImg: action.payload }
+        case CREATE_CONDO + '_FULFILLED':
+            return { ...state, condos: action.payload }
+        case DELETE_CONDO + '_FULFILLED':
+            return { ...state, condos: action.payload }
+        case SELECT_CONDO:
+            return { ...state, condoSelected: action.payload, condosModalOpen: false }
+        case SAVE_PHOTO + '_PENDING':
+            return { ...state, waiting: true }
+        case SAVE_PHOTO + '_FULFILLED':
+            return { ...state, condoImg: action.payload, waiting: false }
         default:
             return state
     }
