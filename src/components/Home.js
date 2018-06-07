@@ -36,7 +36,9 @@ class Home extends Component {
             <HeaderModal/>
             <InquiryForm/>
             <section id="main-content">
+
                 <CondoSelectModal />
+
                 {/* <section className="parallax_1"> */}
                     <Welcome/>
                     <Booking />
