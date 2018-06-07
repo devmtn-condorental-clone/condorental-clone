@@ -3,7 +3,9 @@ $goldyLox: #ab8c6b;
 $bgColor: #f0e9e1;
 $ariba: 'Abhaya Libre', serif;
 .our-suites-comp{
-    height: 123.5vh;
+
+    height: 119.5vh;
+
     // width: 100%;
     background-color: $bgColor;
     .suites-head{
@@ -20,17 +22,19 @@ $ariba: 'Abhaya Libre', serif;
             margin-left: 1.25rem;
             transform: translateY(0);
             transition: translate 0.35s ease-in;
+            font-weight: 600;
         }
-        h3.shown{
-            transform: translateY(-999999%);
-        }
+        // h3.shown{
+        //     transform: translateY(-999999%);
+        // }
         h3::before{
             content: '';
             background-color: $goldyLox;
             width: 1.5px;
             height: 0.85em;
             position: absolute;
-            left: 6%;
+            left: -15%;
+            top: 5%;
             // margin: 0 0.5rem;
         }
     }
@@ -47,7 +51,7 @@ $ariba: 'Abhaya Libre', serif;
             align-items: center;
             cursor: pointer;
             padding: 0.25em;
-            transition: color 0.25s ease-in-out;
+            transition: color 0.2s ease-in-out;
         }
         .prev-suite-num, .next-suite-num{
             font-family: $ariba;
@@ -173,7 +177,10 @@ $ariba: 'Abhaya Libre', serif;
                     font-size: 1.5em;
                     font-family: $ariba;
                     color: $goldyLox;
-                    opacity: 0;
+
+
+                    // opacity: 0;
+                  
                 }
                 height: 27.05rem;
             }

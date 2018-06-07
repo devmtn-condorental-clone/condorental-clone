@@ -1,0 +1,81 @@
+$ariba: 'Abhaya Libre', serif;
+$goldyLox: #ab8c6b;
+$lyteGray: #7f7c7f;
+.condo-select-modal-comp{
+    z-index: 15;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(48,55,63,0.8);
+    .condos-selection-container{
+        position: relative;
+        padding: 1.75rem;
+        height: 100vh;
+        width: 55%;
+        background-color: white;
+        overflow-y: scroll;
+        .close{
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        .condo-container{
+            position: relative;
+            border: transparent 1px solid;
+            width: 100%;
+            height: 6.5625rem;
+            display: flex;
+            margin: 1.125rem;
+            cursor: pointer;
+            .condo-content{
+                margin-left: 2.5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                h3{
+                    margin: 0.25rem;
+                    font-family: $ariba;
+                    font-size: 1.75rem;
+                }
+                p{
+                    margin: 0.25rem;
+                    color: $lyteGray;
+                }
+                .admin-buttons{
+                    position: absolute;
+                    right: 1rem;
+                    width: 6rem;
+                    display: flex;
+                    justify-content: space-around;
+                    .edit-condo-btn, .delete-condo-btn{
+                        background-color: transparent;
+                        border: none;
+                    }
+                }
+            }
+        }
+        .condo-container:hover{
+            border-color: #f2ece5;
+        }
+        .add-condo-btn{
+            position: absolute;
+            right: 3rem;
+            background-color: transparent;
+            border: none;
+            svg{
+                height: 2rem;
+                width: 2rem;
+                transition: color 0.25s ease-in-out;
+            }
+            svg:hover{
+                color: $goldyLox;
+            }
+        }
+    }
+}

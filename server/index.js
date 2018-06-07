@@ -1,85 +1,100 @@
 require('dotenv').config();
+const controller = require('./controller')
 const express = require('express');
-// const massive = require('massive');
+const app = express();
+const massive = require('massive');
 const session = require('express-session');
-// const bodyParser = require('body-parser');
-// const passport = require('passport');
-// const Auth0Strategy = require('passport-auth0')
-// const checkForSession = require('../server/middlewares/checkForSessions');
+const passport = require('passport');
+const Auth0Strategy = require('passport-auth0');
+const cors = require('cors');
+const S3 = require('./awsS3');
 
+
+app.use(express.json()); // same as body-parser
+app.use(cors());
 
 const {
    SERVER_PORT,
    SESSION_SECRET,
-//    CONNECTION_STRING,
-//    DOMAIN,
-//    CLIENT_ID,
-//    CLIENT_SECRET,
-//    CALLBACK_URL
+   CONNECTION_STRING,
+   DOMAIN,
+   CLIENT_ID,
+   CLIENT_SECRET,
+   CALLBACK_URL,
+   SUCCESS_REDIRECT,
+   FAILURE_REDIRECT
 } = process.env
 
+massive(CONNECTION_STRING).then(db =>{
+   app.set('db', db)
+})
 
-const app = express();
+app.use(session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true
+}));
 
-// massive(CONNECTION_STRING).then(db =>{
-//    app.set('db', db)
-// })
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use(express.json()) // same as body-parser
+passport.use( new Auth0Strategy({
+    domain: DOMAIN,
+    clientID: CLIENT_ID,
+    clientSecret: CLIENT_SECRET, 
+    callbackURL: CALLBACK_URL,
+    scope: 'openid profile email'
+}, function (accessToken, refreshToken, extraParams, profile, done){
+    // db calls
+    const db = app.get('db');
+    const {id, username, emails} = profile;
+    console.log(profile)
+    db.find_user([id]).then(users => {
+        if(users[0]){
+            return done(null, users[0].id)
+        }
+        else{
+            db.create_user([username, id, emails[0].value]).then( createdUser => {
+                return done(null, createdUser[0].id)
+            }).catch( e => console.log(e))
+        }   
+    })
+}))
 
-// app.use(session({
-//    secret:SESSION_SECRET,
-//    resave:false,
-//    saveUninitialized:true,
-//    cookie:{
-//        maxAge:300000,
-//        httpOnly: true
-//    }
-// }))
+passport.serializeUser( (id, done) => {
+    console.log(id)
+    return done(null, id)
+})
 
-// app.use(checkForSession)
+passport.deserializeUser( (id, done) => {
+    app.get('db').find_session_user([id]).then( user => {
+        return done(null, user[0])
+    })
+})
 
-// app.use(passport.initialize())
-// app.use(passport.session())
+app.get('/auth', passport.authenticate('auth0'));
+app.get('/auth/callback', passport.authenticate('auth0', {
+    successRedirect: SUCCESS_REDIRECT,         
+    failureRedirect: FAILURE_REDIRECT
+}))
 
-// passport.use(new Auth0Strategy({
-//    domain: DOMAIN,
-//    clientID: CLIENT_ID,
-//    clientSecret: CLIENT_SECRET,
-//    callbackURL: CALLBACK_URL,
-//    scope: 'openid email profile'
-// },
-//    function (accessToken, refreashToken, extraParams, profile, done) {
-//        const db = app.get('db')
-//        db.find_user([profile.id]).then(users => {
-//            if (!users[0]) {
-//                db.create_user([profile.displayName, profile.id]).then(res => {
-//                    return done(null, res[0].auth_id)
-//                })
-//            } else {
-//                return done(null, users[0].auth_id)
-//            }
-//        })
+app.get('/auth/me', function(req, res) {            
+    if(req.user){
+        // console.log('hitting req.user', req.user)
+        res.send(req.user);
+    } else {
+        // console.log('hitting else')
+        res.status(401).send()                       
+    }
+})
 
-//    }
-// ))
+app.get('/logout', function(req, res) {
+    req.logOut();
+    res.redirect(FAILURE_REDIRECT)
+})
 
-// passport.serializeUser((id, done) => {
-//    return done(null, id)
-// })
+S3(app)
 
-// passport.deserializeUser((id, done) => {
-   
-//    app.get('db').find_user([id]).then(res => {
-       
-//        return done(null, res[0])
-//    })
-// })
+app.get('/api/condos', controller.getCondos)
 
-// app.get('/auth', passport.authenticate('auth0'))
-// app.get('/auth/callback', passport.authenticate('auth0', {
-//    successRedirect: `${process.env.HOMEPAGE}#/dashboard`,
-//    failureRedirect: `${process.env.HOMEPAGE}`
-// }))
-
-app.listen(SERVER_PORT, ()=> console.log(`Cash me @ da pinetree: ${SERVER_PORT}`))
+app.listen(SERVER_PORT, () => console.log(`Cash me @ da pinetree: ${SERVER_PORT}`))
