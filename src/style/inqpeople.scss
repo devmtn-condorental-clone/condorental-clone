@@ -1,0 +1,128 @@
+.inq-pop-container{
+    display: flex;
+	flex-direction: column;
+
+}
+.pop-adults-container{
+    padding-left: 30px;
+    padding-top: 25px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap
+}
+.pop-children-container{
+    padding-left: 30px;
+    padding-top:30px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap
+}
+.pop-infant-container{
+    padding-bottom: 40px;
+    padding-left: 30px;
+    padding-top: 30px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap
+}
+.pop-infant-text{
+    padding-bottom: 30px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+.pop-adults-controller{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    margin-left:308px;
+}
+.pop-children-controller{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    margin-left:297px;
+}
+.pop-infant-controller{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    margin-left:315px;
+}
+.pop-apply-container{
+    border-top: .25px solid #efe7df;
+    padding-bottom: 5px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+.pop-cat-title{
+    font-family: "Abhaya Libre", serif;
+    font-weight: bolder;
+    font-size: 19px;
+    line-height: 30px;
+    color:#30373f;
+}
+.pop-cat-title-sub{
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 10px;
+    color:#cdb49a;
+}
+.pop-infant-text{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 10px;
+    color:#7f7c7f;
+}
+
+.pop-sub-control{
+    background-color: #e0dfe0;
+    padding-top: 7px;
+    justify-content: center;
+	align-items: center;
+    align-content: center;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 100px;
+    
+}
+
+.pop-add-control{
+    background-color:#f0e9e1;
+    color:#769a88;
+    padding-top: 7px;
+    padding-left: 1px;
+    justify-content: center;
+	align-items: center;
+    align-content: center;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 100px;
+}
+.pop-num-control{
+    padding-left: 10px;
+    padding-right: 10px;
+}
