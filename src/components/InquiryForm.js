@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../style/inquiryForm.css';
 import Logo from '../style/images/paradise_background_p.png';
 import LargeButton from '../components/LargeBtn';
-import CalIcon from '../style/images/calendar.svg';
 import InqPeoplePop from '../components/InqPeoplePop';
 import InqRoomPop from '../components/InqRoomPop';
 import DatePicker from 'material-ui/DatePicker';
@@ -14,7 +13,7 @@ class InquiryForm extends Component {
         super(props)
 
         this.state = {
-            modalOpen: true,
+            modalOpen: false,
             value: 1
         }
         this.openModal = this.openModal.bind(this)

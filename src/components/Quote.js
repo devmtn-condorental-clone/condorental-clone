@@ -15,7 +15,7 @@ class Quote extends Component{
 
     render(){
         return(
-                <section className='quote_container' data-aos='fade-up' data-aos-duration='1000'>
+                <section className='quote_container' data-aos='fade-up' data-aos-duration='1000' data-aos-once='true'>
                     <div className='quote'>
                         <h2> Peaceful Paradise </h2>
                         <p> We loved everything here. It was beautiful, comfortable, and right next to the sea. There was an infinity pool on one side and a sand beach on the other. In the middle there was a restaurant with the best view ever. </p>

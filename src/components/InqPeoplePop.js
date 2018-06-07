@@ -1,26 +1,9 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import RadioButton from 'material-ui/RadioButton';
 import Popover from 'material-ui/Popover/Popover';
-import { Menu, MenuItem } from 'material-ui/Menu';
+import { MenuItem } from 'material-ui/Menu';
 import '../style/inquiryForm.css';
 import '../style/inqpeople.css'
 
-const styles = {
-  h3: {
-    marginTop: 20,
-    fontWeight: 400,
-  },
-  block: {
-    display: 'flex',
-  },
-  block2: {
-    margin: 10,
-  },
-  pre: {
-    overflow: 'hidden', // Fix a scrolling issue on iOS.
-  },
-};
 
 export default class PopoverExampleConfigurable extends React.Component {
 

@@ -1,10 +1,22 @@
 import React, { Component } from 'react'
 import LargeBtn from './LargeBtn'
+import {AccountCircle} from '@material-ui/icons'
+import {getUser} from '../ducks/reducer'
+import {connect} from 'react-redux'
 
-export default class Welcome extends Component{
+class Welcome extends Component{
+
+    componentDidMount(){
+        this.props.getUser()
+    }
+
     render(){
         return(
             <div className="welcome-comp">
+                <a  href={process.env.REACT_APP_LOGIN}>
+                    <AccountCircle className='login'/> 
+                    <span className='login_text'> Login </span>
+                </a>
                     <section className="welcome-head">
                         <h1 ><span className="pink-pinetree">Pinetree</span> Boutique Apartments</h1>
                         <p >We Create Memories That Last Forever.</p>
@@ -22,3 +34,11 @@ export default class Welcome extends Component{
         )
     }
 }
+
+function mapStateToProps(state){
+    return{
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps, {getUser}) (Welcome);

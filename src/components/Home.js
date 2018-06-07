@@ -3,6 +3,7 @@ import Restaurant from './Restaurant/Restaurant';
 import Welcome from './Welcome';
 import Header from './Header';
 import Booking from './Booking'
+import CondoSelectModal from './CondoSelectModal'
 
 import Paradise from './Paradise';
 import OurSuites from './OurSuites';
@@ -35,6 +36,7 @@ class Home extends Component {
             <HeaderModal/>
             <InquiryForm/>
             <section id="main-content">
+                <CondoSelectModal />
                 {/* <section className="parallax_1"> */}
                     <Welcome/>
                     <Booking />
