@@ -9,9 +9,7 @@ import 'aos/dist/aos.css';
 
 class Paradise extends Component{
     componentDidMount(){
-        AOS.init({
-            duration: 1000
-        })
+        AOS.init()
     }
 
     componentDidUpdate(){
@@ -22,18 +20,18 @@ class Paradise extends Component{
             // <section className="parallax_paradise_cont">
                 <section className="paradise-comp">
                     <div className="pool-img-box">
-                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos="slideDown" className="pool-shadow"/>
-                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos-delay="500" data-aos="slideDown" className="pool-img" style={{backgroundImage: `url(${leftimg})`}} alt="Pool View"/>
+                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos="poolShadowSlide" className="pool-shadow" data-aos-once='true'/>
+                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos-duration="1000" data-aos="poolImgSlide" data-aos-once='true' className="pool-img" style={{backgroundImage: `url(${leftimg})`}} alt="Pool View"/>
                     </div>
                     <div className="left-shadow shadow"/>
                     <div className="right-shadow shadow"/>
                     <div className="building-box">
-                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos="slideDown"  className="building-shadow"/>
-                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos-delay="500" data-aos="slideDown"  className="building-img" style={{backgroundImage: `url(${centerImg})`}} alt="Building View From Water"/>
+                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos="buildingShadowSlide"  className="building-shadow" data-aos-once='true'/>
+                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos-delay="500" data-aos="buildingImgSlide" data-aos-once='true' className="building-img" style={{backgroundImage: `url(${centerImg})`}} alt="Building View From Water"/>
                     </div>
                     <div className="steak-box">
-                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos="slideDown"  className="steak-shadow"/>
-                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos-delay="500" data-aos="slideDown"  className="steak-img" style={{backgroundImage: `url(${parSteak})`}} alt="Juicy Garnished Steak"/>
+                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos="steakShadowSlide"  className="steak-shadow" data-aos-once='true'/>
+                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos-delay="500" data-aos="steakImgSlide" data-aos-once='true' className="steak-img" style={{backgroundImage: `url(${parSteak})`}} alt="Juicy Garnished Steak"/>
                     </div>
                     <img className="bg-img" src={bgImg} alt="Pine Tree Watermark"/>
                     <section className="paradise-content">
