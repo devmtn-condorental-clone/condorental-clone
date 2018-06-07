@@ -1,6 +1,7 @@
 $ariba: 'Abhaya Libre', serif;
 $goldyLox: #ab8c6b;
 $lyteGray: #7f7c7f;
+$nvblu: #30373f;
 .condo-select-modal-comp{
     z-index: 15;
     position: fixed;
@@ -14,6 +15,7 @@ $lyteGray: #7f7c7f;
     .condos-selection-container{
         position: relative;
         padding: 1.75rem;
+        padding-bottom: 3.5rem;
         height: 100vh;
         width: 55%;
         background-color: white;
@@ -24,13 +26,18 @@ $lyteGray: #7f7c7f;
             position: absolute;
             top: 1rem;
             right: 1rem;
+            transition: color 0.2s ease-in-out;
+            &:hover{
+                color: $goldyLox;
+            }
         }
         .condo-container{
             position: relative;
             border: transparent 1px solid;
             width: 100%;
-            height: 6.5625rem;
+            min-height: 6.5625rem;
             display: flex;
+            flex-wrap: wrap;
             margin: 1.125rem;
             cursor: pointer;
             .condo-content{
@@ -56,6 +63,10 @@ $lyteGray: #7f7c7f;
                     .edit-condo-btn, .delete-condo-btn{
                         background-color: transparent;
                         border: none;
+                        transition: all 0.2s ease-in-out;
+                        &:hover{
+                            color: $goldyLox;
+                        }
                     }
                 }
             }
@@ -75,6 +86,65 @@ $lyteGray: #7f7c7f;
             }
             svg:hover{
                 color: $goldyLox;
+            }
+        }
+    }
+    .are-you-sure-modal{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 105;
+        .background-cover{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #111111ed;
+            z-index: 120
+        }
+        .delete-content-wrapper{
+            position: fixed;
+            top: 30%;
+            left: 36.5%;
+            z-index: 125;
+            height: 250px;
+            width: 400px;
+            background-color: white;
+            color: $nvblu;
+            font-size: 1.25rem;
+            border-radius: 3px;
+            p, button{
+                z-index: 130;
+                position: fixed;
+            }
+            p{
+                top: 37.5%;
+                width: 250px;
+                left: calc(50% - 125px);
+                line-height: 1.5rem;
+            }
+            button{
+                top: 47.5%;
+                width: 3rem;
+                height: 2rem;
+                background-color: white;
+                border-radius: 5px;
+                border: none;
+                transition: all 0.2s ease-in-out;
+                font-size: 1.15rem;
+                &:hover{
+                    background-color: $goldyLox;
+                    color: white;
+                }
+            }
+            .yes{
+                left: 43.5%;
+            }
+            .no{
+                right: 45%;
             }
         }
     }
