@@ -9,6 +9,42 @@ $shadowColor: #f2ece5;
         height: 48rem;
     }
 }
+@keyframes poolShadow{
+    0%{
+        top: -48rem;
+    }
+    50%{
+        top: 0;
+    }
+    100%{
+        top: 48rem;
+    }
+}
+
+@keyframes boxShadow{
+    0%{
+        top: -22.5rem;
+    }
+    50%{
+        top: 0;
+    }
+    100%{
+        top: 22.5rem;
+    }
+}
+
+@keyframes steakShadow{
+    0%{
+        top: -22.5rem;
+    }
+    50%{
+        top: 0;
+    }
+    100%{
+        top: 22.5rem;
+    }
+}
+
 // .parallax_paradise_cont{
 //     position: absolute;
 //     top: 100vh
@@ -34,7 +70,15 @@ $shadowColor: #f2ece5;
         overflow-y: hidden;
         overflow-x: hidden;
     }
-    .pool-shadow[data-aos="slideDown"], .pool-img[data-aos="slideDown"] {
+    .pool-shadow[data-aos="poolShadowSlide"]{
+        z-index: 5;
+        top: -100%;
+        &.aos-animate{
+            animation: poolShadow 1.5s cubic-bezier(0.23, 1, 0.320, 1);
+            
+        }
+    }
+    .pool-img[data-aos="poolImgSlide"] {
         top: -48rem;
         transition-property: top;
         transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
@@ -44,15 +88,14 @@ $shadowColor: #f2ece5;
     }
     .pool-img{
         background-position: center;
-        background-size: cover
+        background-size: cover;
+        z-index: 2;
+        top: -48rem;
     }
     .pool-img, .pool-shadow{
-        top: -48rem;
         width: 25.27rem;
         height: 48rem;
         position: absolute;
-        left: 2.5%;
-        z-index: 3;        
     }
     .pool-shadow, .building-shadow, .steak-shadow{
         background-color: $shadowColor;
@@ -99,8 +142,7 @@ $shadowColor: #f2ece5;
         background-position: center;
         background-size: cover;
     }
-    .building-img[data-aos="slideDown"],
-    .building-shadow[data-aos="slideDown"]
+    .building-img[data-aos="buildingImgSlide"]
     {
         top: -22.5rem;
         transition-property: top;
@@ -109,6 +151,16 @@ $shadowColor: #f2ece5;
             top: 0;
         }
     }
+    .building-shadow[data-aos="buildingShadowSlide"]{
+            z-index: 5;
+            top: -100%;
+            &.aos-animate{
+                animation: boxShadow 1.5s cubic-bezier(0.23, 1, 0.320, 1);
+                
+            }
+        }
+    }
+
     .steak-box{
         height: 22.5rem;
         width: 25.27rem;
@@ -120,8 +172,7 @@ $shadowColor: #f2ece5;
         background-position: center;
         background-size: cover;
     }
-    .steak-img[data-aos="slideDown"],
-    .steak-shadow[data-aos="slideDown"]
+    .steak-img[data-aos="steakImgSlide"]
     {
         top: -22.5rem;
         transition-property: top;
@@ -130,6 +181,16 @@ $shadowColor: #f2ece5;
             top: 0;
         }
     }
+
+    .steak-shadow[data-aos="steakShadowSlide"]{
+        z-index: 5;
+        top: -100%;
+        &.aos-animate{
+            animation: steakShadow 1.5s cubic-bezier(0.23, 1, 0.320, 1);
+            
+        }
+    }
+
     .steak-img, .building-img, .building-shadow, .steak-shadow{
         position: absolute;
         height: 22.5rem;
@@ -160,4 +221,4 @@ $shadowColor: #f2ece5;
         right: 10%;
         height: 25rem;
     }
-}
+
