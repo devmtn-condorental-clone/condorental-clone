@@ -17,7 +17,9 @@ const initialState = {
     infantGuests: 0,
     arrivalDate: Date.now(),
     departureDate: Date.now() + 604800000,
-    waiting: false
+    waiting: false,
+    language: 'Foreign',
+    yOffset: window.pageYOffset
 }
 
 const GET_USER_INFO = "GET_USER_INFO"
@@ -28,6 +30,8 @@ const DELETE_CONDO = 'DELETE_CONDO'
 const CREATE_CONDO = 'CREATE_CONDO'
 const SELECT_CONDO = 'SELECT_CONDO'
 const SAVE_PHOTO = 'SAVE_PHOTO'
+const TRANSLATE = 'TRANSLATE'
+const UPDATE_Y_OFFSET = 'UPDATE_Y_OFFSET'
 
 export function getUser(){
     let userData = axios.get('/auth/me').then( res => {
@@ -36,6 +40,21 @@ export function getUser(){
     return{
         type: GET_USER_INFO,
         payload: userData
+    }
+}
+
+export function translate(curr){
+    let translation = curr === 'Foreign' ? 'American' : 'Foreign'
+    return{
+        type: TRANSLATE,
+        payload: translation
+    }
+}
+
+export function updateYOffset(val){
+    return{
+        type: UPDATE_Y_OFFSET,
+        payload: val
     }
 }
 
@@ -109,6 +128,10 @@ export default function(state = initialState, action){
     switch(action.type){
         case GET_USER_INFO + '_FULFILLED':
             return Object.assign( {}, state, {user: action.payload})
+        case TRANSLATE:
+            return { ...state, language: action.payload }
+        case UPDATE_Y_OFFSET:
+            return { ...state, yOffset: action.payload }
         case GET_CONDOS + '_FULFILLED':
             return Object.assign( {}, state, {condos: [...action.payload]})
         case OPEN_CONDO_MODAL:

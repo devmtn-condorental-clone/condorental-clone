@@ -25,7 +25,7 @@
         top: 85vh;
     }
     100% {
-        top: 88.5vh;
+        top: 85.5vh;
     }
 }
 @keyframes appear {
@@ -81,6 +81,7 @@ button{
     // background-attachment: fixed;
     background-color: #0000009e;
     background-blend-mode: multiply;
+    background-position: center;
     height: 100vh;
     width: 100%;
 
@@ -127,11 +128,11 @@ button{
         align-items: baseline;
         justify-content: space-between;
         height: 50%;
-        margin-top: 2.5em;
         h1{
             font-family: 'Abhaya Libre', serif;
             line-height: 0.75em;
             font-size: 8.75em;
+            font-weight: 600;
             animation: appear 0.65s cubic-bezier(1,.01,.96,.54), headMainSlideUp 0.65s cubic-bezier(0.23,1,0.32,1);
             //
             .pink-pinetree{
@@ -187,8 +188,9 @@ button{
     
     .scroll-tag{
         position: absolute;
-        top: 88.5vh;
+        top: 85.5vh;
         #arrow{
+            margin-top: 0.5rem;
             width: 100%;
             text-align: center;
             font-size: 1.5em;
