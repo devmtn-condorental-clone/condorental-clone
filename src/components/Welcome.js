@@ -8,7 +8,7 @@ class Welcome extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            topOffset: props.yOffset > 250 ? 50 : props.yOffset > 50 ? props.yOffset/5 : 0
+            topOffset: props.yOffset > 240 ? 20 : props.yOffset > 100 ? props.yOffset/12 : 0
         }
         this.handleScroll = this.handleScroll.bind(this)
     }
@@ -23,7 +23,7 @@ class Welcome extends Component{
     componentDidUpdate(prevProps){
         const { yOffset } = this.props
         if(prevProps.yOffset !== yOffset){
-            let difference = yOffset > 250 ? 50 : yOffset > 50 ? yOffset/5 : 0
+            let difference = yOffset > 240 ? 20 : yOffset > 100 ? yOffset/12 : 0
             this.setState({
                 topOffset: difference
             })
@@ -49,7 +49,7 @@ class Welcome extends Component{
                         <p>Switch to</p>
                         <button onClick={() => this.props.translate(language)} className="lang-btn">{language === 'Foreign' ? 'AM' : 'EU'}</button>
                     </div>
-                    <div style={{opacity: `${1.25 - (this.state.topOffset/50)}`, top: `calc(85.5vh + ${Math.floor(this.state.topOffset)}px)`}} className="scroll-tag">
+                    <div style={{opacity: `${1 - (this.state.topOffset/70)}`, top: `calc(85.5vh + ${Math.floor(this.state.topOffset)}px)`}} className="scroll-tag">
                         <p>Scroll</p>
                         <p id="arrow">↓</p>
                     </div>

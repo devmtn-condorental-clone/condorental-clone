@@ -108,7 +108,7 @@ class CondoForm extends Component{
 
         const styles = {
             floatingLabelStyle: {
-                color: '#ab8c6b'
+                color: '#30373f'
             },
             floatingLabelFocusStyle: {
                 color: '#ab8c6b',
