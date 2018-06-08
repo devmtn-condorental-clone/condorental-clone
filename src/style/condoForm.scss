@@ -5,13 +5,83 @@
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
-    height: 300px;
+    height: 28rem;
     .form-row{
         display: flex;
         justify-content: space-around;
         width: 100%;
     }
     img{
-        max-width: 300px;
+        width: 140px;
+        height: 105px;
+    }
+    .s3-img-upload-row{
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        p{
+            font-family: 'Abhaya Libre', serif;
+            font-size: 22px;
+            color: #30373f;
+            padding-bottom: 10px;
+        }
+        .input-file{
+            position: relative;
+            width: 125px;
+            height: 2rem;
+            margin: 0 auto;
+            border-color: #ab8c6b;
+            input{
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                opacity: 0;
+                z-index: 50;
+                width: 125px;
+            }
+            .input-span{
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                z-index: 30;
+                background: #f2ece5;
+                font-size: 13px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #ab8c6b;
+                font-weight: 700;
+                border: 1px solid #ab8c6b;
+            }
+        }
+    }
+    button{
+        border: 1px solid transparent;
+        color: #ab8c6b;
+        width: 125px;
+        height: 2rem;
+        padding: 2px 6px;
+        font-size: 13px;
+        border-color: #ab8c6b;
+        background-color: #f2ece5;
+        font-weight: 700;
+        font-family: 'Open Sans', sans-serif!important;
+    }
+    button:hover{
+        cursor: pointer;
+        background: #ab8c6b;
+        color: #f2ece5;
+        border: 1px solid #f2ece5;
+    }
+    .input-file:hover{
+        .input-span{
+            background-color: #ab8c6b;
+            border: 1px solid #f2ece5;
+            color: #f2ece5;
+        }
     }
 }

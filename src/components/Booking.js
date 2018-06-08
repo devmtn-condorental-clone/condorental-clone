@@ -7,28 +7,23 @@ import { connect } from 'react-redux'
 import DatePicker from 'material-ui/DatePicker'
 
 class Booking extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
-            transY: window.pageYOffset < 300 ? window.pageYOffset/3 : 100
-        }
-        this.handleScroll = this.handleScroll.bind(this)
-    }
-
-    handleScroll(){
-        console.log(window.pageYOffset, window.innerHeight, this.state)
-        let vH = window.innerHeight
-        if(window.pageYOffset > 0 && window.pageYOffset < 300){
-            this.setState({
-                transY: window.pageYOffset/3
-            })
+            transY: props.yOffset < 300 ? props.yOffset/3 : 100
         }
     }
 
+    componentDidUpdate(prevProps){
+        const { yOffset } = this.props
+        if(prevProps.yOffset !== yOffset){
+            let diff = yOffset < 300 ? yOffset/3 : 100
+            this.setState({ transY: diff })
+        }
+    }
     render() {
-        window.onscroll = this.handleScroll
         let months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
-        const { condoSelected, arrivalDate, departureDate } = this.props
+        const { condoSelected, arrivalDate, departureDate, language, condosModalOpen, toggleCondoModal } = this.props
         let arrive = new Date(arrivalDate)
         let depart = new Date(departureDate)
         return (
@@ -65,8 +60,11 @@ class Booking extends Component {
                         <p className="guestnum">1</p>
                     </div>
                     <div className="btn-container booking-section">
-                        <LargeBtn arg1={this.props.condosModalOpen} handleClick={this.props.toggleCondoModal.bind(this)} styleClass="choose-apt">{condoSelected.name ? condoSelected.name : 'CHOOSE APARTMENT'}</LargeBtn>
-                        <LargeBtn styleClass="inquire-now">INQUIRE NOW</LargeBtn>
+                        <LargeBtn arg1={condosModalOpen} handleClick={toggleCondoModal.bind(this)} styleClass="choose-apt">{condoSelected.name ? condoSelected.name : (language === 'Foreign' ? 'CHOOSE APARTMENT' : 'CHOOSE CONDO')}</LargeBtn>
+                        <div className={`inquire-now-container ${!condoSelected.name && 'disabled'}`}>
+                            <LargeBtn styleClass={`inquire-now ${!condoSelected.name && 'disabled'}`}>INQUIRE NOW</LargeBtn>
+                            <div className="disabled-display"><span className="disabled-span">CHOOSE {language === 'Foreign' ? 'APPARTMENT' : 'CONDO'} FIRST</span></div>
+                        </div>
                     </div>
                 </section>
             
@@ -79,7 +77,9 @@ function mapStateToProps(state){
         condosModalOpen: state.condosModalOpen,
         condoSelected: state.condoSelected,
         arrivalDate: state.arrivalDate,
-        departureDate: state.departureDate
+        departureDate: state.departureDate,
+        language: state.language,
+        yOffset: state.yOffset
     }
 }
 
