@@ -23,7 +23,7 @@ class Booking extends Component {
     }
     render() {
         let months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
-        const { condoSelected, arrivalDate, departureDate } = this.props
+        const { condoSelected, arrivalDate, departureDate, language, condosModalOpen, toggleCondoModal } = this.props
         let arrive = new Date(arrivalDate)
         let depart = new Date(departureDate)
         return (
@@ -60,8 +60,11 @@ class Booking extends Component {
                         <p className="guestnum">1</p>
                     </div>
                     <div className="btn-container booking-section">
-                        <LargeBtn arg1={this.props.condosModalOpen} handleClick={this.props.toggleCondoModal.bind(this)} styleClass="choose-apt">{condoSelected.name ? condoSelected.name : (this.props.language === 'Foreign' ? 'CHOOSE APARTMENT' : 'CHOOSE CONDO')}</LargeBtn>
-                        <LargeBtn styleClass="inquire-now">INQUIRE NOW</LargeBtn>
+                        <LargeBtn arg1={condosModalOpen} handleClick={toggleCondoModal.bind(this)} styleClass="choose-apt">{condoSelected.name ? condoSelected.name : (language === 'Foreign' ? 'CHOOSE APARTMENT' : 'CHOOSE CONDO')}</LargeBtn>
+                        <div className={`inquire-now-container ${!condoSelected.name && 'disabled'}`}>
+                            <LargeBtn styleClass={`inquire-now ${!condoSelected.name && 'disabled'}`}>INQUIRE NOW</LargeBtn>
+                            <div className="disabled-display"><span className="disabled-span">CHOOSE {language === 'Foreign' ? 'APPARTMENT' : 'CONDO'} FIRST</span></div>
+                        </div>
                     </div>
                 </section>
             

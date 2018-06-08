@@ -48,7 +48,6 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
     justify-content: space-between;
     border-radius: 1px;
     .booking-section{
-        width: 25%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -66,6 +65,13 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
         .date .day, .date .year, .guestnum{
             color: $nvblu;
         }
+    }
+    .arrival-date{
+        position: absolute;
+    }
+    .departure-date{
+        left: 25%;
+        position: absolute;
     }
     .arrival-date, .departure-date{
         height: 100%!important;
@@ -92,25 +98,14 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
                     align-items: center!important;
                     display: flex;
                     justify-content: space-between;
-                    // height: 8rem!important;
-                    .day{
-                        // height: 5rem!important;
-                    }
                     .month-year{
                         display: flex;
-                        // height: 5rem!important;
                         flex-direction: column;
                     }
                 }
             }
         }
         div{
-            // height: 100%!important;
-            // &>div{
-            //     width: 100%!important;
-            //     height: 100%!important;
-            // }
-            // display: flex;
             div{
                 hr{
                     display: none;
@@ -125,19 +120,29 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
         content: '';
         position: absolute;
         top: 22.5%;
-        left: 25%;
+        right: 0;
     }
     .departure-date::after{
         height: 55%;
-        width: 0.5px;
+        width: 1.5px;
         background-color: #f2ece5;
         content: '';
         position: absolute;
         top: 22.5%;
-        left: 50%;
+        right: 0;
     }
     .guests{
         justify-content: center;
+        width: 25%;
+        left: 50%;
+        height: 100%;
+        position: absolute;
+        h4, p{
+            padding: 0.5rem;
+        }
+        >h4{
+            padding-top: 0;
+        }
     }
     .day, .guestnum{
         color: $goldyLox;
@@ -151,16 +156,18 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
     .month{
         color: $nvblu;
         font-size: 1.58675em;
-        font-weight: 600;
+        font-weight: 700;
         font-family: 'Abhaya Libre', serif;
     }
     .year{
         color: $goldyLox;
         font-size: 1.58675em;
-        font-weight: 600;
+        font-weight: 700;
         font-family: 'Abhaya Libre', serif;
     }
     .btn-container{
+        cursor: initial;
+        width: 25%;
         justify-content: center;
         .large-btn{
             margin: 0.5em;
@@ -175,15 +182,53 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
             background-color: #f2ece5;
             color: #606060;
         }
-        .inquire-now:hover{
-            background-color: $goldyLox;
-        }
-        .inquire-now{
-            border: none;
-            line-height: 3.75rem;            
-            background-color: $nvblu;
-            color: white;
-            
+        .inquire-now-container{
+            position: relative;
+            width: 18rem;
+            margin: 0.5em;
+            height: 62px;
+            overflow-y: hidden;
+            .inquire-now{
+                margin: 0;
+                border: none;
+                line-height: 3.75rem;            
+                background-color: $nvblu;
+                color: white;
+                &.disabled{
+                    cursor: not-allowed;
+                }
+            }
+            .disabled-display{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                opacity: 0;
+                left: 0;
+                right: 0;
+                color: white;
+                background-color: $goldyLox;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.45s cubic-bezier(0.23, 1, 0.320, 1);
+                .disabled-span{
+                    margin-top: 1.5rem;
+                    transition: all 0.45s cubic-bezier(0.23, 1, 0.320, 1);
+                }
+            }
+            &.disabled:hover{
+                cursor: not-allowed;
+                .disabled-display{
+                    cursor: not-allowed;
+                    opacity: 1;
+                    .disabled-span{
+                        margin-top: 0;
+                    }
+                }
+            }
+            .inquire-now:hover{
+                background-color: $goldyLox;
+            }
         }
     }
 }

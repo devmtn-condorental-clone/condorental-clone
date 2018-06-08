@@ -20,15 +20,15 @@
         flex-direction: column;
         // align-items: center;
         p{
-            font-family: 'Abhaya Libre';
+            font-family: 'Abhaya Libre', serif;
             font-size: 22px;
-            color: #ab8c6b;
+            color: #30373f;
             padding-bottom: 10px;
         }
         .input-file{
             position: relative;
-            width: 65px;
-            height: 1.5rem;
+            width: 125px;
+            height: 2rem;
             margin: 0 auto;
             border-color: #ab8c6b;
             input{
@@ -39,7 +39,7 @@
                 bottom: 0;
                 opacity: 0;
                 z-index: 50;
-                width: 65px;
+                width: 125px;
             }
             .input-span{
                 position: absolute;
@@ -60,12 +60,16 @@
         }
     }
     button{
+        border: 1px solid transparent;
         color: #ab8c6b;
+        width: 125px;
+        height: 2rem;
         padding: 2px 6px;
         font-size: 13px;
         border-color: #ab8c6b;
         background-color: #f2ece5;
         font-weight: 700;
+        font-family: 'Open Sans', sans-serif!important;
     }
     button:hover{
         cursor: pointer;
