@@ -16,7 +16,6 @@ class Booking extends Component {
     }
 
     handleScroll(){
-        console.log(window.pageYOffset, window.innerHeight, this.state)
         let vH = window.innerHeight
         if(window.pageYOffset > 0 && window.pageYOffset < 300){
             this.setState({

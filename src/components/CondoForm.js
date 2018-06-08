@@ -3,7 +3,8 @@ import axios from 'axios'
 import '../style/condoForm.css'
 import { connect } from 'react-redux'
 import { sendCondoChanges, createCondo, savePhoto } from '../ducks/reducer'
-import { TextField } from '@material-ui/core';
+import TextField from 'material-ui/TextField';
+
 
 class CondoForm extends Component{
     constructor(props){
@@ -104,19 +105,33 @@ class CondoForm extends Component{
     }
 
     render() {
+
+        const styles = {
+            floatingLabelStyle: {
+                color: '#ab8c6b'
+            },
+            floatingLabelFocusStyle: {
+                color: '#ab8c6b',
+                fontWeight: 800
+            }
+        }
+
         return(
             <secion className="condo-form-comp">
                 <div className="name--price-row form-row">
-                    <TextField onChange={(e) => this.updateInput(e.target.value, 'name')} type="text" value={this.state.condoName}/>
-                    <TextField onChange={(e) => this.updateInput(e.target.value, 'price')} type="number" value={this.state.condoPrice}/>
+                    <TextField onChange={(e) => this.updateInput(e.target.value, 'name')} type="text" value={this.state.condoName} floatingLabelText='Apartment' floatingLabelStyle={styles.floatingLabelStyle} floatingLabelFocusStyle={styles.floatingLabelFocusStyle}/>
+                    <TextField onChange={(e) => this.updateInput(e.target.value, 'img')} type="text" value={this.state.condoImg} floatingLabelText="Have a link? Enter here" floatingLabelStyle={styles.floatingLabelStyle} floatingLabelFocusStyle={styles.floatingLabelFocusStyle}/>
                 </div>
                 <div className="currency-imglink-row form-row">
-                    <TextField onChange={(e) => this.updateInput(e.target.value, 'currency')} type="text" value={this.state.condoCurrency}/>
-                    <TextField onChange={(e) => this.updateInput(e.target.value, 'img')} type="text" floatingText="Have a link? Enter here" value={this.state.condoImg}/>
+                    <TextField onChange={(e) => this.updateInput(e.target.value, 'price')} type="number" value={this.state.condoPrice} floatingLabelText='Price' floatingLabelStyle={styles.floatingLabelStyle} floatingLabelFocusStyle={styles.floatingLabelFocusStyle}/>
+                    <TextField onChange={(e) => this.updateInput(e.target.value, 'currency')} type="text" value={this.state.condoCurrency} floatingLabelText='Currency' floatingLabelStyle={styles.floatingLabelStyle} floatingLabelFocusStyle={styles.floatingLabelFocusStyle}/>
                 </div>
-                <div className="s3-img-upload-row form-row">
+                <div className="s3-img-upload-row">
                     <p className="upload-img-direction">Or upload an image from your computer.</p>
-                    <input onChange={this.handlePhoto} type="file" />   
+                    <div className='input-file'>
+                        <input onChange={this.handlePhoto} type="file"/>
+                        <span className='input-span'> Find File </span>  
+                    </div>
                 </div>
                 {
                     this.state.file &&
@@ -130,7 +145,11 @@ class CondoForm extends Component{
                     this.state.file &&
                     <button onClick={this.saveUpload} className="use-photo">Save This Photo</button>
                 }
-                <button onClick={this.props.editing ? this.sendChanges : this.addNewCondo} className="save">Save</button>
+                {
+                    this.state.file ? 
+                    null : 
+                    <button onClick={this.props.editing ? this.sendChanges : this.addNewCondo} className="save">Save</button>
+                }
                 <button onClick={this.props.editing ? () => this.props.toggleEdit(0) : this.props.endCreation}>Hide Form</button>
             </secion>
         )

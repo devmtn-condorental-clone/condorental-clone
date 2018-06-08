@@ -14,7 +14,9 @@ class Restaurant extends Component {
            vidWidth: window.innerWidth - 80,
            vidHeight: (window.innerWidth -80) * (0.5625),
            stateEvent: {},
-           video: false
+           video: false,
+           background: true,
+           videoText: true
        }
        this.updateWidth = this.updateWidth.bind(this)
    }
@@ -49,6 +51,17 @@ class Restaurant extends Component {
                video: !this.state.video
            })
        }
+       if(this.state.videoText){
+           this.setState({
+               videoText: !this.state.videoText
+           })
+       }
+   }
+
+   handleBackground(){
+       this.setState({
+           background: !this.state.background
+       })
    }
 
    render(){
@@ -91,16 +104,15 @@ class Restaurant extends Component {
                <div className='amazing_box_1'> </div>
                <div className='amazing_box_2'> </div>
                <section className='video_section' data-aos='fade-up' data-aos-once='true'>
-                   <div className='video_image' onClick={() => this.playVideo()}> 
+                   { this.state.background && <div className='video_image' onClick={() => {this.playVideo(); this.handleBackground() }}> 
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" space="preserve" className='play_button'>
 	                        <path d="M8,0C3.582,0,0,3.582,0,8s3.582,8,8,8s8-3.582,8-8S12.418,0,8,0z M5,12V4l7,4L5,12z"/>
                         </svg>
-                   </div> 
-                   <div className='video_text'>
-                        <h3> Ana Cooks - Ante's place </h3>
-                        <p> This is how we cook on Mljet. Fresh and homemade.</p>
-                   </div>
-                   {/* <iframe height={this.state.vidHeight} width={this.state.vidWidth} title="video" id="amazing_video" src="https://www.youtube.com/embed/KkrCYd_P4wA?controls=0&showinfo=0" frameBorder="0" allowFullScreen="1" allow="autoplay; encrypted-media" data-aos='fade-in' data-aos-once='true'> </iframe>  */}
+                        { this.state.videoText && <div className='video_text'>
+                            <h3> Ana Cooks - Ante's place </h3>
+                            <p> This is how we cook on Mljet. Fresh and homemade.</p>
+                        </div> }
+                    </div> }
                    <YouTube
                         className='amazing_video'
                         videoId='KkrCYd_P4wA'
