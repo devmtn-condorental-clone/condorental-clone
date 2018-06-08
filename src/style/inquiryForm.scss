@@ -166,12 +166,12 @@
     cursor: pointer;
 }
 .inquiry-input-lable-left{
-    font-family: "Abhaya Libre", serif;
+    font-family: "Abhaya Libre", serif !important;
     display: flex;
     position: absolute;
-    font-size: 22px;
-    font-weight: 800;
-    line-height: 40px;
+    font-size: 19px !important;
+    font-weight: bold !important;
+    line-height: 30px;
     margin-left: 15px;
     color: #30373f;
     font-style: normal;
@@ -181,9 +181,9 @@
     margin-left: 30px;
 }
 .inquiry-input-lable-right{
-    font-family: "Abhaya Libre", serif;
-    font-size: 22px;
-    font-weight: 800;
+    font-family: "Abhaya Libre", serif !important;
+    font-size: 19px !important;
+    font-weight: bold !important;
     line-height: 40px;
     margin-left: 15px;
     color: #30373f;
@@ -194,9 +194,9 @@
 }
 .inquiry-input-lable-comments{
     display: flex;
-    font-family: "Abhaya Libre", serif;
-    font-size: 22px;
-    font-weight: 800;
+    font-family: "Abhaya Libre", serif !important;
+    font-size: 19px !important;
+    font-weight: bold !important;
     line-height: 40px;
     position: absolute;
     margin-left: -530px;
@@ -227,9 +227,9 @@
 }
 .inquiry-select-addt{
     display: flex;
-    font-family: "Abhaya Libre", serif;
-    font-size: 22px;
-    font-weight: 800;
+    font-family: "Abhaya Libre", serif !important;
+    font-size: 19px !important;
+    font-weight: bold !important;
     line-height: 40px;
     width: 1081px;
     
