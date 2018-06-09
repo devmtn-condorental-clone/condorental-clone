@@ -143,7 +143,7 @@ export default function(state = initialState, action){
         case DELETE_CONDO + '_FULFILLED':
             return { ...state, condos: action.payload }
         case SELECT_CONDO:
-            return { ...state, condoSelected: action.payload, condosModalOpen: false }
+            return { ...state, condoSelected: action.payload }
         case SAVE_PHOTO + '_PENDING':
             return { ...state, waiting: true }
         case SAVE_PHOTO + '_FULFILLED':
