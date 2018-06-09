@@ -5,6 +5,7 @@ import logo from '../style/images/menu-logo_2x.png';
 import square from '../style/images/foot-travel-myth-badge_2x.png';
 import TA from '../style/images/TA_Logo.svg';
 
+
 class Footer extends Component{
     constructor(){
         super()
@@ -13,7 +14,10 @@ class Footer extends Component{
         }
     }
 
-
+    // reloadPage(){
+    //     (window.location.reload(window.scrollTo(0,0)))
+           
+    // }
 
     render(){
         return(
@@ -26,7 +30,7 @@ class Footer extends Component{
                 </div>
                 <div className='footer_pic'>
                     <div className='footer_logo'>
-                        <img className='footer_pic_header' src={logo} alt='logo'/> 
+                        <a href='/'> <img className='footer_pic_header' src={logo} alt='logo' /* onClick={() => this.reloadPage()} *//> </a>
                     </div>
                     <div className='footer_text'>
                         <p> BOUTIQUE PINE TREE RESORT**** </p>
