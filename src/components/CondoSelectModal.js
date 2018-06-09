@@ -16,7 +16,8 @@ class CondoSelectModal extends Component {
             addingCondo: false,
             condoEditing: 0,
             condoInQuestion: '',
-            condoToDeleteID: 0
+            condoToDeleteID: 0,
+            closed: false
         }
         this.toggleAddingCondo = this.toggleAddingCondo.bind(this)
         this.toggleEdit = this.toggleEdit.bind(this)
@@ -40,6 +41,7 @@ class CondoSelectModal extends Component {
     
     chooseCondo(name, id){
         this.props.selectCondo(name, id)
+        this.closeModal()
     }
 
     checkDelete(name, id){
@@ -61,8 +63,17 @@ class CondoSelectModal extends Component {
         })
     }
 
+    closeModal(){
+        this.setState({ closed: true })
+        setTimeout(() => {
+            this.setState({ closed: false })
+            this.props.toggleCondoModal(this.props.condosModalOpen)
+        }, 1000)
+    }
+
     render() {
         console.log(this.props.condos)
+        let modalClass = `condo-select-modal-comp ${this.props.condosModalOpen ? 'open' : ''}${this.state.closed ? ' closed' : ''}`
         const condosList = this.props.condos.map(v => {
             return(
                 <section key={v.name} className="condo-wrapper">
@@ -98,12 +109,12 @@ class CondoSelectModal extends Component {
             )
         })
         return (
-                <section style={this.props.condosModalOpen ? {display: 'flex'} : {display: 'none'}} className="condo-select-modal-comp">
+                <section className={modalClass}>
                     <section className="condos-selection-container">
                         {
                             this.props.user.is_admin
                             ?
-                            <button onClick={() => this.props.toggleCondoModal(this.props.condosModalOpen)} className="close"><Close /></button>
+                            <button onClick={() => this.closeModal()} className="close"><Close /></button>
                             : 
                             null
                         }
@@ -114,13 +125,6 @@ class CondoSelectModal extends Component {
                                 this.state.addingCondo
                                 ?
                                 <CondoForm endCreation={this.toggleAddingCondo} adding />
-                                // <section className="add-condo-form">
-                                //     <input onChange={this.handlePhoto} type="file" />   
-                                //     {
-                                //         this.state.file &&
-                                //         <img src={this.state.file} style={{margin: "0.25em", maxWidth: "400px"}} alt="preview" className="file-preview"/>  
-                                //     }
-                                // </section>
                                 :
                                 <button onClick={this.toggleAddingCondo} className="add-condo-btn">
                                     <AddCondo />

@@ -76,7 +76,7 @@ class InquiryForm extends Component {
                             </div>
                             <div className="input-cal-container">
                                 <div className="inquiry-input-left">
-                                <InqPeoplePop />   
+                                <InqPeoplePop/>   
                                 </div>
                                 
 

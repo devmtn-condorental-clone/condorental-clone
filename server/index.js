@@ -10,7 +10,7 @@ const cors = require('cors');
 const S3 = require('./awsS3');
 
 
-app.use(express.json()); // same as body-parser
+app.use(express.json({limit: '10mb'})); // same as body-parser, limit allows for bigger files, for S3 in our case
 app.use(cors());
 
 const {
@@ -34,7 +34,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-
+// app.use(express.static(__dirname + '/../build'))
 app.use(passport.initialize());
 app.use(passport.session());
 
