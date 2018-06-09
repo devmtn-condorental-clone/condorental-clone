@@ -10,7 +10,16 @@ export default class PopoverExampleConfigurable extends React.Component {
   constructor(props) {
     super(props);
 
+
     this.state = {
+      popOverOpen: false,
+      inputTextInfant:', ',
+      inputTextAdults: '',
+      adultCount: 1,
+      childCount:0,
+      infantCount: 0,
+      totalCount:1,
+      error:'',
       open: false,
       anchorOrigin: {
         horizontal: 'left',
@@ -21,8 +30,107 @@ export default class PopoverExampleConfigurable extends React.Component {
         horizontal: 'left',
         vertical: 'top',
       },
+      
     };
+    this.handleAddAdult = this.handleAddAdult.bind(this)
+    this.handleSubAdult = this.handleSubAdult.bind(this)
+    this.handleAddChild = this.handleAddChild.bind(this)
+    this.handleSubChild = this.handleSubChild.bind(this)
+    this.handleAddPersonInf = this.handleAddPersonInf.bind(this)
+    this.handleSubPersonInf = this.handleSubPersonInf.bind(this)
+    this.saveRoomInf = this.saveRoomInf.bind(this)
   }
+
+  saveRoomInf(){
+    if(this.state.infantCount === 1){
+      this.setState({
+          inputTextInfant: '1 Infant'
+      })
+    
+    }else if(this.state.infantCount === 2){
+      this.setState({
+        inputTextInfant: '2 Infants'
+      })
+    }
+    else if(this.state.infantCount === 0){
+      this.setState({
+        inputTextInfant: ''
+      })
+    }
+    this.setState({
+      popOverOpen: false
+    })
+  }
+
+  handleAddAdult(){
+    if(this.state.adultCount < 4 && this.state.totalCount < 4){
+      let adultCount = this.state.adultCount
+      let totalCount = this.state.totalCount
+      this.setState({
+        adultCount: adultCount + 1,
+        totalCount: totalCount + 1
+      })
+    }
+  }
+
+
+  handleSubAdult(){
+    if(this.state.adultCount > 1 ){
+      let adultCount = this.state.adultCount
+      let totalCount = this.state.totalCount
+      this.setState({
+        adultCount: adultCount - 1,
+        totalCount: totalCount - 1
+      })
+    }
+  }
+
+  handleAddChild(){
+    if(this.state.totalCount < 4){
+      let childCount = this.state.childCount
+      let totalCount = this.state.totalCount
+      this.setState({
+        childCount: childCount + 1,
+        totalCount: totalCount + 1
+      })
+    }
+  }
+
+
+  handleSubChild(){
+    if(this.state.childCount >= 1){
+      let childCount = this.state.childCount
+      let totalCount = this.state.totalCount
+      this.setState({
+        childCount: childCount - 1,
+        totalCount: totalCount - 1 
+      })
+    }
+  }
+
+  handleAddPersonInf(){
+    if(this.state.infantCount <= 1){
+      let currentInf = this.state.infantCount
+      this.setState({
+        infantCount: currentInf + 1
+      })
+    }
+  }
+
+  handleSubPersonInf(){
+    if(this.state.infantCount >= 1){
+      let currentCount = this.state.infantCount
+      this.setState({
+        infantCount:currentCount - 1,
+      })
+    }
+    else{
+      this.setState({
+        error:''
+      })
+    }
+  }
+
 
   handleClick = (event) => {
     // This prevents ghost click.
@@ -57,20 +165,25 @@ export default class PopoverExampleConfigurable extends React.Component {
     });
   };
 
+  
   render() {
+    console.log(this.state.adultCount, 'Adult Count')
+    console.log(this.state.childCount, 'Child Count')
+    console.log(this.state.infantCount, 'Infant Count')
+    console.log(this.state.error, 'ERROR')
     return (
-      <div>
-        <input className="inquiry-input-left"
+      <div className="people-pop-input-text" disabled  onClick={()=>this.setState({
+        popOverOpen:true
+      })}> 
+        <input value={`${this.state.totalCount} Guest ${this.state.inputTextInfant}`} className="inquiry-input-left"
           onClick={this.handleClick}
-          label="Click me"
         />
-
         <Popover
           style={{
             width: '530px'
           }}
           autoWidth={true}
-          open={this.state.open}
+          open={this.state.popOverOpen}
           anchorEl={this.state.anchorEl}
           anchorOrigin={this.state.anchorOrigin}
           targetOrigin={this.state.targetOrigin}
@@ -88,9 +201,9 @@ export default class PopoverExampleConfigurable extends React.Component {
                   </div>
 
                   <div className="pop-adults-controller">
-                    <div className="pop-sub-control">-</div>
-                    <div className="pop-num-control">1</div>
-                    <div className="pop-add-control">+</div>
+                    <div onClick={this.handleSubAdult} className="pop-sub-control">-</div>
+                    <div className="pop-num-control">{this.state.adultCount}</div>
+                    <div onClick={this.handleAddAdult} className="pop-add-control">+</div>
                   </div>
 
                 </div>
@@ -102,9 +215,9 @@ export default class PopoverExampleConfigurable extends React.Component {
                   </div>
 
                   <div className="pop-children-controller"> 
-                    <div className="pop-sub-control">-</div>
-                    <div className="pop-num-control">1</div>
-                    <div className="pop-add-control">+</div>
+                    <div onClick={this.handleSubChild} className="pop-sub-control">-</div>
+                    <div className="pop-num-control">{this.state.childCount}</div>
+                    <div onClick={this.handleAddChild} className="pop-add-control">+</div>
                   </div>
 
                 </div>
@@ -117,9 +230,9 @@ export default class PopoverExampleConfigurable extends React.Component {
                   </div>
 
                   <div className="pop-infant-controller">
-                    <div className="pop-sub-control">-</div>
-                    <div className="pop-num-control">1</div>
-                    <div className="pop-add-control">+</div>
+                    <div onClick={this.handleSubPersonInf} className="pop-sub-control">-</div>
+                    <div className="pop-num-control">{this.state.infantCount}</div>
+                    <div onClick={this.handleAddPersonInf} className="pop-add-control">+</div>
                   </div>
 
                 </div>
@@ -132,7 +245,7 @@ export default class PopoverExampleConfigurable extends React.Component {
             </section>
 
             <MenuItem>
-              <div className="pop-apply-container">
+              <div onClick={this.saveRoomInf} className="pop-apply-container">
                 Apply
               </div>
             </MenuItem>
