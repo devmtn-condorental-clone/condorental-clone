@@ -203,11 +203,11 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
                 top: 0;
                 bottom: 0;
                 opacity: 0;
+                display: none;
                 left: 0;
                 right: 0;
                 color: white;
                 background-color: $goldyLox;
-                display: flex;
                 justify-content: center;
                 align-items: center;
                 transition: all 0.45s cubic-bezier(0.23, 1, 0.320, 1);
@@ -219,6 +219,7 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
             &.disabled:hover{
                 cursor: not-allowed;
                 .disabled-display{
+                    display: flex;
                     cursor: not-allowed;
                     opacity: 1;
                     .disabled-span{
