@@ -429,14 +429,23 @@ $font: 'Abhaya Libre';
                 height: 530px;
             }
         }
+        .amazing_box_2{
+            position: absolute;
+            left: 7%;
+            top: 64%;
+            width: 50%;
+        }
     }
     .amazing_lunch, .amazing_people, .amazing_box_1{
         display: none;
     }
-    .amazing_box_2{
-        position: absolute;
-        left: 7%;
-        top: 64%;
+    .video_section{
+        .video_image{
+            .play_button{
+                width: 3rem;
+            }
+        }
     }
+    
 }
 
