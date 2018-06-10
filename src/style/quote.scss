@@ -4,13 +4,13 @@ $nvblu: #30373f;
 $gold: #C6AB8F;
 
 .quote_container{
-    height: 18rem;
+    height: 195px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-top: 3rem;
-    margin-bottom: 8rem;
+    margin-bottom: 12rem;
+    margin-top: 8rem;
 }
 
 .quote_container::before{
@@ -29,7 +29,7 @@ $gold: #C6AB8F;
     font-size: 10rem;
     right: 11rem;
     color: #C6AB8F;
-    bottom: -110px;
+    bottom: -153px;
 }
 
 .quote{
@@ -57,6 +57,34 @@ $gold: #C6AB8F;
         font-family: 'Abhaya Libre';
         color: #cdb49a;
         padding-top: 20px;
+        font-weight: 900;
     }
 }
 
+@media screen and (max-width: 1260px){
+    .quote_container{
+        margin-bottom: 10rem;
+        margin-top: 5rem;
+    }
+    .quote_container::before{
+        left: 3rem;
+        font-size: 9rem;
+    }
+    .quote_container::after{
+        right: 3rem;
+        font-size: 9rem;
+    }
+}
+
+@media screen and (max-width: 1069px){
+    .quote{
+        width: 83%;
+        h2{
+            margin-top: 14%;
+        }
+    }
+    .quote_container::after{
+        right: 2rem;
+        bottom: -165px;
+    }
+}

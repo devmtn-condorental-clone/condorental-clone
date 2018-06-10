@@ -73,6 +73,9 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
         left: 25%;
         position: absolute;
     }
+    .arrival-date.booking-section>div div:nth-child(2), .departure-date.booking-section>div div:nth-child(2){
+        display: none;
+    }
     .arrival-date, .departure-date{
         height: 100%!important;
         &>div{
@@ -96,19 +99,12 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
                     }
                     justify-content: center!important;
                     align-items: center!important;
-                    display: flex;
-                    justify-content: space-between;
+                    display: flex!important;
+                    // justify-content: space-between;
                     .month-year{
                         display: flex;
                         flex-direction: column;
                     }
-                }
-            }
-        }
-        div{
-            div{
-                hr{
-                    display: none;
                 }
             }
         }
@@ -141,7 +137,7 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
             padding: 0.5rem;
         }
         >h4{
-            padding-top: 0;
+            padding-top: 1.5rem;
         }
     }
     .day, .guestnum{
@@ -203,17 +199,18 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
                 top: 0;
                 bottom: 0;
                 opacity: 0;
+                // display: none;
                 left: 0;
                 right: 0;
                 color: white;
                 background-color: $goldyLox;
-                display: flex;
                 justify-content: center;
                 align-items: center;
-                transition: all 0.45s cubic-bezier(0.23, 1, 0.320, 1);
+                display: flex;
+                transition: opacity 0.45s cubic-bezier(0.23, 1, 0.320, 1);
                 .disabled-span{
                     margin-top: 1.5rem;
-                    transition: all 0.45s cubic-bezier(0.23, 1, 0.320, 1);
+                    transition: margin-top 0.45s cubic-bezier(0.23, 1, 0.320, 1);
                 }
             }
             &.disabled:hover{
