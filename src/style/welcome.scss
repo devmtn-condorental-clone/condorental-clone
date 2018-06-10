@@ -61,8 +61,9 @@ button{
 .large-btn{
     border: 2px solid;
     width: 18rem;
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 1.0625rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     line-height: 3.5rem;
     text-transform: uppercase;
 }
@@ -133,7 +134,7 @@ button{
             font-family: 'Abhaya Libre', serif;
             line-height: 6.5625rem;
             font-size: 8.8175em;
-            font-weight: 600;
+            font-weight: 700;
             animation: appear 0.65s cubic-bezier(1,.01,.96,.54), headMainSlideUp 0.65s cubic-bezier(0.23,1,0.32,1);
             margin-bottom: 1.7rem;
             .pink-pinetree{
@@ -210,6 +211,9 @@ button{
                 font-size: 6.1875rem;
                 margin-bottom: 1.125rem;
             }
+            p{
+                font-size: 1.125rem;
+            }
         }
     }
 }
@@ -226,15 +230,34 @@ button{
     }
 }
 
-@media (max-width: 640px){
+@media (max-width: 900px){
     .welcome-comp{
         .welcome-head{
-            padding: 1rem;
+            width: 97%;
+            padding: 0.5rem;
             h1{
                 font-size: 4.875rem;
                 line-height: 4.6875rem;
                 margin-bottom: 1.75rem;
             }
+        }
+        .upper-right{
+            display: none;
+        }
+    }
+}
+@media (max-width: 600px){
+    .welcome-comp{
+        .welcome-head{
+            padding: 1rem;
+            h1{
+                font-size: 3.875rem;
+                line-height: 3.75rem;
+                margin-bottom: 1.75rem;
+            }
+        }
+        .scroll-tag{
+            display: none;
         }
     }
 }
