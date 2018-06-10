@@ -6,17 +6,21 @@ import lunch from '../../style/images/amazing_restaurant_2.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import YouTube from 'react-youtube';
+import {connect} from 'react-redux';
 
 class Restaurant extends Component {
-   constructor(){
-       super()
+   constructor(props){
+       super(props)
        this.state = {
            vidWidth: window.innerWidth - 80,
            vidHeight: (window.innerWidth -80) * (0.5625),
            stateEvent: {},
            video: false,
            background: true,
-           videoText: true
+           videoText: true,
+           transYleftImg: props.yOffset < 2935 ? 0 : (props.yOffset > 2935 & props.yOffset < 3950) ? Math.ceil((2930 - props.yOffset)/11) : -93,
+           transYrightImg: props.yOffset < 2935 ? 0 : (props.yOffset > 2935 & props.yOffset < 3950) ? Math.ceil(( props.yOffset - 2930)/85) : 12,
+           transYshadow: (props.yOffset > 3040 & props.yOffset < 4040) ? props.yOffset/3 : 100
        }
        this.updateWidth = this.updateWidth.bind(this)
    }
@@ -29,9 +33,20 @@ class Restaurant extends Component {
        AOS.init();
    }
 
-   componentDidUpdate(){
-       AOS.refresh();
-   }
+    componentDidUpdate(prevProps){
+        const { yOffset } = this.props
+        if(prevProps.yOffset !== yOffset){
+            let leftImg = yOffset < 2935 ? 0 : (yOffset > 2935 & yOffset < 3950) ? Math.ceil((2930 - yOffset)/20) : -51
+            let rightImg = yOffset < 2935 ? 0 : (yOffset > 2935 & yOffset < 3950) ? Math.ceil((yOffset - 2930)/85) : 12
+            let shadow = yOffset < 3040 ? 0 : (yOffset > 3040 & yOffset < 4040) ? Math.ceil((3040 - yOffset)/9) : -113
+            this.setState({ 
+                transYleftImg: leftImg,
+                transYrightImg: rightImg,
+                transYshadow: shadow
+            })
+        }
+        AOS.refresh();
+    }
 
    updateWidth(){
        // alert('WHAT ARE YOU DOINGGGG')
@@ -84,25 +99,25 @@ class Restaurant extends Component {
                        <h3 className='title_amazing'> Amazing Restaurant </h3>
                        <div className='text_amazing'>
                            <p>
-                               Seeking out new flavours and creative cuisine is one of the best things about any <br/> holiday. Created from the great passion of the owner’s love of fresh and home <br/> grown food, the cuisine of Boutique Pine Tree combines traditional and <br/> contemporary dishes. We strive to provide a unique dining experience with <br/> exceptional service.
+                               Seeking out new flavours and creative cuisine is one of the best things about any holiday. Created from the great passion of the owner’s love of fresh and home grown food, the cuisine of Boutique Pine Tree combines traditional and contemporary dishes. We strive to provide a unique dining experience with exceptional service.
                            </p>
                            <p className='amazing_read_more'> Read more </p>
                        </div>
                </div>
                <div className='amazing_img_one'>
-                   <div className='shadow_one' data-aos='slideIn' data-aos-anchor='.amazing_container' data-aos-anchor-placement='top-center' data-aos-once='true' />
+                   <div className='shadow_one' data-aos='slideIn' data-aos-anchor='.amazing_container' data-aos-anchor-placement='top-center' data-aos-once='true'/>
                    <div className='amazing_steak' data-aos='slideIn' data-aos-anchor='.amazing_container' data-aos-anchor-placement='top-center' data-aos-delay='500' alt="steak" style={{backgroundImage: `url(${steak})`}} data-aos-once='true' />
                </div>
-               <div className='amazing_img_two'>
+               <div className='amazing_img_two' style={{transform: `translateY(${this.state.transYleftImg}px)`}}>
                    <div className='shadow_two' data-aos='slideInTwo' data-aos-anchor='.amazing_container' data-aos-anchor-placement='top-center' data-aos-once='true'  />
                    <div className='amazing_people' alt='people' style={{backgroundImage: `url(${people})`}} data-aos='slideInTwo' data-aos-anchor='.amazing_container' data-aos-anchor-placement='top-center' data-aos-once='true'  data-aos-delay='500'/>
                </div>
-               <div className='amazing_img_three'>
+               <div className='amazing_img_three' style={{transform: `translateY(${this.state.transYrightImg}px)`}}>
                    <div className='shadow_three' data-aos='slideInThree' data-aos-anchor='.amazing_container' data-aos-anchor-placement='top-center' data-aos-once='true' />
                    <div className='amazing_lunch' style={{backgroundImage: `url(${lunch})`}} alt='lunch' data-aos='slideInThree' data-aos-anchor='.amazing_container' data-aos-anchor-placement='top-center' data-aos-once='true' />
                </div>
                <div className='amazing_box_1'> </div>
-               <div className='amazing_box_2'> </div>
+               <div className='amazing_box_2' style={{transform: `translateY(${this.state.transYshadow}px)`}}> </div>
                <section className='video_section' data-aos='fade-up' data-aos-once='true'>
                    { this.state.background && <div className='video_image' onClick={() => {this.playVideo(); this.handleBackground() }}> 
                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" space="preserve" className='play_button'>
@@ -131,5 +146,11 @@ class Restaurant extends Component {
    }
 }
 
-export default Restaurant;
+function mapStateToProps(state){
+    return{
+        yOffset: state.yOffset
+    }
+}
+
+export default connect(mapStateToProps) (Restaurant);
 
