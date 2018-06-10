@@ -254,4 +254,22 @@ $font: 'Abhaya Libre';
     margin: auto;
 }
 
-
+@media screen and (max-width: 1069px){
+    .Footer_container{
+        height: 1006px;
+        .footer_credits{
+            height: 195px;
+            .footer_bottom{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .bigger_square{
+                    top: -95px;
+                }
+                p:nth-child(1){
+                    padding: 2.5rem 0;
+                }
+            }
+        }
+    }
+}
