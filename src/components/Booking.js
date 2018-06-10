@@ -27,9 +27,9 @@ class Booking extends Component {
         let arrive = new Date(arrivalDate)
         let depart = new Date(departureDate)
         return (
-                <section style={{top: `calc(100vh - ${Math.floor(this.state.transY)}px)`}} className="booking-comp">
+                <section style={{top: `calc(100vh + ${window.innerWidth < 1070 ? '85px' : '0px'} - ${Math.floor(this.state.transY)}px)`}} className="booking-comp">
                     {/* <CondoSelectModal /> */}
-                    <DatePicker okLabel={<span>Ok</span>} className="arrival-date booking-section"  style={{width: "25%"}}>
+                    <DatePicker okLabel={<span>Ok</span>} className="arrival-date booking-section">
                         <div >
                             <h4>ARRIVAL</h4>
                             <div className="date">
@@ -42,7 +42,7 @@ class Booking extends Component {
                         </div>
                     </DatePicker >
                     <div className="thin-grey" />
-                    <DatePicker style={{width: "25%"}} className="booking-section departure-date">
+                    <DatePicker className="booking-section departure-date">
                         <div >
                             <h4>DEPARTURE</h4>
                             <div className="date">
