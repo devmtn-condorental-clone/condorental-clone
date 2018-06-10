@@ -1,3 +1,6 @@
+html::-webkit-scrollbar{
+    display: none;
+}
 $nvblu: #30373f;
 $goldyLox: #ab8c6b;
 $shadowColor: #f2ece5;
@@ -50,7 +53,7 @@ $shadowColor: #f2ece5;
 //     top: 100vh
 // }
 .paradise-comp{
-    margin-top: 25vh;
+    margin-top: 225px;
     // padding-top: 50vh;
     height: 150vh;
     position: relative;
@@ -110,6 +113,7 @@ $shadowColor: #f2ece5;
             font-size: 3.0625rem;
             font-family: 'Abhaya Libre', serif;
             margin-bottom: 1.75rem;
+            font-weight: 600;
         }
         p{
             font-weight: 400;
@@ -128,8 +132,8 @@ $shadowColor: #f2ece5;
         height: 22.5rem;
         width: 25.27rem;
         position: absolute;
-        top: 55%;
-        left: 39.25%;
+        top: 49.5%;
+        left: 38.75%;
     }
     .building-box, .steak-box{
         overflow-y: hidden;
@@ -165,8 +169,8 @@ $shadowColor: #f2ece5;
         height: 22.5rem;
         width: 25.27rem;
         position: absolute;
-        top: 35%;
-        right: 3.35%;
+        top: 37%;
+        right: 5.2%;
     }
     .steak-img{
         background-position: center;
@@ -214,10 +218,10 @@ $shadowColor: #f2ece5;
     .left-shadow{
         height: 18.75rem;
         left: 4.55%;
-        top: 42.5%;
+        top: 46.5%;
     }
     .right-shadow{
-        top: 44.55%;
+        top: 46.5%;
         right: 10%;
         height: 25rem;
     }

@@ -122,29 +122,31 @@ button{
     }
     
     .welcome-head{
-        width: 75%;
+        width: 95%;
+        padding: 0 9rem;
         display: flex;
         flex-direction: column;
         align-items: baseline;
-        justify-content: space-between;
-        height: 50%;
+        // justify-content: space-between;
+        // height: 50%;
         h1{
             font-family: 'Abhaya Libre', serif;
-            line-height: 0.75em;
-            font-size: 8.75em;
+            line-height: 6.5625rem;
+            font-size: 8.8175em;
             font-weight: 600;
             animation: appear 0.65s cubic-bezier(1,.01,.96,.54), headMainSlideUp 0.65s cubic-bezier(0.23,1,0.32,1);
-            //
+            margin-bottom: 1.7rem;
             .pink-pinetree{
                 color: #cdb49a;
                 font-family: 'Abhaya Libre', serif;
             }
         }
         p{
-            padding-bottom: 1em;
+            padding-bottom: 2.5em;
             animation: appear 0.75s cubic-bezier(1,.01,.96,.54), headMainSlideUp 0.75s cubic-bezier(0.23,1,0.32,1);
             //s;
-            font-size: 1.3em;
+            font-size: 1.25em;
+            font-weight: 400;
         }
     }
     .experience-btn:hover{
@@ -198,4 +200,41 @@ button{
         animation: slowAppear 1.75s cubic-bezier(0.23, 1, 0.320, 1), scrollSlideDown 1.75s cubic-bezier(0.23, 1, 0.320, 1);
     }
 
+}
+@media (max-width: 1400px){
+    .welcome-comp{
+        .welcome-head{
+            padding: 1.75rem;
+            h1{
+                line-height: 5.625rem;
+                font-size: 6.1875rem;
+                margin-bottom: 1.125rem;
+            }
+        }
+    }
+}
+@media (max-width: 1069px){
+    .welcome-comp{
+        .welcome-head{
+            padding: 1rem;
+            h1{
+                font-size: 4.875rem;
+                line-height: 4.6875rem;
+                margin-bottom: 1.75rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 640px){
+    .welcome-comp{
+        .welcome-head{
+            padding: 1rem;
+            h1{
+                font-size: 4.875rem;
+                line-height: 4.6875rem;
+                margin-bottom: 1.75rem;
+            }
+        }
+    }
 }

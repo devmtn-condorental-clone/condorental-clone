@@ -3,7 +3,6 @@ import '../style/condoForm.css'
 import { connect } from 'react-redux'
 import { sendCondoChanges, createCondo, savePhoto } from '../ducks/reducer'
 import TextField from 'material-ui/TextField'
-import Cancel from '../style/images/cancel-icon.svg'
 
 
 class CondoForm extends Component{
@@ -53,11 +52,6 @@ class CondoForm extends Component{
         }
         reader.readAsDataURL(file)
     }
-
-    // sendPhoto(event){
-    //     event.preventDefault()
-    //     axios.post({ photo: this.state })
-    // }
     
     saveUpload(){
         const { file, filename, filetype } = this.state

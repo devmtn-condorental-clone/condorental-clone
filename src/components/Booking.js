@@ -63,7 +63,13 @@ class Booking extends Component {
                         <LargeBtn arg1={condosModalOpen} handleClick={toggleCondoModal.bind(this)} styleClass="choose-apt">{condoSelected.name ? condoSelected.name : (language === 'Foreign' ? 'CHOOSE APARTMENT' : 'CHOOSE CONDO')}</LargeBtn>
                         <div className={`inquire-now-container ${!condoSelected.name && 'disabled'}`}>
                             <LargeBtn styleClass={`inquire-now ${!condoSelected.name && 'disabled'}`}>INQUIRE NOW</LargeBtn>
-                            <div className="disabled-display"><span className="disabled-span">CHOOSE {language === 'Foreign' ? 'APPARTMENT' : 'CONDO'} FIRST</span></div>
+                            {
+                                condoSelected.length
+                                ?
+                                null
+                                :
+                                <div className="disabled-display"><span className="disabled-span">CHOOSE {language === 'Foreign' ? 'APPARTMENT' : 'CONDO'} FIRST</span></div>
+                            }
                         </div>
                     </div>
                 </section>
