@@ -5,6 +5,7 @@ import '../style/inquiryForm.css';
 import '../style/inqpeople.css'
 
 
+
 export default class PopoverExampleConfigurable extends React.Component {
 
   constructor(props) {
@@ -167,10 +168,7 @@ export default class PopoverExampleConfigurable extends React.Component {
 
   
   render() {
-    console.log(this.state.adultCount, 'Adult Count')
-    console.log(this.state.childCount, 'Child Count')
-    console.log(this.state.infantCount, 'Infant Count')
-    console.log(this.state.error, 'ERROR')
+    
     return (
       <div className="people-pop-input-text" disabled  onClick={()=>this.setState({
         popOverOpen:true

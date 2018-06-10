@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import '../style/condoForm.css'
 import { connect } from 'react-redux'
 import { sendCondoChanges, createCondo, savePhoto } from '../ducks/reducer'
