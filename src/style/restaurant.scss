@@ -6,12 +6,12 @@ $darkgold: #ab8c6b;
 $font: 'Abhaya Libre';
 
 .Restaurant_container{
-    height: 250vh;
+    height: 1961px;
     .Restaurant{
         width: 100%;
         margin-top: 10%;
         position: relative;
-        height: 250vh;
+        // height: 1961px;
     }
 }
 
@@ -33,8 +33,9 @@ $font: 'Abhaya Libre';
         margin-left: 27px;
         line-height: 29px;
         .amazing_read_more{
-           color: #9a7753;
+           color: #ab8c6b;
            margin-top: 13px;
+           font-weight: 600;
         }
     }
 }
@@ -43,7 +44,7 @@ $font: 'Abhaya Libre';
    content: '';
    position: absolute;
    width: 2px;
-   background-color: #A18160;
+   background-color: #ab8c6b;
    height: 17rem;
 }
 
@@ -181,7 +182,7 @@ $font: 'Abhaya Libre';
 
 .amazing_img_two{
     margin-left: 3%;
-    top: 22%;
+    top: 30rem;
     width: 28%;
     position: absolute;
     height: 22rem;
@@ -247,7 +248,7 @@ $font: 'Abhaya Libre';
     position: absolute;
     width: 28.5%;
     left: 31.5%;
-    top: 42rem;
+    top: 43rem;
     height: 21rem;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -292,7 +293,7 @@ $font: 'Abhaya Libre';
    height: 300px;
    background: #f2ece5;
    right: 0;
-   margin-top: 13rem;
+   top: 34rem;
    z-index: -1;
 }
 
@@ -359,4 +360,83 @@ $font: 'Abhaya Libre';
     }
 }
 
+@media screen and (max-width: 1400px){
+    .Restaurant_container{
+        height: 1877px;
+        .amazing_container{
+            width: 45%;
+            margin-left: 9.5rem;
+            .text_amazing{
+                margin-left: 40px;
+            }
+            .title_amazing{
+                margin-left: 40px;
+            }
+        }
+        .amazing_box_2{
+            width: 383px;
+        }
+    }
+}
+
+@media screen and (max-width: 1260px){
+    .Restaurant_container{
+        height: 1798px;
+        .amazing_container{
+            margin-left: 3%;
+            width: 55%;
+        }
+        .amazing_img_one{
+            width: 35%;
+        }
+        .amazing_box_2{
+            width: 418px;
+        }
+        .amazing_img_two{
+            margin-left: 2%;
+            .amazing_people{
+                width: 317px;
+                height: 260px;
+            }
+        }
+        .amazing_img_three{
+            left: 30.5%;
+            .amazing_lunch{
+                width: 317px;
+                height: 260px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1069px){
+    .Restaurant_container{
+        height: 1422px;
+        .amazing_container{
+            top: 36rem;
+            position: absolute;
+            margin-left: 2.5rem;
+            width: 93%;
+        }
+        .amazing_container::before{
+            height: 13rem;
+        }
+        .amazing_img_one{
+            height: 530px;
+            width: 92%;
+            background-position: center;
+            .amazing_steak{
+                height: 530px;
+            }
+        }
+    }
+    .amazing_lunch, .amazing_people, .amazing_box_1{
+        display: none;
+    }
+    .amazing_box_2{
+        position: absolute;
+        left: 7%;
+        top: 64%;
+    }
+}
 
