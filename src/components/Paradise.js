@@ -6,13 +6,33 @@ import parSteak from '../style/images/paradise_steak.jpg'
 import bgImg from '../style/images/paradise_background_p.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { connect } from 'react-redux'
 
 class Paradise extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            shadowTrans: 0,
+            leftImgTrans: 0,
+            rightImgTrans: 0
+        }
+    }
     componentDidMount(){
         AOS.init()
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps){
+        const { yOffset } = this.props
+        if(prevProps.yOffset !== yOffset){
+            let shadow = yOffset < 770 ? 0 : (yOffset > 770 & yOffset < 1770) ? Math.ceil((770 - yOffset)/15) : -87
+            let leftImg = yOffset < 770 ? 0 : (yOffset > 770 & yOffset < 1770) ? Math.ceil((yOffset - 770)/10) : 100
+            let rightImg = yOffset < 770 ? 0 : (yOffset > 770 & yOffset < 1770) ? Math.ceil((770 - yOffset)/100) : -10
+            this.setState({
+                shadowTrans: shadow,
+                leftImgTrans: leftImg,
+                rightImgTrans: rightImg
+            })
+        }
         AOS.refresh()
     }
     render() {
@@ -23,13 +43,13 @@ class Paradise extends Component{
                         <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos="poolShadowSlide" className="pool-shadow" data-aos-once='true'/>
                         <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos-duration="1000" data-aos="poolImgSlide" data-aos-once='true' className="pool-img" style={{backgroundImage: `url(${leftimg})`}} alt="Pool View"/>
                     </div>
-                    <div className="left-shadow shadow"/>
+                    <div style={{transform: `translateY(${this.state.shadowTrans}px)`}} className="left-shadow shadow"/>
                     <div className="right-shadow shadow"/>
-                    <div className="building-box">
+                    <div style={{transform: `translateY(${this.state.leftImgTrans}px)`}} className="building-box">
                         <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos="buildingShadowSlide"  className="building-shadow" data-aos-once='true'/>
                         <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos-delay="500" data-aos="buildingImgSlide" data-aos-once='true' className="building-img" style={{backgroundImage: `url(${centerImg})`}} alt="Building View From Water"/>
                     </div>
-                    <div className="steak-box">
+                    <div style={{transform: `translateY(${this.state.rightImgTrans}px)`}} className="steak-box">
                         <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos="steakShadowSlide"  className="steak-shadow" data-aos-once='true'/>
                         <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos-delay="500" data-aos="steakImgSlide" data-aos-once='true' className="steak-img" style={{backgroundImage: `url(${parSteak})`}} alt="Juicy Garnished Steak"/>
                     </div>
@@ -46,4 +66,10 @@ class Paradise extends Component{
     }
 }
 
-export default Paradise
+function mapStateToProps(state){
+    return{
+        yOffset: state.yOffset
+    }
+}
+
+export default connect(mapStateToProps)(Paradise)
