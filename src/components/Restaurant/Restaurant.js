@@ -52,12 +52,8 @@ class Restaurant extends Component {
    updateWidth(){
        // alert('WHAT ARE YOU DOINGGGG')
        this.setState({
-
            vidWidth: window.innerWidth - 80,
            vidHeight: (window.innerWidth - 80) * (0.5625)
-
-     
-
        })
    }
 
