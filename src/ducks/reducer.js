@@ -16,6 +16,7 @@ const initialState = {
     adultGuests: 1,
     childGuests: 0,
     infantGuests: 0,
+    totalGuests:1,
     arrivalDate: Date.now(),
     departureDate: Date.now() + 604800000,
     waiting: false,
@@ -35,6 +36,8 @@ const TRANSLATE = 'TRANSLATE'
 const UPDATE_Y_OFFSET = 'UPDATE_Y_OFFSET'
 const OPEN_INFO_MODAL = 'OPEN_INFO_MODAL'
 const CLOSE_INFO_MODAL = 'CLOSE_INFO_MODAL'
+const UPDATE_OCC_COUNT = 'UPDATE_OCC_COUNT'
+
 
 export function getUser(){
     let userData = axios.get('/auth/me').then( res => {
@@ -139,6 +142,14 @@ export function selectCondo(name, id){
     }
 }
 
+export function handleOccUpdate(adultGuests, childGuests, infantGuests, totalGuests){
+
+    return{
+        type:UPDATE_OCC_COUNT,
+        payload: {adultGuests, childGuests, infantGuests, totalGuests}
+    }
+}
+
 export default function(state = initialState, action){
     console.log('reducer been hit yo', action)
     switch(action.type){
@@ -167,7 +178,14 @@ export default function(state = initialState, action){
         case OPEN_INFO_MODAL:
             return { ...state, infoModalOpen: true }
         case CLOSE_INFO_MODAL:
-            return{...state, infoModalOpen:false}
+            return{ ...state, infoModalOpen:false}
+        case UPDATE_OCC_COUNT:
+            return{ ...state,
+                adultGuests: action.payload.adultGuests,
+                childGuests: action.payload.childGuests,
+                infantGuests: action.payload.infantGuests,
+                totalGuests: action.payload.totalGuests
+            }
         default:
             return state
     }

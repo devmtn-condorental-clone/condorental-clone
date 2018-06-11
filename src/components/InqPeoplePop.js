@@ -2,11 +2,14 @@ import React from 'react';
 import Popover from 'material-ui/Popover/Popover';
 import { MenuItem } from 'material-ui/Menu';
 import '../style/inquiryForm.css';
-import '../style/inqpeople.css'
+import '../style/inqpeople.css';
+import { connect } from 'react-redux';
+import { handleOccUpdate } from '../ducks/reducer';
 
 
 
-export default class PopoverExampleConfigurable extends React.Component {
+
+class InqPeoplePop extends React.Component {
 
   constructor(props) {
     super(props);
@@ -16,12 +19,11 @@ export default class PopoverExampleConfigurable extends React.Component {
       popOverOpen: false,
       inputTextInfant:', ',
       inputTextAdults: '',
-      adultCount: 1,
-      childCount:0,
-      infantCount: 0,
-      totalCount:1,
+      adultCount: props.adultGuests,
+      childCount:props.childGuests,
+      infantCount: props.infantGuests,
+      totalCount:props.totalGuests,
       error:'',
-      open: false,
       anchorOrigin: {
         horizontal: 'left',
         vertical: 'bottom',
@@ -43,6 +45,8 @@ export default class PopoverExampleConfigurable extends React.Component {
   }
 
   saveRoomInf(){
+    let { adultCount, childCount, infantCount, totalCount} = this.state
+    this.props.handleOccUpdate(adultCount, childCount, infantCount, totalCount)
     if(this.state.infantCount === 1){
       this.setState({
           inputTextInfant: '1 Infant'
@@ -137,14 +141,14 @@ export default class PopoverExampleConfigurable extends React.Component {
     // This prevents ghost click.
     event.preventDefault();
     this.setState({
-      open: true,
+      popOverOpen: true,
       anchorEl: event.currentTarget,
     });
   };
 
   handleRequestClose = () => {
     this.setState({
-      open: false,
+      popOverOpen: false,
     });
   };
 
@@ -168,7 +172,6 @@ export default class PopoverExampleConfigurable extends React.Component {
 
   
   render() {
-    
     return (
       <div className="people-pop-input-text" disabled  onClick={()=>this.setState({
         popOverOpen:true
@@ -181,6 +184,7 @@ export default class PopoverExampleConfigurable extends React.Component {
             width: '530px'
           }}
           autoWidth={true}
+          useLayerForClickAway
           open={this.state.popOverOpen}
           anchorEl={this.state.anchorEl}
           anchorOrigin={this.state.anchorOrigin}
@@ -254,3 +258,12 @@ export default class PopoverExampleConfigurable extends React.Component {
     );
   }
 }
+function mapStateToProps(state){
+  return{
+    adultGuests: state.adultGuests ,
+    childGuests: state.childGuests,
+    infantGuests: state.infantGuests ,
+    totalGuests: state.totalGuests,
+  }
+}
+export default connect(mapStateToProps,{ handleOccUpdate })(InqPeoplePop)

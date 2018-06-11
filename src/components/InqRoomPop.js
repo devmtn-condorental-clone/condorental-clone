@@ -2,10 +2,12 @@ import React from 'react';
 import Popover from 'material-ui/Popover/Popover';
 import {Menu, MenuItem} from 'material-ui/Menu';
 import '../style/inquiryForm.css';
+import { connect } from 'react-redux';
+import { getCondos } from '../ducks/reducer';
 
 
 
-export default class PopoverExampleConfigurable extends React.Component {
+class InqRoomPop extends React.Component {
 
   constructor(props) {
     super(props);
@@ -23,6 +25,10 @@ export default class PopoverExampleConfigurable extends React.Component {
         vertical: 'top',
       },
     };
+  }
+
+  componentWillMount(){
+    this.props.getCondos()
   }
 
   handleClick = (event) => {
@@ -59,7 +65,14 @@ export default class PopoverExampleConfigurable extends React.Component {
   };
 
   render() {
-    return (
+   const condoList = this.props.condos.map((element, index)=>{
+     return(
+      <Menu style={{width:'530px'}}>
+      <MenuItem key={index} value={`${element.name}`} primaryText={`${element.name}`} /></Menu>
+     )
+   })
+   
+   return (
       <div>
         <input className="inquiry-input-left"
           onClick={this.handleClick}
@@ -77,19 +90,17 @@ export default class PopoverExampleConfigurable extends React.Component {
           anchorOrigin={this.state.anchorOrigin}
           targetOrigin={this.state.targetOrigin}
           onRequestClose={this.handleRequestClose}
+          
         >
-          <Menu style={{
-            width:'530px'
-          }}>
-            <MenuItem value={"Garden Secret"} primaryText="Garden Secret" />
-            <MenuItem value={"Ortensia Love"} primaryText="Ortensia Love" />
-            <MenuItem value={"Precious Moments"} primaryText="Precious Moments" />
-            <MenuItem value={"Jasmin Lush"} primaryText="Jasmin Lush" />
-            <MenuItem value={"Lavander Touch" } primaryText="Lavander Touch" />
-            <MenuItem value={"Touch of Infinity"} primaryText="Touch of Infinity" />
-          </Menu>
+        {condoList}
         </Popover>
       </div>
     );
   }
 }
+function mapStateToProps(state){
+  return{
+    condos: state.condos
+  }
+}
+export default connect(mapStateToProps, {getCondos})(InqRoomPop)
