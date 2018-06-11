@@ -41,10 +41,16 @@ class HeaderModal extends Component {
                 {this.state.modalOpen ?
                     <div onClick={() => { this.closeModal() }} id="modalBtn" className="menu-button2">
 
-                        {this.state.modalOpen ? 'CLOSE' : 'MENU'}</div> :
+                        {this.state.modalOpen ? 'CLOSE' : 'MENU'}
+                        {/* <span className="close-x-animation"></span> */}
+                        </div> :
                     <div onClick={() => { this.openModal() }} id="modalBtn" className="menu-button">
 
-                        {this.state.modalOpen ? 'CLOSE' : 'MENU'}</div>
+                        {this.state.modalOpen ? 'CLOSE' : 'MENU'}
+                        <span className="ham-container">
+                            <span className="hamburger"></span>
+                        </span>
+                    </div>
 
                 }
 
