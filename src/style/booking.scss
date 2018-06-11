@@ -34,13 +34,9 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
         font-size:15px
     }
     .booking-comp{
-    // transform: translateZ(-5px) scale(6);
     position: absolute;
-    // top: -18vh;
-    left: 0;
-    margin: 0 1.3%;
-    width: 97.4%;
-    height: 13em;
+    // width: 97.4%;
+    height: 12.6875em;
     background-color: white;
     z-index: 5;
     box-shadow: 0 18px 35px rgba(50,50,93,0.1), 0 8px 15px rgba(0,0,0,0.07);
@@ -52,6 +48,7 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
         flex-direction: column;
         align-items: center;
         color: #7f7c7f;
+        width: 25%;
         h4{
             font-size: 1.0625em;
             font-weight: 400;
@@ -164,9 +161,11 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
     .btn-container{
         cursor: initial;
         width: 25%;
-        justify-content: center;
+        justify-content: space-between;
+        padding: 2rem;
         .large-btn{
-            margin: 0.5em;
+            // margin: 0.75em 0;
+            width: 100%;
         }
         .choose-apt:hover{
             color: white;
@@ -180,8 +179,8 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
         }
         .inquire-now-container{
             position: relative;
-            width: 18rem;
-            margin: 0.5em;
+            width: 100%;
+            // margin: 0.5em;
             height: 62px;
             overflow-y: hidden;
             .inquire-now{
@@ -225,6 +224,159 @@ body>div>div>div>div>div>div>div>div>div>button:nth-child(1){
             }
             .inquire-now:hover{
                 background-color: $goldyLox;
+            }
+        }
+    }
+}
+@media (min-width: 1480px){
+    .booking-comp{
+        left: calc((100vw - 1480px)/2);
+        width: calc(100% - (100vw - 1480px));
+    }
+}
+@media (max-width: 1480px){
+    .booking-comp{
+        left: 0;
+        right: 0;
+        // width: 100%
+    }
+}
+@media (max-width: 1400px){
+    .booking-comp{
+        .booking-section.arrival-date, .booking-section.departure-date, .booking-section.guests{
+            width: 20%;
+        }
+        .btn-container{
+            width: 40%;
+        }
+        .booking-section.departure-date{
+            left: 20%;
+        }
+        .booking-section.guests{
+            left: 40%;
+        }
+    }
+}
+@media (max-width: 1069px){
+    .booking-comp{
+        box-shadow: none;
+        .booking-section{
+            &.arrival-date>div>div>h4, &.departure-date>div>div>h4{
+                top: 4.25rem!important;
+            }
+            .day, .guestnum{
+                font-size: 3.4375rem;
+            }
+            .month-year{
+                .month{
+                    font-size: 1.1875rem;
+                }
+                .year{
+                    font-size: 1.1875rem;
+                }
+            }
+            &.guests>h4{
+                padding-top: 2.0625rem;
+            }
+        }
+    }
+}
+@media (max-width: 899px){
+    .booking-comp{
+        box-shadow: 0 18px 35px rgba(50,50,93,0.1), 0 8px 15px rgba(0,0,0,0.07);
+        height: 21rem;
+        .booking-section.arrival-date, .booking-section.departure-date, .booking-section.guests{
+            height: 10.25rem!important;
+            width: 33.33%;
+            &>div>div>h4{
+                top: 3.28rem!important;
+            }
+            .day, .guestnum{
+                font-size: 3.4375rem;
+            }
+            .month-year{
+                .month{
+                    font-size: 1.1875rem;
+                }
+                .year{
+                    font-size: 1.1875rem;
+                }
+            }
+            &::after{
+                height: 45%;
+                top: 30%
+            }
+        }
+        .booking-section.departure-date{
+            left: 33.33%;
+        }
+        .booking-section.guests{
+            left: 66.66%;
+            h4{
+                position: relative;
+                color: white;
+            }
+            h4::after{
+                position: absolute;
+                color: #7f7c7f;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                padding: 2.25rem 1rem 1rem 1.25rem;
+                content: "GST.";
+            }
+        }
+        .btn-container{
+            padding: 0 1rem 2rem 1rem;
+            margin-top: 10.25rem;
+            width: 100%;
+            height: 10.75rem;
+        }
+    }
+}
+
+@media (max-width: 600px){
+    .booking-comp{
+        box-shadow: 0 18px 35px rgba(50,50,93,0.1), 0 8px 15px rgba(0,0,0,0.07);
+        height: 21rem;
+        .booking-section.arrival-date, .booking-section.departure-date{
+            width: 40%;
+        }
+        .booking-section.departure-date{
+            left: 40%;
+        }
+        .booking-section.arrival-date, .booking-section.departure-date, .booking-section.guests{
+            height: 10.25rem!important;
+            &>div>div>h4{
+                font-size: 0.9275rem;
+                top: 3.28rem!important;
+            }
+            .day, .guestnum{
+                font-size: 3.4375rem;
+            }
+            .month-year{
+                .month{
+                    font-size: 1.1875rem;
+                }
+                .year{
+                    font-size: 1.1875rem;
+                }
+            }
+            &::after{
+                height: 45%;
+                top: 30%
+            }
+        }
+        .booking-section.departure-date{
+            left: 40%;
+        }
+        .booking-section.guests{
+            width: 20%;
+            left: 80%;
+            h4{
+                font-size: 0.9275rem;
+                padding-top: 1.92rem;
             }
         }
     }

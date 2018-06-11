@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import LargeBtn from './LargeBtn'
-import { AccountCircle } from '@material-ui/icons'
+// import { AccountCircle } from '@material-ui/icons'
 import { getUser, translate, updateYOffset } from '../ducks/reducer'
 import { connect } from 'react-redux'
 

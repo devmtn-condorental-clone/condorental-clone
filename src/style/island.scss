@@ -54,7 +54,7 @@ $font: 'Abhaya Libre';
             text-transform: uppercase;
             line-height: 28px;
             padding-bottom: 10px;
-            font-weight: 800;
+            font-weight: 900;
         }
     }
     p:nth-child(2){
@@ -158,5 +158,29 @@ $font: 'Abhaya Libre';
         .island_tips, .island_food, .island_things{
             height: 600px;
         }
+    }
+}
+
+@media screen and (max-width: 1069px){
+    .Island_container{
+        height: 1215px;
+        .island_heading{
+            padding-left: 5.5em;
+        }
+        .island_news{
+            height: 915px;
+            display: flex;
+            flex-direction: column;
+            .island_tips, .island_food, .island_things{
+                width: 100%;
+                padding: 28px;
+                h4{
+                    font-size: 27px;
+                }
+            }
+        }
+    }
+    .island_heading::before{
+        left: 62px;
     }
 }
