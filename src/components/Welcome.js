@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import LargeBtn from './LargeBtn'
-import { AccountCircle } from '@material-ui/icons'
+// import { AccountCircle } from '@material-ui/icons'
 import { getUser, translate, updateYOffset } from '../ducks/reducer'
 import { connect } from 'react-redux'
 
@@ -36,14 +36,15 @@ class Welcome extends Component{
         const { language } = this.props
         return(
             <div className="welcome-comp">
-                <a  href={process.env.REACT_APP_LOGIN}>
-                    <AccountCircle className='login'/> 
+                    {/* <AccountCircle className='login'/> 
                     <span className='login_text'> Login </span>
-                </a>
+                </a> */}
                     <section className="welcome-head">
                         <h1 ><span className="pink-pinetree">Pinetree</span> {language === 'Foreign' ? 'Boutique Apartments' : 'Bougie Condos'}</h1>
                         <p >We Create Memories That Last Forever.</p>
-                        <LargeBtn styleClass="experience-btn">EXPERIENCE PINETREE</LargeBtn>
+                        <a  href={process.env.REACT_APP_LOGIN}>
+                            <LargeBtn styleClass="experience-btn">EXPERIENCE PINETREE</LargeBtn>
+                        </a>
                     </section>
                     <div className="upper-right">
                         <p>Switch to</p>

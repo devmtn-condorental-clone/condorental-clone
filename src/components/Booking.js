@@ -27,9 +27,9 @@ class Booking extends Component {
         let arrive = new Date(arrivalDate)
         let depart = new Date(departureDate)
         return (
-                <section style={{top: `calc(100vh - ${Math.floor(this.state.transY)}px)`}} className="booking-comp">
+                <section style={{top: `calc(100vh + ${window.innerWidth < 1070 ? '85px' : '0px'} - ${Math.floor(this.state.transY)}px)`}} className="booking-comp">
                     {/* <CondoSelectModal /> */}
-                    <DatePicker okLabel={<span>Ok</span>} className="arrival-date booking-section"  style={{width: "25%"}}>
+                    <DatePicker okLabel={<span>Ok</span>} className="arrival-date booking-section">
                         <div >
                             <h4>ARRIVAL</h4>
                             <div className="date">
@@ -42,7 +42,7 @@ class Booking extends Component {
                         </div>
                     </DatePicker >
                     <div className="thin-grey" />
-                    <DatePicker style={{width: "25%"}} className="booking-section departure-date">
+                    <DatePicker className="booking-section departure-date">
                         <div >
                             <h4>DEPARTURE</h4>
                             <div className="date">
@@ -63,7 +63,13 @@ class Booking extends Component {
                         <LargeBtn arg1={condosModalOpen} handleClick={toggleCondoModal.bind(this)} styleClass="choose-apt">{condoSelected.name ? condoSelected.name : (language === 'Foreign' ? 'CHOOSE APARTMENT' : 'CHOOSE CONDO')}</LargeBtn>
                         <div className={`inquire-now-container ${!condoSelected.name && 'disabled'}`}>
                             <LargeBtn styleClass={`inquire-now ${!condoSelected.name && 'disabled'}`}>INQUIRE NOW</LargeBtn>
-                            <div className="disabled-display"><span className="disabled-span">CHOOSE {language === 'Foreign' ? 'APPARTMENT' : 'CONDO'} FIRST</span></div>
+                            {
+                                condoSelected.length
+                                ?
+                                null
+                                :
+                                <div className="disabled-display"><span className="disabled-span">CHOOSE {language === 'Foreign' ? 'APPARTMENT' : 'CONDO'} FIRST</span></div>
+                            }
                         </div>
                     </div>
                 </section>

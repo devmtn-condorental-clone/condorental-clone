@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import '../style/inquiryForm.css';
 import Logo from '../style/images/paradise_background_p.png';
 import LargeButton from '../components/LargeBtn';
 import InqPeoplePop from '../components/InqPeoplePop';
 import InqRoomPop from '../components/InqRoomPop';
 import DatePicker from 'material-ui/DatePicker';
+import { openInfoModal, closeInfoModal } from '../ducks/reducer';
 
 
 
@@ -13,28 +15,15 @@ class InquiryForm extends Component {
         super(props)
 
         this.state = {
-            modalOpen: false,
             value: 1
         }
-        this.openModal = this.openModal.bind(this)
-        this.closeModal = this.closeModal.bind(this)
+      
 
 
 
 
     }
 
-
-
-    openModal() {
-        this.setState({ modalOpen: true })
-    }
-
-    closeModal() {
-        this.setState({ modalOpen: false })
-    }
-
-    handleChange = (event, index, value) => this.setState({ value });
 
 
     render() {
@@ -43,11 +32,11 @@ class InquiryForm extends Component {
             <div className="inquiry-container">
 
                 <div className="inquiry-form">
-                    <div id="inquireModal" className={"inquiry-form-" + (this.state.modalOpen ? 'open' : 'closed')}>
+                    <div id="inquireModal" className={"inquiry-form-" + (this.props.infoModal ? 'open' : 'closed')}>
                         <div className="inquiry-form-container">
                             <img src={Logo} className="inquiry-background-logo" alt="logo" />
 
-                            <div onClick={() => { this.closeModal() }} className="inq-cls-btn">X</div>
+                            <div onClick={() => {this.props.closeInfoModal()}} className="inq-cls-btn">X</div>
 
                             <div className="inquiry-title">Inquiry form</div>
 
@@ -113,4 +102,10 @@ class InquiryForm extends Component {
         )
     }
 }
-export default InquiryForm
+function mapStateToProps(state){
+    return{
+
+        infoModal: state.infoModalOpen
+    }
+}
+export default connect(mapStateToProps, {closeInfoModal, openInfoModal})(InquiryForm)
