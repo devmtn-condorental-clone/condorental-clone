@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import YouTube from 'react-youtube';
 import {connect} from 'react-redux';
 
+
 class Restaurant extends Component {
    constructor(props){
        super(props)
@@ -51,8 +52,8 @@ class Restaurant extends Component {
    updateWidth(){
        // alert('WHAT ARE YOU DOINGGGG')
        this.setState({
-           vidWidth: window.innerWidth -80,
-           vidHeight: (window.innerWidth -80) * (0.5625)
+           vidWidth: window.innerWidth - 80,
+           vidHeight: (window.innerWidth - 80) * (0.5625)
        })
    }
 

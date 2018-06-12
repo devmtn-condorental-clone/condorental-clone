@@ -4,6 +4,7 @@ import {Menu, MenuItem} from 'material-ui/Menu';
 import '../style/inquiryForm.css';
 import { connect } from 'react-redux';
 import { getCondos } from '../ducks/reducer';
+import { selectCondo } from '../ducks/reducer'
 
 
 
@@ -31,6 +32,10 @@ class InqRoomPop extends React.Component {
     this.props.getCondos()
   }
 
+  
+  handleSelectedCondo(name,id){
+    this.props.selectCondo(name,id)
+  }
   handleClick = (event) => {
     // This prevents ghost click.
     event.preventDefault();
@@ -68,7 +73,7 @@ class InqRoomPop extends React.Component {
    const condoList = this.props.condos.map((element, index)=>{
      return(
       <Menu style={{width:'530px'}}>
-      <MenuItem key={index} value={`${element.name}`} primaryText={`${element.name}`} /></Menu>
+      <MenuItem onClick={()=>{this.handleSelectedCondo(element.name,element.id)}} key={index} value={`${element.name}`} primaryText={`${element.name}`} /></Menu>
      )
    })
    
@@ -100,7 +105,8 @@ class InqRoomPop extends React.Component {
 }
 function mapStateToProps(state){
   return{
-    condos: state.condos
+    condos: state.condos,
+    selectedCondo: state.condoSelected
   }
 }
-export default connect(mapStateToProps, {getCondos})(InqRoomPop)
+export default connect(mapStateToProps,{selectCondo, getCondos})(InqRoomPop)
