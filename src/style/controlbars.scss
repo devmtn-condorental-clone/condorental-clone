@@ -1,0 +1,70 @@
+@import "variables.scss"; 
+.video_section{
+    cursor: pointer;
+}
+@mixin control-btn($left: 0, $bgcolor: #fff){
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: $bgcolor;
+    position: absolute;
+    bottom: -3px;
+    &:active{
+        transform: scale(1.125);
+    }
+}
+$controlbg: #ffffff65;
+.video_section .video-controls{
+    width: 100%;
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 92px;
+    padding: 3rem 1rem 1rem 1rem;
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5));
+    display: flex;
+    align-items: center;
+    .control-bar, span.current-time-display{
+        margin: 0 0.5rem;
+    }
+    .control-bar.video-time{
+        border-radius: 10px;
+        height: 10px;
+        width: 70vw;
+        position: relative;
+        background-color: $controlbg;
+        .primary-bar.current-time{
+            border-radius: 10px;
+            height: 10px;
+            background-color: $goldyLox;
+        }
+        .secondary.current-buffer{
+            border-radius: 10px;
+            background-color: #ffffff77;
+        }
+        .control-btn{
+            @include control-btn()
+        }
+    }
+    .current-time-display{
+        color: #fff;
+        font-size: 0.875rem;
+        width: 2.25rem;
+    }
+    .control-bar.video-volume{
+        position: relative;
+        width: 6.25rem;
+        height: 10px;
+        border-radius: 10px;
+        background-color: $controlbg;
+        .primary-bar.current-volume{
+            background-color: $goldyLox;
+            border-radius: 10px;
+            height: 10px;
+        }
+        .control-btn{
+            @include control-btn()
+        }
+    }
+}
