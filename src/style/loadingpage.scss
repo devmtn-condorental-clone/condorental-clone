@@ -13,6 +13,7 @@
     opacity:1;
     position:fixed;
     transition: 1s;
+    transition-delay: .5s;
     z-index: 4;
     left: -100vw;
     top:0;
@@ -23,6 +24,7 @@
 }
 
 .loading-box{
+    position: absolute;
     height:150px;
     width: 130px;
     margin-right: -120px;
@@ -33,6 +35,9 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    // animation: fadeInBox 1.5s;
+    animation: fadeOutBox 1.5s;
+    // animation: name duration timing-function delay iteration-count direction fill-mode;
 }
 
 
@@ -46,6 +51,55 @@
     align-content: center;
 }
 
+@keyframes fadeOutBox{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 1;
+    }
+    from{
+        height: 150px;
+    }
+    to{ height: 0px;}
+    from{
+        margin-top: 1px;
+    }
+    to{
+        margin-top: 90px;
+    }
+    }
+
+    @keyframes fadeInBox{
+        from{
+            opacity: 1;
+        }
+        to{
+            opacity: 1;
+        }
+        from{
+            height: px;
+        }
+        to{ height: 100px;}
+        from{
+            margin-top: -60px;
+        }
+        to{
+            margin-top: 90px;
+        }
+    }
+
+
 .loading-logo{
     height:140px;
+    animation: fadeInLogo duration 1s
+}
+
+@keyframes fadeInLogo{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
