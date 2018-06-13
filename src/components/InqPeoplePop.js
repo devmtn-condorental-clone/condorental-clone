@@ -173,10 +173,10 @@ class InqPeoplePop extends React.Component {
   
   render() {
     return (
-      <div className="people-pop-input-text" disabled  onClick={()=>this.setState({
+      <div className="people-pop-input-text"   onClick={()=>this.setState({
         popOverOpen:true
       })}> 
-        <input value={`${this.state.totalCount} Guest ${this.state.inputTextInfant}`} className="inquiry-input-left"
+        <input className="inquiry-input-left"
           onClick={this.handleClick}
         />
         <Popover

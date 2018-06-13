@@ -10,7 +10,7 @@ const initialState = {
     user: {},
     condos: [],
     condosModalOpen: false,
-    infoModalOpen:false,
+    infoModalOpen:true,
     condoImg: '',
     condoSelected: {},
     adultGuests: 1,

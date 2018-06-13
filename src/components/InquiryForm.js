@@ -6,7 +6,7 @@ import LargeButton from '../components/LargeBtn';
 import InqPeoplePop from '../components/InqPeoplePop';
 import InqRoomPop from '../components/InqRoomPop';
 import DatePicker from 'material-ui/DatePicker';
-import { openInfoModal, closeInfoModal } from '../ducks/reducer';
+import { openInfoModal, closeInfoModal, handleOccUpdate, selectCondo } from '../ducks/reducer';
 
 
 
@@ -17,7 +17,7 @@ class InquiryForm extends Component {
         this.state = {
             value: 1
         }
-      
+
 
 
 
@@ -27,6 +27,7 @@ class InquiryForm extends Component {
 
 
     render() {
+        console.log(this.props, 'INQ FORM')
         return (
 
             <div className="inquiry-container">
@@ -36,7 +37,7 @@ class InquiryForm extends Component {
                         <div className="inquiry-form-container">
                             <img src={Logo} className="inquiry-background-logo" alt="logo" />
 
-                            <div onClick={() => {this.props.closeInfoModal()}} className="inq-cls-btn">X</div>
+                            <div onClick={() => { this.props.closeInfoModal() }} className="inq-cls-btn">X</div>
 
                             <div className="inquiry-title">Inquiry form</div>
 
@@ -51,9 +52,9 @@ class InquiryForm extends Component {
                                 <div className="inquiry-input-lable-left">Departure</div><div className="inquiry-input-lable-right">Arrival</div>
                             </div>
                             <div className="input-cal-container">
-                                <DatePicker 
-                                fullWidth={true}
-                                className="inquiry-input-left-cal" />
+                                <DatePicker
+                                    fullWidth={true}
+                                    className="inquiry-input-left-cal" />
 
 
                                 <DatePicker className="inquiry-input-right-cal" />
@@ -61,18 +62,39 @@ class InquiryForm extends Component {
 
                             </div>
                             <div className="6">
-                                <div className="inquiry-input-lable-left">Apartment</div><div className="inquiry-input-lable-right">Guest</div>
+                                <div className="inquiry-input-lable-left">Apartment
+                                
+                                <span className="apartment-input">
+                                {this.props.selectedCondo.name === undefined ?
+                                ' ':
+                                `${this.props.selectedCondo.name}`}
+                                </span>
+
+                                </div><div className="inquiry-input-lable-right">Guest
+
+                                <span className="guest-input">
+                                        {this.props.adultGuests === 1 ?
+                                        `${this.props.adultGuests} Guest` :
+                                        `${this.props.adultGuests} Guests`}
+                                        {this.props.infantGuests >= 1 ?
+                                        `, ${this.props.infantGuests} Infants`:
+                                        ''
+                                        }
+                                        
+                                        
+                                        </span>
+                                </div>
                             </div>
                             <div className="input-cal-container">
                                 <div className="inquiry-input-left">
-                                <InqPeoplePop/>   
+                                    <InqPeoplePop />
                                 </div>
-                                
 
 
-                               <div className="inquiry-input-right">
-                               <InqRoomPop/>
-                                </div> 
+
+                                <div className="inquiry-input-right">
+                                    <InqRoomPop />
+                                </div>
 
 
                             </div>
@@ -102,10 +124,14 @@ class InquiryForm extends Component {
         )
     }
 }
-function mapStateToProps(state){
-    return{
+function mapStateToProps(state) {
+    return {
 
-        infoModal: state.infoModalOpen
+        infoModal: state.infoModalOpen,
+        selectedCondo: state.condoSelected,
+        adultGuests: state.adultGuests,
+        childGuests: state.childGuests,
+        infantGuests: state.infantGuests
     }
 }
-export default connect(mapStateToProps, {closeInfoModal, openInfoModal})(InquiryForm)
+export default connect(mapStateToProps, { closeInfoModal, openInfoModal, handleOccUpdate, selectCondo })(InquiryForm)

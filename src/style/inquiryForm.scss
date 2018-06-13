@@ -97,6 +97,7 @@
     margin-top: -200px;
     height: 90vh;
     widows: 50vw;
+    z-index: -1;
    
 }
 
@@ -117,7 +118,11 @@
     border:solid 0.25px gray!important;
     height: 55px!important;
     width:530px!important;
-    padding-bottom: 50px!important;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    color: #30373f;
+    font-weight: 400;
     div{
         div{
             div{padding-left: 20px;
@@ -261,4 +266,36 @@
 }
 .inquiry-select-section{
     margin-left:-90px;
+}
+.guest-input{
+    margin-top: 5px;
+    display: block;
+    position: absolute;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: center;
+    z-index: 2;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    color: #30373f;
+    font-weight: 400;
+}
+.apartment-input{
+    margin-top: 50px;
+    display: block;
+    position: absolute;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: center;
+    z-index: 2;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    color: #30373f;
+    font-weight: 400;
 }
