@@ -1,7 +1,6 @@
 @import "variables.scss";
 @import "mixins.scss";
-$nvblu: #30373f;
-$gold: #C6AB8F;
+
 
 .quote_container{
     height: 195px;
@@ -16,7 +15,7 @@ $gold: #C6AB8F;
 .quote_container::before{
     content: "\201D";
     color: $gold;
-    font-family: 'Abhaya Libre';
+    font-family: $font;
     font-size: 10rem;
     position: absolute;
     left: 12rem;
@@ -25,10 +24,10 @@ $gold: #C6AB8F;
 .quote_container::after{
     content: "\201C";
     position: absolute;
-    font-family: 'Abhaya Libre';
+    font-family: $font;
     font-size: 10rem;
     right: 11rem;
-    color: #C6AB8F;
+    color: $gold;
     bottom: -153px;
 }
 
@@ -38,7 +37,7 @@ $gold: #C6AB8F;
     margin-right: auto;
     max-width: 1000px;
     h2{
-        font-family: 'Abhaya Libre';
+        font-family: $font;
         font-size: 49px;
         margin-bottom: 25px;
         margin-top: 8%;
@@ -54,8 +53,8 @@ $gold: #C6AB8F;
     }
     h5{
         font-size: 21px;
-        font-family: 'Abhaya Libre';
-        color: #cdb49a;
+        font-family: $font;
+        color: $darkgold;
         padding-top: 20px;
         font-weight: 900;
     }

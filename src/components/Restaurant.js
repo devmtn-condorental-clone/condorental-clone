@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import '../../style/restaurant.css';
-import steak from '../../style/images/amazing_restaurant_steak.jpg';
-import people from '../../style/images/amazing_restaurant_1.jpg';
-import lunch from '../../style/images/amazing_restaurant_2.jpg';
+import '../style/restaurant.css';
+import steak from '../style/images/amazing_restaurant_steak.jpg';
+import people from '../style/images/amazing_restaurant_1.jpg';
+import lunch from '../style/images/amazing_restaurant_2.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import YouTube from 'react-youtube';
