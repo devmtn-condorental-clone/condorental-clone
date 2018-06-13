@@ -204,7 +204,6 @@ button{
 
 }
 @media (max-width: 1400px){
-    .welcome-comp{
         .welcome-head{
             padding: 1.75rem;
             h1{
@@ -215,96 +214,90 @@ button{
             p{
                 font-size: 1.125rem;
             }
-        }
     }
-}
-@media (max-width: 1069px){
-    .welcome-comp{
-        .welcome-head{
-            padding: 1rem;
-            h1{
-                font-size: 4.875rem;
-                line-height: 4.6875rem;
-                margin-bottom: 1.75rem;
-            }
-        }
-    }
-}
 
-@media (max-width: 900px){
-    .welcome-comp{
-        .welcome-head{
-            width: 97%;
-            padding: 0.5rem;
-            h1{
-                font-size: 4.875rem;
-                line-height: 4.6875rem;
-                margin-bottom: 1.75rem;
+    @media (max-width: 1069px){
+            .welcome-head{
+                padding: 1rem;
+                h1{
+                    font-size: 4.875rem;
+                    line-height: 4.6875rem;
+                    margin-bottom: 1.75rem;
+                }
             }
         }
-        .upper-right{
-            display: none;
+        
+        @media (max-width: 900px){
+                .welcome-head{
+                    width: 97%;
+                    padding: 0.5rem;
+                    h1{
+                        font-size: 4.875rem;
+                        line-height: 4.6875rem;
+                        margin-bottom: 1.75rem;
+                    }
+                }
+                .upper-right{
+                    display: none;
+                }
         }
-    }
-}
-@media (max-width: 600px){
-    .welcome-comp{
-        .welcome-head{
-            padding: 1rem;
-            h1{
-                font-size: 3.875rem;
-                line-height: 3.75rem;
-                margin-bottom: 1.75rem;
+        @media (max-width: 600px){
+                .welcome-head{
+                    padding: 1rem;
+                    h1{
+                        font-size: 3.875rem;
+                        line-height: 3.75rem;
+                        margin-bottom: 1.75rem;
+                    }
+                }
+                .scroll-tag{
+                    display: none;
+                }
             }
         }
-        .scroll-tag{
-            display: none;
+        
+        .modal-container #modalBtn.menu-button:hover{
+            span.hamburger::before{
+                top: calc(50% - 0.3125rem);
+            }
+            span.hamburger::after{
+                top: calc(50% + 0.3125rem);
+            }
         }
+        .modal-container>#modalBtn.menu-button{
+            cursor: pointer;
+            padding-right: 41px;
+            span.hamburger{
+                width: 32px;
+                height: 1px;
+                background-color: $goldyLox;
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 4.25rem;
+                // z-index: 50;
+                cursor: pointer;
+                &::before, &::after{
+                    width: 32px;
+                    height: 0.5px;
+                    background-color: $goldyLox;
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 50;
+                    transition: all 0.2s ease-in-out;
+                }
+                &::after{
+                    height: 1px;
+                }
+            }
+            &:hover{
+                .ham-container>.hamburger::before{
+                    top: calc(50% - 0.3125rem);
+                }
+                .ham-container>.hamburger::after{
+                    top: calc(50% + 0.3125rem);
+                }
+            }
     }
-}
-
-.modal-container #modalBtn.menu-button:hover{
-    span.hamburger::before{
-        top: calc(50% - 0.3125rem);
-    }
-    span.hamburger::after{
-        top: calc(50% + 0.3125rem);
-    }
-}
-.modal-container>#modalBtn.menu-button{
-    cursor: pointer;
-    padding-right: 41px;
-    span.hamburger{
-        width: 32px;
-        height: 1px;
-        background-color: $goldyLox;
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 4.25rem;
-        // z-index: 50;
-        cursor: pointer;
-        &::before, &::after{
-            width: 32px;
-            height: 0.5px;
-            background-color: $goldyLox;
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 50;
-            transition: all 0.2s ease-in-out;
-        }
-        &::after{
-            height: 1px;
-        }
-    }
-    &:hover{
-        .ham-container>.hamburger::before{
-            top: calc(50% - 0.3125rem);
-        }
-        .ham-container>.hamburger::after{
-            top: calc(50% + 0.3125rem);
-        }
-    }
-}
