@@ -184,3 +184,49 @@ $font: 'Abhaya Libre';
         left: 62px;
     }
 }
+
+@media screen and (max-width: 899px){
+    .Island_container{
+        height: 1115px;
+        .island_heading{
+            height: 200px;
+            padding-left: 3rem;
+            padding-top: 4.5rem;
+        }
+        .island_heading::before {
+            left: 18px;
+        }
+        .island_news{
+            height: 915px;
+            .island_tips, .island_food, .island_things{
+                padding: 27px;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .Island_container{
+        height: 1145px;
+        .island_news{
+            height: 945px;
+        }
+    }
+}
+
+@media screen and (max-width: 375px){
+    .Island_container{
+        height: 1535px;
+        .island_heading{
+            padding-top: 3rem;
+        }
+        .island_heading::before{
+            height: 5.8rem;
+        }
+        .island_news{
+            height: 1335px;
+        }
+    }
+}

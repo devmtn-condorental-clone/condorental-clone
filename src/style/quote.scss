@@ -88,3 +88,42 @@ $gold: #C6AB8F;
         bottom: -165px;
     }
 }
+
+@media screen and (max-width: 899px){
+    .quote_container{
+        margin-bottom: 7rem;
+        margin-top: 0rem;
+        .quote{
+            width: 92%;
+        }
+    }
+    .quote_container::before{
+        left: .8rem;
+    }
+    .quote_container::after{
+        right: 1rem;
+    }
+}
+
+@media screen and (max-width: 375px){
+    .quote_container{
+        height: 405px;
+        margin-bottom: 9.5rem;
+        .quote{
+            width: 78%;
+            margin-top: 9rem;
+            h2{
+                font-size: 30px;
+            }
+            p{
+                font-size: 19px;
+            }
+        }
+    }
+    .quote_container::before{
+        top: 4.5rem;
+    }
+    .quote_container::after{
+        bottom: -11.5rem;
+    }
+}
