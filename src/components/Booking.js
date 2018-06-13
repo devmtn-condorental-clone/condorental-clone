@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import LargeBtn from './LargeBtn'
 import '../style/booking.css'
-// import CondoSelectModal from './CondoSelectModal'
 import { toggleCondoModal } from '../ducks/reducer'
 import { connect } from 'react-redux'
 import DatePicker from 'material-ui/DatePicker'
+import { openInfoModal } from '../ducks/reducer'
+import GuestsPicker from './GuestsPicker';
 
 class Booking extends Component {
     constructor(props){
@@ -55,20 +56,23 @@ class Booking extends Component {
                         </div>
                     </DatePicker>
                     <div className="thick-grey" />
-                    <div className="guests booking-section">
+                    {/* <div className="guests booking-section">
                         <h4>GUESTS</h4>
-                        <p className="guestnum">1</p>
-                    </div>
+                        <p className="guestnum">1</p> */}
+                        <GuestsPicker />
+                    {/* </div> */}
                     <div className="btn-container booking-section">
                         <LargeBtn arg1={condosModalOpen} handleClick={toggleCondoModal.bind(this)} styleClass="choose-apt">{condoSelected.name ? condoSelected.name : (language === 'Foreign' ? 'CHOOSE APARTMENT' : 'CHOOSE CONDO')}</LargeBtn>
-                        <div className={`inquire-now-container ${!condoSelected.name && 'disabled'}`}>
-                            <LargeBtn styleClass={`inquire-now ${!condoSelected.name && 'disabled'}`}>INQUIRE NOW</LargeBtn>
+                        <div className={`inquire-now-container`}>
+                            <LargeBtn handleClick={this.props.openInfoModal} styleClass={`inquire-now ${!condoSelected.name && 'disabled'}`}>INQUIRE NOW</LargeBtn>
                             {
-                                condoSelected.length
+                                condoSelected.name
                                 ?
                                 null
                                 :
-                                <div className="disabled-display"><span className="disabled-span">CHOOSE {language === 'Foreign' ? 'APPARTMENT' : 'CONDO'} FIRST</span></div>
+                                <div className="disabled-display">
+                                    <span className="disabled-span">FIRST CHOOSE {language === 'Foreign' ? 'APPARTMENT' : 'CONDO'}</span>
+                                </div>
                             }
                         </div>
                     </div>
@@ -89,4 +93,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, { toggleCondoModal })(Booking)
+export default connect(mapStateToProps, { toggleCondoModal, openInfoModal })(Booking)

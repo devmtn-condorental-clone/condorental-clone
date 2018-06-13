@@ -273,3 +273,73 @@ $font: 'Abhaya Libre';
         }
     }
 }
+
+@media screen and (max-width: 899px){
+    .Footer_container{
+        height: 1066px;
+        .footer_book{
+            height: 214px;
+            .footer_title{
+                display: block;
+                .title{
+                    padding-top: 2rem;
+                    padding-left: 20px;
+                }
+            }
+            .footer_title::before{
+                left: 19px;
+                margin-top: 2rem;
+            }
+            .footer_button{
+                margin-left: calc(50% - 144px);
+                margin-top: 2.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .Footer_container{
+        .footer_pic{
+            height: 657px;
+        }
+    }
+}
+
+@media screen and (max-width: 375px){
+    .Footer_container{
+        height: 1141px;
+        .footer_book{
+            height: 259px;
+            .footer_title{
+                .title{
+                    padding-top: 2.8rem;
+                }
+            }
+            .footer_title::before{
+                margin-top: 2.5rem;
+                height: 5rem;
+                background-color: #f2ece5;
+            }
+        }
+        .footer_credits{
+            height: 225px;
+            text-align: center;
+            .footer_bottom{
+                p:nth-child(1){
+                    width: 91%;
+                    line-height: 32px;
+                    padding-top: 2rem;
+                    padding-bottom: 1rem;
+                }
+                p:nth-child(3){
+                    display: flex;
+                    justify-content: center;
+                    .iconis{
+                        padding-left: 10px;
+                    }
+                }
+            }     
+        }
+    }
+}
