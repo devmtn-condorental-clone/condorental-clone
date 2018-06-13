@@ -1,8 +1,4 @@
-@mixin flexify($dir) {
-    
-  }
-$nvblu: #30373f;
-$goldyLox: #ab8c6b;
+@import "variables", "mixins";
 body>div>div>div>div>div>div>div>div>div>div[direction="up"]>div{
     // left: -1000vw;
     text-align: center;
