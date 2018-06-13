@@ -1,9 +1,6 @@
 @import "variables.scss";
 @import "mixins.scss";
-$nvblu: #30373f;
-$gold: #C6AB8F;
-$darkgold: #ab8c6b;
-$font: 'Abhaya Libre';
+
 
 .Footer_container{
     height: 55.4rem;
@@ -169,7 +166,7 @@ $font: 'Abhaya Libre';
     .footer_credits{
         height: 4.714rem;
         width: 100%;
-        background: #f2ece5;
+        background: $shadows;
         position: relative;
         .footer_bottom{
             display: flex;
