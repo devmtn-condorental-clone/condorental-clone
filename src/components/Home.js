@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Restaurant from './Restaurant/Restaurant';
+import Restaurant from './Restaurant';
 import Welcome from './Welcome';
 import Header from './Header';
 import Booking from './Booking'

@@ -1,9 +1,6 @@
 @import "variables.scss";
 @import "mixins.scss";
-$nvblu: #30373f;
-$gold: #C6AB8F;
-$darkgold: #ab8c6b;
-$font: 'Abhaya Libre';
+
 
 .Restaurant_container{
     height: 1961px;
@@ -21,7 +18,7 @@ $font: 'Abhaya Libre';
     .title_amazing{
         color: $nvblu;
         font-size: 49px;
-        font-family: 'Abhaya Libre';
+        font-family: $font;
         margin-left: 27px;
         margin-top: -10px;
     }
@@ -33,7 +30,7 @@ $font: 'Abhaya Libre';
         margin-left: 27px;
         line-height: 29px;
         .amazing_read_more{
-           color: #ab8c6b;
+           color: $darkgold;
            margin-top: 13px;
            font-weight: 600;
         }
@@ -44,7 +41,7 @@ $font: 'Abhaya Libre';
    content: '';
    position: absolute;
    width: 2px;
-   background-color: #ab8c6b;
+   background-color: $darkgold;
    height: 17rem;
 }
 
@@ -131,7 +128,7 @@ $font: 'Abhaya Libre';
         right: 0;
         height: 745px;
         z-index: 5;
-        background: #f2ece5;
+        background: $shadows;
             &.aos-animate{
                 animation: slideDown 2s cubic-bezier(0.23,1,0.32,1);
             }
@@ -195,7 +192,7 @@ $font: 'Abhaya Libre';
         // right: 0;
         height: 22rem;
         z-index: 5;
-        background: #f2ece5;
+        background: $shadows;
             &.aos-animate{
                 animation: slideDownTwo 2s cubic-bezier(0.23,1,0.32,1);
             }
@@ -258,7 +255,7 @@ $font: 'Abhaya Libre';
         top: 22rem;
         height: 22rem;
         z-index: 5;
-        background: #f2ece5;
+        background: $shadows;
             &.aos-animate{
                 animation: slideDownThree 2s cubic-bezier(0.23,1,0.32,1);
             }
@@ -281,7 +278,7 @@ $font: 'Abhaya Libre';
     position: absolute;
     width: 500px;
     height: 400px;
-    background: #f2ece5;
+    background: $shadows;
     left: 17%;
     top: 33rem;
     z-index: -1;
@@ -291,7 +288,7 @@ $font: 'Abhaya Libre';
    position: absolute;
    width: 432px;
    height: 300px;
-   background: #f2ece5;
+   background: $shadows;
    right: 0;
    top: 34rem;
    z-index: -1;
