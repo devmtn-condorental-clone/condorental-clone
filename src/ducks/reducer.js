@@ -10,7 +10,7 @@ const initialState = {
     user: {},
     condos: [],
     condosModalOpen: false,
-    infoModalOpen:true,
+    infoModalOpen: false,
     condoImg: '',
     condoSelected: {},
     adultGuests: 1,
@@ -151,7 +151,7 @@ export function handleOccUpdate(adultGuests, childGuests, infantGuests, totalGue
 }
 
 export default function(state = initialState, action){
-    console.log('reducer been hit yo', action)
+    // console.log('reducer been hit yo', action)
     switch(action.type){
         case GET_USER_INFO + '_FULFILLED':
             return Object.assign( {}, state, {user: action.payload})
