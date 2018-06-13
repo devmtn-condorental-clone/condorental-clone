@@ -9,15 +9,26 @@ $nvblu: #30373f;
     height: 100vh;
     right: 0;
     z-index: -1;
-    left: -50vw;
+    left: 0;
     opacity: 0;
     transition: all 1s cubic-bezier(0.23, 1, 0.320, 1);
+    .condos-selection-container{
+        transition: all 1s cubic-bezier(0.23, 1, 0.320, 1);
+        opacity: 0;
+        position: absolute;
+        left: -50vw;
+    }
     &.open{
-        left: 0;
         opacity: 1;
         z-index: 125;
+        .condos-selection-container{
+            opacity: 1;
+            left: 0;
+        }
         &.closed{
-            left: 50vw;
+            .condos-selection-container{
+                left: 50vw;
+            }
             opacity: 0;
             z-index: -1;
         }

@@ -3,7 +3,7 @@ import '../style/condoForm.css'
 import { connect } from 'react-redux'
 import { sendCondoChanges, createCondo, savePhoto } from '../ducks/reducer'
 import TextField from 'material-ui/TextField'
-
+import fns from '../utils/steve_functions'
 
 class CondoForm extends Component{
     constructor(props){
@@ -63,20 +63,49 @@ class CondoForm extends Component{
         })
     }
 
+
+    warnUser(val){
+        alert(`Invalid ${val} input. Please correct errors.`)
+        return false
+    }
+    
+    validateInput(val){
+        switch(val){
+            case 'length':
+                return !fns.validateCurrencyLength(this.state.condoCurrency) ? this.warnUser('currency') : true
+            case 'caps':
+                return !fns.validateCurrencyCaps(this.state.condoCurrency) ? this.warnUser('currency') : true
+            case 'imgUrl':
+                return !fns.validateImgUrl(this.state.condoImg) ? this.warnUser('image url') : true
+            case 'name':
+                return !fns.validateNameLength(this.state.condoName) ? this.warnUser('name') : true
+            default:
+                return true
+        }
+    }
+    
     addNewCondo(){
         const { condoName, condoPrice, condoCurrency, condoImg } = this.state
-        this.props.createCondo(condoName, condoPrice, condoCurrency, condoImg)
-        this.setState({
-            condoName: '',
-            condoPrice: 0,
-            condoCurrency: 'EUR',
-            condoImg: ''
-        })
+        if(!this.validateInput('length') || !this.validateInput('caps') || !this.validateInput('imgUrl') || !this.validateInput('name')){
+            return
+        }else{
+            this.props.createCondo(condoName, condoPrice, condoCurrency, condoImg)
+            this.setState({
+                condoName: '',
+                condoPrice: 0,
+                condoCurrency: 'EUR',
+                condoImg: ''
+            })
+        }
     }
     sendChanges(){
         const { id, condoName, condoPrice, condoCurrency, condoImg } = this.state
-        this.props.sendCondoChanges(id, condoName, condoPrice, condoCurrency, condoImg)
-        this.props.toggleEdit(0)
+        if(!this.validateInput('length') || !this.validateInput('caps') || !this.validateInput('imgUrl') || !this.validateInput('name')){
+            return
+        }else{
+            this.props.sendCondoChanges(id, condoName, condoPrice, condoCurrency, condoImg)
+            this.props.toggleEdit(0)
+        }
     }
 
     updateInput(val, tiger){

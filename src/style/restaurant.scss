@@ -449,3 +449,91 @@ $font: 'Abhaya Libre';
     
 }
 
+@media screen and (max-width: 899px){
+    .Restaurant_container{
+        height: 1213px;
+        .amazing_container{
+            margin-left: 1.2rem;
+            top: 29rem;
+            .title_amazing, .text_amazing{
+                margin-left: 25px;
+            }
+        }
+        .amazing_container::before{
+            height: 14.5rem;
+        }
+        .amazing_img_one{
+            height: 430px;
+            width: 95%;
+            left: 1.3rem;
+            .amazing_steak{
+                height: 430px;
+            }
+        }
+        .amazing_box_2{
+            display: none;
+        }
+        .video_section{
+            top: 48rem;
+            .video_image{
+                .play_button{
+                    width: 2rem;
+                }
+                .video_text{
+                    left: 2rem;
+                    p{
+                        display: none
+                    }
+                }
+                .video_text::before{
+                    height: 3rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .Restaurant_container{
+        height: 1158px; 
+    }
+}
+
+@media screen and (max-width: 375px){
+    .Restaurant_container{
+        height: 1091px;
+        .amazing_container{
+            top: 27rem;
+            width: 90%;
+            .text_amazing{
+                margin-top: 24px;
+            }
+            .title_amazing, .text_amazing{
+                margin-left: 20px;
+            }
+        }
+        .amazing_container::before {
+            height: 26rem;
+        }
+        .amazing_img_one{
+            height: 335px;
+            width: 330px;
+            top: 4rem;
+            .amazing_steak{
+                background-position: center;
+                background-size: cover;
+                height: 330px;
+                width: 335px;
+            }
+        }
+        .video_section{
+            top: 57rem;
+            height: 211px;
+            .video_image{
+                .video_text{
+                    display: none;
+                }
+            }
+        }
+    }
+}

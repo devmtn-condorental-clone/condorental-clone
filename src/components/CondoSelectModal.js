@@ -72,6 +72,7 @@ class CondoSelectModal extends Component {
     }
 
     render() {
+        const { condoSelected } = this.props
         console.log(this.props.condos)
         let modalClass = `condo-select-modal-comp ${this.props.condosModalOpen ? 'open' : ''}${this.state.closed ? ' closed' : ''}`
         const condosList = this.props.condos.map(v => {
@@ -109,8 +110,8 @@ class CondoSelectModal extends Component {
             )
         })
         return (
-                <section className={modalClass}>
-                    <section className="condos-selection-container">
+                <section onClick={() => this.chooseCondo(condoSelected.name, condoSelected.id)} className={modalClass}>
+                    <section onClick={(e) => e.stopPropagation()} className="condos-selection-container">
                         {
                             this.props.user.is_admin
                             ?
@@ -157,7 +158,8 @@ function mapStateToProps(state) {
     return {
         condos: state.condos,
         condosModalOpen: state.condosModalOpen,
-        user: state.user
+        user: state.user,
+        condoSelected: state.condoSelected
     }
 }
 
