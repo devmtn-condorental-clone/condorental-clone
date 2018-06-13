@@ -4,6 +4,8 @@ import LargeBtn from './LargeBtn';
 import logo from '../style/images/menu-logo_2x.png';
 import square from '../style/images/foot-travel-myth-badge_2x.png';
 import TA from '../style/images/TA_Logo.svg';
+import { connect } from 'react-redux';
+import { openInfoModal } from '../ducks/reducer';
 
 
 class Footer extends Component{
@@ -14,18 +16,13 @@ class Footer extends Component{
         }
     }
 
-    // reloadPage(){
-    //     (window.location.reload(window.scrollTo(0,0)))
-           
-    // }
-
     render(){
         return(
             <section className='Footer_container'>
                 <div className='footer_book'>
                     <div className='footer_title'>
                         <h4 className='title'> Ready to book your stay? </h4>
-                        <LargeBtn styleClass='footer_button'> INQUIRY FORM </LargeBtn>
+                        <LargeBtn styleClass='footer_button' handleClick={() => this.props.openInfoModal()}> INQUIRY FORM </LargeBtn>
                     </div>
                 </div>
                 <div className='footer_pic'>
@@ -92,4 +89,11 @@ class Footer extends Component{
     }
 }
 
-export default Footer;
+function mapStateToProps(state){
+    return{
+        openInfoModal: state.openInfoModal
+    }
+}
+
+export default connect(mapStateToProps, {openInfoModal}) (Footer);
+
