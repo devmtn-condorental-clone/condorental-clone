@@ -7,7 +7,6 @@ import TA from '../style/images/TA_Logo.svg';
 import { connect } from 'react-redux';
 import { openInfoModal } from '../ducks/reducer';
 import {MailButton, FbButton, IgButton, TaButton} from '../style/images/footer_icons';
-import {MidPlayButton, BottomPlayButton, BottomPauseButton, SpeakerSound, SpeakerNoSound, Minimize, Expand} from '../style/images/video_icons';
 
 
 class Footer extends Component{
@@ -21,14 +20,6 @@ class Footer extends Component{
     render(){
         return(
             <section className='Footer_container'>
-            <MidPlayButton/>
-            {/* {midPlayButton()} */}
-            <BottomPlayButton/>
-            <BottomPauseButton/>
-            <SpeakerSound/>
-            <SpeakerNoSound/>
-            <Minimize/>
-            <Expand/>
                 <div className='footer_book'>
                     <div className='footer_title'>
                         <h4 className='title'> Ready to book your stay? </h4>
