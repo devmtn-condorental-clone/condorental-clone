@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
     export const MidPlayButton = () => (
         <div className='mid_container'> 
