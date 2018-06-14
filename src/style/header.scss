@@ -1,3 +1,6 @@
+@import "mixins.scss";
+@import "variables.scss";
+
 .header-main-container{
     display:flex;
     position: fixed;
@@ -6,6 +9,12 @@
     width: 80px;
     height: 100vh;
     z-index: 8;
+
+    @include don900{
+        width: 100vw;
+        height: 63px;;
+        background-color:#30373f;
+    }
 }   
 
 .header-logo-container{
@@ -16,12 +25,23 @@
     background-color: #f0e9e1;
     width: 80px;
     height: 133px;
-   
+   @include don900{
+       height: 63px;
+       width:59px;
+   }
 } 
 .header-logo{
         padding-left: 1rem;
         height: 4.3rem;
         width: 4.3rem;
+
+        @include don900{
+            padding-top:2px;
+            height: 40px;
+            width: 30px;
+            margin-left: 14.5px;
+            padding-left: 0;
+        }
     } 
 .header-main-text{
     max-height: 300px;
@@ -62,10 +82,29 @@
     bottom: 0;
     padding-bottom: 30px;
     cursor: pointer;
-}
 
-@media screen and (max-width: 899px){
-    .header-main-container{
+    @include don900{
         display: none
     }
 }
+
+.responsive-header-border{
+    display: none;
+
+    @include don900{
+        display: flex;
+        flex-direction: row;
+	    flex-wrap: nowrap;
+	    justify-content: center;
+	    align-items: center;
+        align-content: center;
+        height: 24px;
+        width: 45px;
+        border-left:solid .005rem $goldyLox;
+        margin-left: 93.8vw;
+        margin-top: 20px;
+        color: white;
+        font-weight:bold;
+    }
+}
+

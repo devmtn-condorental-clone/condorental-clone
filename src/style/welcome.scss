@@ -1,3 +1,5 @@
+@import "mixins.scss";
+
 $goldyLox: #ab8c6b;
 @keyframes headMainSlideUp {
     from {
@@ -287,9 +289,23 @@ button{
                     left: 0;
                     z-index: 50;
                     transition: all 0.2s ease-in-out;
+
+                   
                 }
                 &::after{
                     height: 1px;
+                    @include don900{
+                        top:calc(50% + 0.3125rem);
+                    }
+                
+                }
+                &::before{
+                    height: 1px;
+                    @include don900{
+                        top:calc(50% - 0.3125rem);
+                    }
+                
+            
                 }
             }
             &:hover{
