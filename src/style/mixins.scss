@@ -1,3 +1,10 @@
-@mixin flexify($dir) {
+// @mixin flexify($dir) {
     
+// }
+
+
+@mixin don900 {
+    @media (max-width:899px) {
+        @content;
+    }
 }

@@ -2,6 +2,8 @@ import React from 'react';
 import { Component } from 'react';
 import '../style/headerModal.css';
 import Logo from '../style/images/menu-logo_2x.png';
+import SmallLogo from '../style/images/logo_2x.png';
+// import color from '@material-ui/core/colors/blueGrey';
 
 
 class HeaderModal extends Component {
@@ -57,7 +59,29 @@ class HeaderModal extends Component {
                 <div id="headerMenuModal" className={"menu-modal-" + (this.state.modalOpen ? 'open' : 'closed')}>
 
                     <div className="modal-content">
+                        <div className="modal-top-header">
+                        
+                        <div style={{width:'60px',
+                                    height:'60px',
+                                    backgroundColor:'#f0e9e1'}}><img alt="logo" style={{height:'50px',
+                                                                            paddingLeft:'15px',
+                                                                            paddingTop:'10px'}} src={SmallLogo}/></div>
+                                            <div style={{color:'white',
+                                                        marginLeft:'74vw',
+                                                        fontSize:'17px',
+                                                        fontFamily:'"Open Sans", sans-serif',
+                                                        fontWeight:'550',
+                                                        cursor:'pointer'
+                                                        }} onClick={() => { this.closeModal() }}>CLOSE</div>
 
+                                                        <div style={{fontSize:'35px',
+                                                                    paddingLeft:'10px',
+                                                                    // fontFamily:'"Open Sans", sans-serif',
+                                                                    color:'#816f5e',
+                                                                    fontWeight:'-600',
+                                                                    cursor:'pointer'}} onClick={() => { this.closeModal() }}>X</div>
+                        
+                        </div>
 
                         <div className="header-modal-text-container">
                             <div className="header-modal-logo-container"><img className="header-modal-menu-logo" src={Logo} alt="logo" /></div>

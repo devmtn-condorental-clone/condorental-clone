@@ -31,18 +31,13 @@ class Header extends Component {
 
     render() {
         return (
-
+            <div>
+        
             <div className="header-main-container">
+            <div className="responsive-header-border">HR</div>
                 <div className="header-logo-container"><img src={Logo} className="header-logo" alt="Logo" />
 
                 </div>
-                {/* <div className="header-main-text">
-
-                    <button onClick={() => { this.toggleModal() }}>MENU</button>
-
-
-
-                </div> */}
 
 
                 <div className="header-social-container">
@@ -83,6 +78,7 @@ class Header extends Component {
                         }} alt="tripadvisor-logo" /></div>
                 </div>
 
+            </div>
             </div>
         )
     }
