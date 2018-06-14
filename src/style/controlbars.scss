@@ -9,62 +9,102 @@
     background-color: $bgcolor;
     position: absolute;
     bottom: -3px;
+    z-index: 13;
     &:active{
         transform: scale(1.125);
     }
 }
-$controlbg: #ffffff65;
-.video_section .video-controls{
-    width: 100%;
-    z-index: 100;
+$controlbg: #ffffff4f;
+.video_section .video-control-wrapper{
     position: absolute;
+    top: 0;
     bottom: 0;
     left: 0;
-    height: 92px;
-    padding: 3rem 1rem 1rem 1rem;
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5));
-    display: flex;
-    align-items: center;
-    .control-bar, span.current-time-display{
-        margin: 0 0.5rem;
-    }
-    .control-bar.video-time{
-        border-radius: 10px;
-        height: 10px;
-        width: 70vw;
-        position: relative;
-        background-color: $controlbg;
-        .primary-bar.current-time{
-            border-radius: 10px;
-            height: 10px;
-            background-color: $goldyLox;
+    right: 0;
+}
+.video_section{
+    .video-control-wrapper{
+        &:hover{
+            .video-controls{
+                opacity: 1;
+            }
         }
-        .secondary.current-buffer{
-            border-radius: 10px;
-            background-color: #ffffff77;
-        }
-        .control-btn{
-            @include control-btn()
-        }
-    }
-    .current-time-display{
-        color: #fff;
-        font-size: 0.875rem;
-        width: 2.25rem;
-    }
-    .control-bar.video-volume{
-        position: relative;
-        width: 6.25rem;
-        height: 10px;
-        border-radius: 10px;
-        background-color: $controlbg;
-        .primary-bar.current-volume{
-            background-color: $goldyLox;
-            border-radius: 10px;
-            height: 10px;
-        }
-        .control-btn{
-            @include control-btn()
+        .video-controls{
+            transition: all 0.25s ease-in-out;
+            opacity: 0;
+            width: 100%;
+            z-index: 35;
+            position: absolute;
+            bottom: 3px;
+            left: 0;
+            height: 92px;
+            padding: 3rem 0.75rem 0.75rem 0.75rem;
+            background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5));
+            display: flex;
+            align-items: center;
+            .control-bar{
+                margin: 0 0.5rem 0 1.125rem;
+            }
+            span.current-time-display{
+                margin: 0 0.25rem 0 0; 
+            }
+                .control-bar.video-time{
+                    border-radius: 8px;
+                    height: 8px;
+                    width: 75vw;
+                    position: relative;
+                    background-color: $controlbg;
+                    .primary-bar.current-time{
+                        border-radius: 8px;
+                        height: 8px;
+                        z-index: 13;
+                        background-color: $goldyLox;
+                    }
+                    .secondary-bar.buffer-time{
+                        height: 8px;
+                        position: absolute;
+                        top: 0px;
+                        border-radius: 8px;
+                        z-index: 12;
+                        left: 0;
+                        background-color: #ffffff77;
+                    }
+                    .control-btn{
+                        @include control-btn();
+                    }
+                }
+                .current-time-display{
+                    color: #fff;
+                    font-size: 0.875rem;
+                    width: 2.25rem;
+                }
+                .control-bar.video-volume{
+                    position: relative;
+                    width: 6.25rem;
+                    height: 8px;
+                    border-radius: 8px;
+                    background-color: $controlbg;
+                    margin-right: 0.75rem;
+                    margin-left: 0.25rem;
+                .primary-bar.current-volume{
+                    background-color: $goldyLox;
+                    border-radius: 8px;
+                    height: 8px;
+                    width: 100%;
+                }
+                .control-btn{
+                    @include control-btn();
+                    left: calc(100% - 0.5rem);
+                }
+                .control-range{
+                    position: absolute;
+                    top: -2px;
+                    left: 0;
+                    height: 8px;
+                    width: 100%;
+                    border-radius: 8px;
+                }
+            }
         }
     }
 }

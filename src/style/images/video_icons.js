@@ -1,27 +1,30 @@
 import React from 'react';
 
-    export const MidPlayButton = () => (
-        <div className='mid_container'> 
-            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="314.068px" height="314.068px" viewBox="0 0 314.068 314.068" 
-                space="preserve" className='mid_play' fill='white'>
-                <g id="_x33_56._Play">
-                <path d="M293.002,78.53C249.646,3.435,153.618-22.296,78.529,21.068C3.434,64.418-22.298,160.442,21.066,235.534
-                c43.35,75.095,139.375,100.83,214.465,57.47C310.627,249.639,336.371,153.62,293.002,78.53z M219.834,265.801
-                c-60.067,34.692-136.894,14.106-171.576-45.973C13.568,159.761,34.161,82.935,94.23,48.26
-                c60.071-34.69,136.894-14.106,171.578,45.971C300.493,154.307,279.906,231.117,219.834,265.801z M213.555,150.652l-82.214-47.949
-                c-7.492-4.374-13.535-0.877-13.493,7.789l0.421,95.174c0.038,8.664,6.155,12.191,13.669,7.851l81.585-47.103
-                C221.029,162.082,221.045,155.026,213.555,150.652z"/>
-                </g>
-            </svg>
-        </div>
+export const MidPlayButton = (props) => {
+    // console.log('midplay', props)
+    return(
+    <div style={{bottom: props.bottom}} onClick={props.handleClick}  className='mid_container'> 
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            width="314.068px" height="314.068px" viewBox="0 0 314.068 314.068" 
+            space="preserve" className='mid_play' fill='white'>
+            <g id="_x33_56._Play">
+            <path d="M293.002,78.53C249.646,3.435,153.618-22.296,78.529,21.068C3.434,64.418-22.298,160.442,21.066,235.534
+            c43.35,75.095,139.375,100.83,214.465,57.47C310.627,249.639,336.371,153.62,293.002,78.53z M219.834,265.801
+            c-60.067,34.692-136.894,14.106-171.576-45.973C13.568,159.761,34.161,82.935,94.23,48.26
+            c60.071-34.69,136.894-14.106,171.578,45.971C300.493,154.307,279.906,231.117,219.834,265.801z M213.555,150.652l-82.214-47.949
+            c-7.492-4.374-13.535-0.877-13.493,7.789l0.421,95.174c0.038,8.664,6.155,12.191,13.669,7.851l81.585-47.103
+            C221.029,162.082,221.045,155.026,213.555,150.652z"/>
+            </g>
+        </svg>
+    </div>
     )
+}
 
-    export const BottomPlayButton = () => (
-        <div className='bottomPlay_container'> 
+    export const BottomPlayButton = (props) => (
+        <div onClick={props.handleClick} className='bottomPlay_container'> 
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 width="124.512px" height="124.512px" viewBox="0 0 124.512 124.512"
-                space="preserve" className='bottom_play' fill='gold'>
+                space="preserve" className='bottom_play' fill='#fff'>
                 <path d="M113.956,57.006l-97.4-56.2c-4-2.3-9,0.6-9,5.2v112.5c0,4.6,5,7.5,9,5.2l97.4-56.2
                 C117.956,65.105,117.956,59.306,113.956,57.006z"/>
             </svg>
@@ -29,9 +32,9 @@ import React from 'react';
     )
 
 
-    export const BottomPauseButton = () => (
-        <div className='bottomPause_container'>
-            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 232.679 232.679" space="preserve" className='bottom_pause' fill='gold'>
+    export const BottomPauseButton = (props) => (
+        <div onClick={props.handleClick} className='bottomPause_container'>
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 232.679 232.679" space="preserve" className='bottom_pause' fill='#fff'>
                 <g id="Pause">
                 <path d="M80.543,0H35.797c-9.885,0-17.898,8.014-17.898,17.898v196.883
                 c0,9.885,8.013,17.898,17.898,17.898h44.746c9.885,0,17.898-8.013,17.898-17.898V17.898C98.44,8.014,90.427,0,80.543,0z M196.882,0
@@ -42,10 +45,10 @@ import React from 'react';
         </div>
     )
 
-    export const SpeakerSound = () => (
-        <div className='speakerSound_container'> 
+    export const SpeakerSound = (props) => (
+        <div onClick={() => props.handleClick()} className='speakerSound_container'> 
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="0 0 27.717 27.717" space="preserve" className='speaker_sound' fill='gold'>
+                viewBox="0 0 27.717 27.717" space="preserve" className='speaker_sound' fill='#fff'>
                 <g id="c74_volume">
                 <path d="M4.637,8.725H0v10.33h4.637l8.766,6.502c0,0,1.611,1.346,1.611-0.045c0-1.395,0-22.177,      0-23.446
                     c0-1.092-1.418-0.025-1.418-0.025L4.637,8.725z"/>
@@ -62,10 +65,10 @@ import React from 'react';
         </div>
     )
 
-    export const SpeakerNoSound = () => ( 
-        <div className='speakerNoSound_container'> 
+    export const SpeakerNoSound = (props) => ( 
+        <div onClick={props.handleClick} className='speakerNoSound_container'> 
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="0 0 508.528 508.528" space="preserve" className='speaker_no_sound' fill='gold'>
+                viewBox="0 0 508.528 508.528" space="preserve" className='speaker_no_sound' fill='#fff'>
                 <path d="M263.54,0.116c-5.784-0.54-12.554,0.858-20.531,5.689c0, 0-132.533,115.625-138.317,          121.314H31.782
                     C14.239,127.15,0,141.389,0,158.933v194.731c0,17.607,14.239,31.782,31.782,31.782h72.941
                     c5.784,5.753,138.317,117.277,138.317,117.277c7.977,4.799,14.747,6.229,20.531,5.689c11.76-1.112,20.023-10.965,22.534-21.358
@@ -81,7 +84,7 @@ import React from 'react';
     export const Minimize = () => (
         <div className='minimize_container'> 
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="0 0 16 16" space="preserve" className='minimize' fill='gold'>
+                viewBox="0 0 16 16" space="preserve" className='minimize' fill='#fff'>
                 <path d="M2.121,9c-0.553,0-1,0.448-1,1s0.447,1,1,1h1.465l-3.293,3.293c-0.391,0.391-0.391,1.023,0,1.414
                     C0.488,15.902,0.744,16,1,16s0.512-0.098,0.707-0.293l3.414-3.414V14c0,0.552,0.447,1,1,1S7,14.552,7,14V9H2.121z" />
                 <path d="M3,7c0.552,0,1-0.448,1-1V4h2c0.553,0,1-0.448,1-1S6.553,2,6,2H2.001L2,6C2,6.552,2.447,7,3,7z" display='none'/>
@@ -95,7 +98,7 @@ import React from 'react';
     export const Expand = () => (
         <div className='expand_container'>
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 512 512" space="preserve" className='expand' fill='gold'>
+                    viewBox="0 0 512 512" space="preserve" className='expand' fill='#fff'>
                 <path d="M0,0v512h512V0H0z M469.333,469.333H42.667V42.667h426.667V469.333z" display='none'/>
                 <path d="M106.667,234.667c11.782,0,21.333-9.551,21.333-21.333V158.17l70.248,70.248c8.331,8.331,21.839,8.331,30.17,0
                 s8.331-21.839,0-30.17L158.17,128h55.163c11.782,0,21.333-9.551,21.333-21.333c0-11.782-9.551-21.333-21.333-21.333H106.667
