@@ -1,0 +1,124 @@
+@import "variables.scss";
+.video_section{
+    .video-controls{
+        .mid_container{
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: $darkgold;
+            position: absolute;
+            left: calc(50% - 1.5rem);
+            z-index: 100;
+            .mid_play{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .bottomPlay_container{
+            width: 2rem;
+            height: 2rem;
+            border-radius: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            .bottom_play{
+                width: 1.1rem;
+                height: 2rem;
+            }
+        }
+        .bottomPlay_container:hover{
+            background-color: $darkgold;
+            transition: ease-in-out .3s;
+        }
+
+        .bottomPause_container{
+            width: 2rem;
+            height: 2rem;
+            border-radius: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            .bottom_pause{
+                width: 1.2rem;
+                height: 2rem;
+            }
+        }
+        .bottomPause_container:hover{
+            background-color: $darkgold;
+            transition: ease-in-out .3s;
+        }
+
+        .speakerSound_container{
+            width: 2rem;
+            height: 2rem;
+            border-radius: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            .speaker_sound{
+                width: 1.1rem;
+            }
+        }
+        .speakerSound_container:hover{
+            background-color: $darkgold;
+            transition: ease-in-out .3s;
+        }
+
+        .speakerNoSound_container{
+            width: 2rem;
+            height: 2rem;
+            border-radius: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            .speaker_no_sound{
+                width: 1rem;
+            }
+        }
+        .speakerNoSound_container:hover{
+            background-color: $darkgold;
+            transition: ease-in-out .3s;
+        }
+
+        .minimize_container{
+            width: 2rem;
+            height: 2rem;
+            border-radius: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            .minimize{
+                width: 1.2rem;
+            }
+        }
+        .minimize_container:hover{
+            background-color: $darkgold;
+            transition: ease-in-out .3s;
+        }
+
+        .expand_container{
+            width: 2rem;
+            height: 2rem;
+            border-radius: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-left: 0.25rem;
+            .expand{
+                width: 1.7rem;
+                transform: rotate(90deg);
+            }
+        }
+        .expand_container:hover{
+            background-color: $darkgold;
+            transition: ease-in-out .3s;
+        }
+    }
+}

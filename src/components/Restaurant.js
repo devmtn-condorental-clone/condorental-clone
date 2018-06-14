@@ -8,7 +8,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import YouTube from 'react-youtube';
 import {connect} from 'react-redux';
-import ControlBar from './ControlBar';
+import VidVolumeControlBar from './VidVolumeControlBar';
+import VidTimeControlBar from './VidTimeControlBar';
+import {MidPlayButton, BottomPlayButton, BottomPauseButton, SpeakerSound, SpeakerNoSound, Minimize, Expand} from '../style/images/video_icons';
+import '../style/videocontrols.css'
 
 
 class Restaurant extends Component {
@@ -25,9 +28,14 @@ class Restaurant extends Component {
            transYrightImg: props.yOffset < 2935 ? 0 : (props.yOffset > 2935 & props.yOffset < 3950) ? Math.ceil(( props.yOffset - 2930)/85) : 12,
            transYshadow: (props.yOffset > 3040 & props.yOffset < 4040) ? props.yOffset/3 : 100,
            playerInterval: 0,
-           vidTime: 0
+           vidTime: 0,
+           fullscreen: false,
+           loadedFraction: 0,
+           volume: 100
        }
        this.updateWidth = this.updateWidth.bind(this)
+       this.changeVideoVolume = this.changeVideoVolume.bind(this)
+       this.changeVidTime = this.changeVidTime.bind(this)
    }
 
    componentDidMount(){
@@ -56,9 +64,11 @@ class Restaurant extends Component {
             if(this.state.video){
                 this.setState({
                     playerInterval: setInterval(() =>{
-                                        this.setState({ vidTime: stateEvent.getCurrentTime()})
+                                        this.setState({ vidTime: stateEvent.getCurrentTime(), loadedFraction: stateEvent.getVideoLoadedFraction()})
                                         }, 50)
                                     })
+            }else if(!this.state.video){
+                clearInterval(this.state.playerInterval)
             }
         }
         AOS.refresh();
@@ -85,6 +95,21 @@ class Restaurant extends Component {
        clearInterval()
    }
 
+   changeVidTime(percent){
+       console.log('Change Video Time', percent * this.state.duration, this.state.loadedFraction)
+       this.state.stateEvent.seekTo(this.state.duaration * percent, true)
+   }
+
+   changeVideoVolume(volume){
+       this.state.stateEvent.setVolume(volume)
+       this.setState({ volume })
+       if(volume === 0){
+           this.setState({ isMuted: true })
+        }else{
+            this.setState({ isMuted: false })
+       }
+   }
+
    render(){
        const opts = {
            height: this.state.vidHeight,
@@ -104,6 +129,7 @@ class Restaurant extends Component {
        }
        let currMins = Math.floor(this.state.vidTime / 60)
        let currTimeDisplay = `0${currMins}:${currSecs}`
+       let timeWidth = window.innerWidth * .7
    return(
        <section className="Restaurant_container">
            <section className='Restaurant'>
@@ -160,12 +186,75 @@ class Restaurant extends Component {
                             video: true
                         })}
                         onApiChange={(e) => console.log('StateEvent options array:', e.target.getOptions())}
-                        
+                        onStateChange={(e) => {
+                            console.log('State Changed', e.target)
+                            if(e.target.j.playerState === 1){
+                                this.setState({ video: true, loading: false })
+                            }else if(e.target.j.playerState === 2){
+                                this.setState({ video: false, loading: false })
+                            }else if(e.target.j.playerState  === 3){
+                                this.setState({ video: false, loading: true })
+                            }
+                        }}
                     />
-                    <section className="video-controls">
-                        <ControlBar handleClick={() => this.state.stateEvent.seekTo(this.state.vidTime * 2)} primaryWidth={`calc(${this.state.vidTime/this.state.duration} * 70vw)`} btnLeftAttr={`calc(${this.state.vidTime/this.state.duration} * 70vw - 0.5rem)`} secondaryWidth={`${this.state.loadedFraction * 100}%`} mainClass="video-time" primaryClass="current-time" secondaryClass="buffer-time" />
-                        <span className="current-time-display">{currTimeDisplay}</span>
-                        <ControlBar handleClick={() => {console.log('volume hit', this.state.volume);this.state.stateEvent.setVolume({'volume': 50})}} primaryWidth={`${this.state.volume}px`} btnLeftAttr={`calc(${this.state.volume}px - 0.5rem)`} mainClass="video-volume" primaryClass="current-volume" disableSecondary />
+                    {/* {midPlayButton()} */}
+                    <section onClick={this.state.video ? () => this.state.stateEvent.pauseVideo() : () => this.state.stateEvent.playVideo()} className="video-control-wrapper">
+                        <section className="video-controls">
+                            {
+                                !this.state.videoText
+                                ?
+                                (!this.state.video || this.state.loading
+                                ?
+                                <MidPlayButton handleClick={() => this.state.stateEvent.playVideo()} bottom={`calc(${this.state.vidHeight/2}px - 1.5rem)`}/>
+                                :
+                                null)
+                                :
+                                null
+                            }
+                            {
+                                this.state.video
+                                ?
+                                <BottomPauseButton handleClick={() => this.state.stateEvent.pauseVideo()}/>
+                                :
+                                <BottomPlayButton handleClick={() =>this.state.stateEvent.playVideo()}/>
+                            }
+                            <VidTimeControlBar 
+                                handleClick={this.changeVidTime}
+                                primaryWidth={`calc(${this.state.vidTime/this.state.duration} * 70vw)`}
+                                total={timeWidth}
+                                secondaryWidth={`${this.state.loadedFraction/1 * 100}%`}
+                                mainClass="video-time"
+                                left={this.state.vidTime/this.state.duration * (timeWidth/1) - 8}
+                                primaryClass="current-time"
+                                secondaryClass="buffer-time"
+                                pause={() => this.state.stateEvent.pauseVideo()}
+                                duration={this.state.duration}
+                                step={timeWidth/this.state.duration}
+                                />
+                            <span className="current-time-display">{currTimeDisplay}</span>
+                            {
+                                this.state.isMuted
+                                ?
+                                <SpeakerNoSound handleClick={() => {this.state.stateEvent.unMute(); ; this.setState({isMuted: false, volume: this.state.stateEvent.getVolume()})}}/>
+                                :
+                                <SpeakerSound handleClick={() => {this.state.stateEvent.mute(); ; this.setState({isMuted: true})}}/>
+                            }
+                            <VidVolumeControlBar
+                                handleClick={this.changeVideoVolume}
+                                total={100}
+                                mainClass="video-volume"
+                                primaryClass="current-volume"
+                                volume={this.state.volume}
+                                muted={this.state.isMuted}
+                                />
+                            {
+                                this.state.fullscreen
+                                ?
+                                <Minimize/>
+                                :
+                                <Expand/>
+                            }
+                        </section>
                     </section>
                </section>
            </section>
