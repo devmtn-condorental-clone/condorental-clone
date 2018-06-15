@@ -3,7 +3,7 @@
 
 .menu-button{
     max-height: 300px;
-    position: fixed;
+    position: fixed !important;
     margin-top: 49.4vh;
     font-style: normal;
     font-weight: 330;
@@ -411,3 +411,105 @@
 //         display: none;
 //     }
 // }
+
+.close-box-container{
+    display: flex;
+    position: absolute;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    align-content: center;
+    margin-left: 65px;
+    margin-top:-23px;
+}
+  .close {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+  }
+
+  .close::before, .close::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #aa8c6d;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .close.hairline::before, .close.hairline::after {
+    height: 1px;
+  }
+  .close-box-container:hover{
+      .close::before{
+          transform: rotate(45deg);
+      }
+      .close::after{
+          transform: rotate(-45deg);
+      }
+  }
+
+  .modal-container #modalBtn.menu-button:hover{
+    span.hamburger::before{
+        top: calc(50% - 0.3125rem);
+    }
+    span.hamburger::after{
+        top: calc(50% + 0.3125rem);
+    }
+}
+.modal-container>#modalBtn.menu-button{
+    cursor: pointer;
+    padding-right: 41px;
+    span.hamburger{
+        width: 32px;
+        height: 1px;
+        background-color: $goldyLox;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 4.25rem;
+        cursor: pointer;
+        &::before, &::after{
+            width: 32px;
+            height: 0.5px;
+            background-color: $goldyLox;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            transition: all 0.2s ease-in-out;
+
+           
+        }
+        &::after{
+            height: 1px;
+            @include don900{
+                top:calc(50% + 0.3125rem);
+            }
+        
+        }
+        &::before{
+            height: 1px;
+            @include don900{
+                top:calc(50% - 0.3125rem);
+            }
+        
+    
+        }
+    }
+    &:hover{
+        .ham-container>.hamburger::before{
+            top: calc(50% - 0.3125rem);
+        }
+        .ham-container>.hamburger::after{
+            top: calc(50% + 0.3125rem);
+        }
+    }
+}

@@ -6,5 +6,6 @@
 
 @media screen and (max-width: 899px) {
   #main-content {
+    top: 63px;
     left: 0;
     width: 100%; } }
