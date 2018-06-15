@@ -54,7 +54,6 @@ $shadowColor: #f2ece5;
 // }
 .paradise-comp{
     margin-top: 225px;
-    // padding-top: 50vh;
     height: 150vh;
     position: relative;
     img{
@@ -96,7 +95,7 @@ $shadowColor: #f2ece5;
         top: -48rem;
     }
     .pool-img, .pool-shadow{
-        width: 25.27rem;
+        width: 100%;
         height: 48rem;
         position: absolute;
     }
@@ -117,7 +116,7 @@ $shadowColor: #f2ece5;
         }
         p{
             font-weight: 400;
-            color: #7f7c7f;            
+            color: #606060;            
         }
     }
     .paradise-content::before{
@@ -130,7 +129,7 @@ $shadowColor: #f2ece5;
     }
     .building-box{
         height: 22.5rem;
-        width: 25.27rem;
+        // width: 25.27rem;
         position: absolute;
         top: 49.5%;
         left: 38.75%;
@@ -139,7 +138,7 @@ $shadowColor: #f2ece5;
         overflow-y: hidden;
         overflow-x: hidden;
         height: 22.5rem;
-        width: 25.27rem;
+        width: calc(28.5% - 0.50875rem);
         position: absolute;
     }
     .building-img{
@@ -156,21 +155,19 @@ $shadowColor: #f2ece5;
         }
     }
     .building-shadow[data-aos="buildingShadowSlide"]{
-            z-index: 5;
-            top: -100%;
-            &.aos-animate{
-                animation: boxShadow 1.5s cubic-bezier(0.23, 1, 0.320, 1);
-                
-            }
+        z-index: 5;
+        top: -100%;
+        &.aos-animate{
+            animation: boxShadow 1.5s cubic-bezier(0.23, 1, 0.320, 1);
+            
         }
     }
-
     .steak-box{
         height: 22.5rem;
-        width: 25.27rem;
+        // width: 25.27rem;
         position: absolute;
         top: 37%;
-        right: 5.2%;
+        right: 5%;
     }
     .steak-img{
         background-position: center;
@@ -225,4 +222,107 @@ $shadowColor: #f2ece5;
         right: 10%;
         height: 25rem;
     }
+}
 
+@media (max-width: 1069px){
+    .paradise-comp{
+        margin-top: 25rem;
+        width: 100%;
+        padding: 2.5rem;
+        .steak-box, .building-box, .right-shadow{
+            display: none;
+        }
+        .pool-img-box{
+            width: calc(100% - 5rem);
+            left: 2.5rem;
+        }
+    }
+}
+@media (max-width: 899px){
+    .paradise-comp{
+        height: 55.5rem;
+        padding: 1.25rem;
+        .left-shadow{
+            display: none;
+        }
+        .pool-img-box{
+            height: 26.875rem;
+            width: calc(100% - 2.5rem);
+            left: 1.25rem;
+            .pool-img[data-aos="poolImgSlide"], .pool-shadow[data-aos="poolShadowSlide"]{
+                height: 26.875rem;
+            }
+        }
+        .paradise-content{
+            padding: 2.5rem;
+            margin: 0;
+            margin-top: 26.75rem;
+            width: 100%;
+            &::before{
+                top: 29.75rem;
+                left: 1.25rem;
+            }
+        }
+
+    }
+}
+@media (max-width: 740px){
+    .paradise-comp{
+        height: 57.5rem;
+    }
+    .paradise-comp .paradise-content::before{
+        height: 21rem;
+    }
+}
+@media (max-width: 600px){
+    .paradise-comp{
+        height: 55.5rem;
+        margin-top: 23rem;
+        .pool-img-box{
+            height: 330px;
+            .pool-img[data-aos="poolImgSlide"], .pool-shadow[data-aos="poolShadowSlide"]{
+                height: 330px;
+            }
+        }
+        .paradise-content{
+            margin-top: 20.75rem;
+            padding: 1.5rem;
+            h2{
+                line-height: 2.8125rem;
+            }
+        }
+    }
+    .paradise-comp .paradise-content::before{
+        height: 26rem;
+        top: 23.5rem;
+    }
+}
+@media (max-width: 500px){
+    .paradise-comp{
+        height: 64.5rem;
+        .paradise-content{
+            padding: 1.5rem;
+            h2{
+                line-height: 2.8125rem;
+            }
+        }
+    }
+    .paradise-comp .paradise-content::before{
+        height: 29.5rem;
+    }
+}
+@media (max-width: 468px){
+    .paradise-comp{
+        .paradise-content::before{
+            height: 36.5rem;
+        }
+    }
+}
+@media (max-width: 400px){
+    .paradise-comp{
+        height: 68.5rem;
+        .paradise-content::before{
+            height: 40rem;
+        }
+    }
+}

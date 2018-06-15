@@ -34,6 +34,7 @@ class Welcome extends Component{
     render(){
         window.onscroll = this.handleScroll
         const { language } = this.props
+        let scrollTop = window.innerWidth < 900 ? '74vh' : '85.5vh'
         return(
             <div className="welcome-comp">
                     {/* <AccountCircle className='login'/> 
@@ -50,7 +51,7 @@ class Welcome extends Component{
                         <p>Switch to</p>
                         <button onClick={() => this.props.translate(language)} className="lang-btn">{language === 'Foreign' ? 'AM' : 'EU'}</button>
                     </div>
-                    <div style={{opacity: `${1 - (this.state.topOffset/70)}`, top: `calc(85.5vh + ${Math.floor(this.state.topOffset)}px)`}} className="scroll-tag">
+                    <div style={{opacity: `${1 - (this.state.topOffset/70)}`, top: `calc(${scrollTop} + ${Math.floor(this.state.topOffset)}px)`}} className="scroll-tag">
                         <p>Scroll</p>
                         <p id="arrow">↓</p>
                     </div>
