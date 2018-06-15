@@ -11,6 +11,7 @@ const initialState = {
     condos: [],
     condosModalOpen: false,
     infoModalOpen: false,
+    headerModalOpen:false,
     condoImg: '',
     condoSelected: {},
     adultGuests: 1,
@@ -36,7 +37,10 @@ const TRANSLATE = 'TRANSLATE'
 const UPDATE_Y_OFFSET = 'UPDATE_Y_OFFSET'
 const OPEN_INFO_MODAL = 'OPEN_INFO_MODAL'
 const CLOSE_INFO_MODAL = 'CLOSE_INFO_MODAL'
+const OPEN_HEADER_MODAL = 'OPEN_HEADER_MODAL'
+const CLOSE_HEADER_MODAL = 'CLOSE_HEADER_MODAL'
 const UPDATE_OCC_COUNT = 'UPDATE_OCC_COUNT'
+
 
 
 export function getUser(){
@@ -46,6 +50,21 @@ export function getUser(){
     return{
         type: GET_USER_INFO,
         payload: userData
+    }
+}
+
+export function closeHeaderModal(){
+    console.log('WHAT IS HAPPENING')
+    return{
+        type:CLOSE_HEADER_MODAL,
+        payload: false
+    }
+}
+
+export function openHeaderModal(){
+    return{
+        type:OPEN_HEADER_MODAL,
+        payload: true
     }
 }
 export function openInfoModal(value){
@@ -175,6 +194,10 @@ export default function(state = initialState, action){
             return { ...state, waiting: true }
         case SAVE_PHOTO + '_FULFILLED':
             return { ...state, condoImg: action.payload, waiting: false }
+        case OPEN_HEADER_MODAL:
+            return{ ...state, headerModalOpen:action.payload}
+        case CLOSE_HEADER_MODAL:
+            return{ ...state, headerModalOpen:action.payload}
         case OPEN_INFO_MODAL:
             return { ...state, infoModalOpen: true }
         case CLOSE_INFO_MODAL:
