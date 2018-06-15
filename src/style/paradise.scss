@@ -167,7 +167,7 @@ $shadowColor: #f2ece5;
         // width: 25.27rem;
         position: absolute;
         top: 37%;
-        right: 5%;
+        right: 4.75%;
     }
     .steak-img{
         background-position: center;
@@ -195,7 +195,7 @@ $shadowColor: #f2ece5;
     .steak-img, .building-img, .building-shadow, .steak-shadow{
         position: absolute;
         height: 22.5rem;
-        width: 25.27rem;
+        width: 100%;
         z-index: 3;
     }
     // .building-img, .building-shadow{
@@ -215,7 +215,7 @@ $shadowColor: #f2ece5;
     .left-shadow{
         height: 18.75rem;
         left: 4.55%;
-        top: 46.5%;
+        top: 45.5%;
     }
     .right-shadow{
         top: 46.5%;
@@ -224,6 +224,29 @@ $shadowColor: #f2ece5;
     }
 }
 
+@media (max-width: 1400px){
+    .paradise-comp{
+        .pool-img-box{
+            width: 35%;
+        }
+        .right-shadow{
+            top: 42.5%;
+            left: 53%;
+        }
+        .steak-box, .building-box{
+            height: 260px;
+            .steak-img, .building-img, .building-shadow, .steak-shadow{
+                height: 260px;
+            }
+        }
+        .building-box{
+            left: 39.5%;
+        }
+        .steak-box{
+            right: 4%;
+        }
+    }
+}
 @media (max-width: 1069px){
     .paradise-comp{
         margin-top: 25rem;
