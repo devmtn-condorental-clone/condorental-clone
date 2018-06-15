@@ -3,10 +3,7 @@ $goldyLox: #ab8c6b;
 $bgColor: #f0e9e1;
 $ariba: 'Abhaya Libre', serif;
 .our-suites-comp{
-
     height: 119.5vh;
-
-    // width: 100%;
     background-color: $bgColor;
     .suites-head{
         position: relative;
@@ -24,9 +21,7 @@ $ariba: 'Abhaya Libre', serif;
             transition: translate 0.35s ease-in;
             font-weight: 600;
         }
-        // h3.shown{
-        //     transform: translateY(-999999%);
-        // }
+
         h3::before{
             content: '';
             background-color: $goldyLox;
@@ -35,7 +30,6 @@ $ariba: 'Abhaya Libre', serif;
             position: absolute;
             left: -15%;
             top: 5%;
-            // margin: 0 0.5rem;
         }
     }
     .suite-flipper{
@@ -103,15 +97,6 @@ $ariba: 'Abhaya Libre', serif;
                 height: 0;
             }
         }
-        // div.suites-img[data-aos="slideDown"]
-        // {
-        //     margin-bottom: 37.5rem;
-        //     transition-property: margin-bottom;
-        //     transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
-        //     &.aos-animate {
-        //         margin-bottom: 0;
-        //     }
-        // }
         div.suites-img:hover{
             background-color: rgba(48,55,63,0.5);
             background-blend-mode: multiply;
@@ -127,7 +112,6 @@ $ariba: 'Abhaya Libre', serif;
                 text-align: right;
                 padding: 1em;
                 cursor: pointer;
-                // opacity: 0;
             }
         //     h4[data-aos="slideUp"]{
         //     margin-top: 10%;
@@ -177,10 +161,6 @@ $ariba: 'Abhaya Libre', serif;
                     font-size: 1.5em;
                     font-family: $ariba;
                     color: $goldyLox;
-
-
-                    // opacity: 0;
-                  
                 }
                 height: 27.05rem;
             }
@@ -205,5 +185,94 @@ $ariba: 'Abhaya Libre', serif;
                 opacity: 1;
             }
         }
+    }
+}
+@media (max-width: 1069px){
+    .our-suites-comp{
+        // margin-top: 25rem;
+        width: 100%;
+        height: 84.5rem;
+        .suites-info{
+            flex-direction: column;
+            div.suites-img, .img-cover[data-aos="unveil"]{
+                width: 100%;
+                height: 400px;
+            }
+            .pool-img-box{
+                width: calc(100% - 5rem);
+                left: 2.5rem;
+            }
+            .suite-detailed-info{
+                width: 100%;
+                .details-box{
+                    height: 17.625rem;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 899px){
+    .our-suites-comp{
+        .suites-head{
+            flex-direction: column;
+            height: 200px;
+            padding: 3rem 1.5rem;
+            h3{
+                width: 100%;
+                // margin-top: 2rem;
+                &::before{
+                    left: -1.5rem;
+                    top: 0.25rem;
+                    width: 2px;
+                }
+            }
+            .suite-flipper{
+                margin-left: calc(100% - 7.5em);
+                margin-top: 2.5rem;
+            }
+        }
+    }
+}
+@media (max-width: 768px){
+    .our-suites-comp{
+        height: 65.5rem;
+    }
+
+}
+@media (max-width: 600px){
+    .our-suites-comp{
+        .suites-info{
+            div.suites-img, .img-cover[data-aos="unveil"]{
+                height: 300px;
+            }
+            .suite-detailed-info{
+                width: 100%;
+                .details-box{
+                    height: 17.625rem;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 500px){
+    .our-suites-comp{
+        height: 64.5rem;
+    }
+}
+@media (max-width: 468px){
+    .our-suites-comp{
+        .suites-info{
+            .suite-detailed-info{
+                width: 100%;
+                .details-box{
+                    height: 26.875rem;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 400px){
+    .our-suites-comp{
+        height: 68.5rem;
     }
 }

@@ -23,12 +23,13 @@ class Booking extends Component {
         }
     }
     render() {
+        let medium = window.innerWidth < 900 ? true : false
         let months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
         const { condoSelected, arrivalDate, departureDate, language, condosModalOpen, toggleCondoModal } = this.props
         let arrive = new Date(arrivalDate)
         let depart = new Date(departureDate)
         return (
-                <section style={{top: `calc(100vh + ${window.innerWidth < 1070 ? '85px' : '0px'} - ${Math.floor(this.state.transY)}px)`}} className="booking-comp">
+                <section style={{top: `calc(100vh + ${window.innerWidth < 1070 ? '0px' : '0px'} - ${Math.floor(this.state.transY)}px)`}} className="booking-comp">
                     {/* <CondoSelectModal /> */}
                     <DatePicker okLabel={<span>Ok</span>} className="arrival-date booking-section">
                         <div >

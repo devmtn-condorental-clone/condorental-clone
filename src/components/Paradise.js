@@ -36,12 +36,13 @@ class Paradise extends Component{
         AOS.refresh()
     }
     render() {
+        let medium = window.innerWidth < 900 ? true : false
         return(
             // <section className="parallax_paradise_cont">
                 <section className="paradise-comp">
                     <div className="pool-img-box">
-                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos="poolShadowSlide" className="pool-shadow" data-aos-once='true'/>
-                        <div data-aos-anchor=".paradise-content" data-aos-anchor-placement="top-center" data-aos-duration="1000" data-aos="poolImgSlide" data-aos-once='true' className="pool-img" style={{backgroundImage: `url(${leftimg})`}} alt="Pool View"/>
+                        <div data-aos-anchor={medium ? ".paradise-comp" : ".paradise-content"} data-aos-anchor-placement="top-center" data-aos="poolShadowSlide" className="pool-shadow" data-aos-once='true'/>
+                        <div data-aos-anchor={medium ? ".paradise-comp" : ".paradise-content"} data-aos-anchor-placement="top-center" data-aos-duration="1000" data-aos="poolImgSlide" data-aos-once='true' className="pool-img" style={{backgroundImage: `url(${leftimg})`}} alt="Pool View"/>
                     </div>
                     <div style={{transform: `translateY(${this.state.shadowTrans}px)`}} className="left-shadow shadow"/>
                     <div className="right-shadow shadow"/>
