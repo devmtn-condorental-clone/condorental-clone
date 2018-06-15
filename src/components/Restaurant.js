@@ -18,8 +18,8 @@ class Restaurant extends Component {
    constructor(props){
        super(props)
        this.state = {
-           vidWidth: window.innerWidth - 80,
-           vidHeight: (window.innerWidth - 80) * (0.5625),
+           vidWidth: window.innerWidth < 900 ? window.innerWidth : window.innerWidth - 80,
+           vidHeight: window.innerWidth < 900 ? window.innerWidth * 0.5625 : (window.innerWidth - 80) * (0.5625),
            stateEvent: {},
            video: false,
            background: true,
