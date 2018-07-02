@@ -103,4 +103,4 @@ S3(app)
 app.delete('/api/condos/:id', controller.deleteCondo)
 
 
-app.listen(SERVER_PORT, () => console.log(`Cash me @ da pinetree: ${SERVER_PORT}`))
+app.listen(SERVER_PORT, () => console.log(`Listening on Port: ${SERVER_PORT}`))

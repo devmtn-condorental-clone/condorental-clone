@@ -27,7 +27,7 @@ class InquiryForm extends Component {
 
 
     render() {
-        console.log(this.props, 'INQ FORM')
+        
         return (
 
             <div className="inquiry-container">
